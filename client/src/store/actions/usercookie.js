@@ -1,0 +1,49 @@
+import cookie from "react-cookies";
+
+import { GeoActive } from "./../type";
+import axios from "axios";
+
+const GetGeoCookie = async () =>  cookie.load("geo");
+const Getuser = async () =>  cookie.load("authuser");
+export const LoadsCookie = {
+  headers: {
+   
+    "authuser":Getuser()
+
+  },
+};
+
+const RemoveGeoCookie = cookie.remove("geoi");
+
+export const Gcookie = (data) => ({
+  type: GeoActive,
+  payload: data,
+});
+
+export const GeoActiveD = () => {
+  return async (dispatch) => {
+    try {
+      
+      const t= await GetGeoCookie()
+    
+      const userLocation = await axios.post("/ipaddress/cookieverify", {
+        token: t
+      });
+
+      dispatch(Gcookie(userLocation.data));
+      console.log(userLocation.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const GeoCookieT = () => {
+  return async (dispatch) => {
+    try {
+      await axios.post("/ipaddress/cookieip");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
