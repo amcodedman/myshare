@@ -1,9 +1,9 @@
 
-import { CubeSpinner,WhisperSpinner ,C } from "react-spinners-kit";
+import { CubeSpinner,FireworkSpinner} from "react-spinners-kit";
 
 const LoaderView=()=>{
     return(<div className="loadingcontainer" style={{height:`${window.innerHeight}px`}}>
-    <WhisperSpinner/>
+  <FireworkSpinner size={30} color="blue"/>
 
     </div>)
 }

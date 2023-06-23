@@ -21,6 +21,10 @@ import Resetpasspage from "./components/Front/resetpassword";
 import ConfirmAccount from "./components/Front/confirmAccount";
 import Forgotpass from "./components/Front/forgotpassword";
 import { AutoLogin } from "./store/actions/adminActions";
+import UserProfile from "./components/Front/userProfile";
+import UserSec from "./components/Front/userSecurity";
+import UserNotification from "./components/Front/mynotification";
+import MyCart from "./components/Front/mycart";
 
 function App() {
   const notifications =useSelector((value)=>value.notification);
@@ -61,6 +65,10 @@ element={<Home/>}/>
 <Route path="/account/verification" element={<ConfirmAccount/>}/>
 <Route path="/account/passwordreset" element={<Resetpasspage/>}/>
 <Route path="user/login/forgottenpassword" element={<Forgotpass/>}></Route>
+<Route path="user" element={<UserProfile/>}></Route>
+<Route path="/user/myaccount/accountsettings" element={<UserSec/>}></Route>
+<Route path="/user/myaccount/notifications" element={<UserNotification/>}></Route>
+<Route path="/user/myaccount/cart" element={<MyCart/>}></Route>
 </Routes>
 <ToastContainer/>
    </BrowserRouter>

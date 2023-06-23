@@ -1,6 +1,6 @@
 const express = require("express");
 const { route } = require("express/lib/application");
-const { Checkuser } = require("../middleware/auth");
+const { Checkuser, checkToken, GetGeo } = require("../middleware/auth");
 const {} = require("../models/users");
 require("dotenv").config();
 const routers = express.Router();
@@ -134,29 +134,47 @@ routers.route("/signin").post(async (req, res) => {
   try {
     const email = req.body.email;
     const password = req.body.password;
+    const GeoData = GetGeo();
+  
+    console.log({await:await GeoData})
+
     const user_ac = await User.findOne({ email: email });
-    if (!user_ac) {
-      res.status(400).json({ msg: "user not found" });
-    
-    }
+    console.log(email);
+
     if (user_ac) {
+      console.log({ jams: user_ac });
       if (user_ac.active === "false") {
         res.status(400).json({ msg: "user blocked" });
       }
       if (user_ac.active === "true") {
         const matchpassword = await user_ac.comparepassword(password);
         if (matchpassword == true) {
+          const updateD = await User.findByIdAndUpdate(
+            { _id: user_ac._id },
+            {
+              $set: {
+               ... await GeoData,
+              },
+            },
+            { new: true }
+          );
+
           const token = user_ac.generate_token();
-          res.cookie("authuser", token).json(user_ac);
+          console.log({ update: updateD });
+
+          res.cookie("authuser", token).json(updateD);
         }
         if (matchpassword == false) {
           res.status(400).json({ msg: "Wrong user credentials" });
-          
         }
       }
+     
+    }
+    if (!user_ac) {
+      res.status(400).json({ msg: "user not found" });
     }
   } catch (error) {
-    res.status(400).json("error");
+    res.status(400).json({ msg: error });
   }
 });
 
@@ -164,9 +182,10 @@ routers.route("/signin").post(async (req, res) => {
 routers.route("/modifyuser/:id").patch(async (req, res) => {
   try {
     const _id = req.params.id;
+    console.log(_id)
 
     const updated_user = await User.findOneAndUpdate(
-      { _id },
+      { _id: _id },
       {
         $set: {
           ...req.body,
@@ -175,8 +194,10 @@ routers.route("/modifyuser/:id").patch(async (req, res) => {
       { new: true }
     );
     res.status(200).json(updated_user);
+    console.log({updated:updated_user})
   } catch (error) {
     res.status(400).json({ msg: "error" });
+    console.log(error);
   }
 });
 
@@ -247,15 +268,21 @@ routers.route("/unblockuser/:id").patch(async (req, res) => {
 ////////////////// profile0
 routers.route("/profile").get(Checkuser, async (req, res) => {
   try {
-console.log("profile")
-    console.log(req.body)
-    const user = await User.findById(req.user._id);
-    if (user) {
-      res.status(200).json(user);
-    }
+    console.log("profile");
+
+    
+    const user = await req.user;
+if(user !== undefined){
+  res.status(200).json(user);
+}
+if(user === undefined){
+  res.status(400).json(user);
+ 
+}
+
+    
   } catch (error) {
-    res.send(error);
-    console.log(error);
+    res.status(400).json({msg: error});
   }
 });
 
@@ -295,18 +322,21 @@ routers.route("/usermsg/:id").delete(async (req, res) => {
 
 /// user reset password
 
-routers.route("/userResetPass/:id").patch(async (req, res) => {
+routers.route("/userresetpass/:id").patch(async (req, res) => {
   try {
     const _id = req.params.id;
+    console.log({pass: req.body})
     const user_a = await User.findById({ _id });
     if (user_a) {
-      const matchpassword = await user_a.comparepassword(req.body.password);
+      console.log(user_a)
+      const matchpassword = await user_a.comparepassword(req.body.oldpass);
       if (matchpassword == false) {
-        res.status(400).json({ msg: "password mismatch" });
+        res.status(400).json({ msg: " Not Permitted ,password mismatch" });
+        console.log("Not Permitted")
       }
       if (matchpassword == true) {
         const salt = await bcryt.genSalt(10);
-        const hash = await bcryt.hash(req.body.newpassword, salt);
+        const hash = await bcryt.hash(req.body.newpass, salt);
         const newpass = await User.findOneAndUpdate(
           { _id },
           {
@@ -329,8 +359,8 @@ routers.route("/userforgotpass").post(async (req, res) => {
   try {
     const email = req.body.email;
 
-    const user_a = await User.findOne({email});
- 
+    const user_a = await User.findOne({ email });
+
     if (!user_a) {
       res.status(400).json({ msg: "account not found" });
       console.log("Account");
@@ -354,8 +384,10 @@ routers.route("/userforgotpass").post(async (req, res) => {
 
 routers.route("/passwordforgotreset").patch(async (req, res) => {
   try {
-    
-    const { email} = jwt.verify(req.body.email, process.env.ACCOUNT_ACTIVATION);
+    const { email } = jwt.verify(
+      req.body.email,
+      process.env.ACCOUNT_ACTIVATION
+    );
 
     const user = await User.findOne({ email: email });
 
@@ -364,7 +396,7 @@ routers.route("/passwordforgotreset").patch(async (req, res) => {
       const hash = await bcryt.hash(req.body.password, salt);
 
       const updated = await User.findOneAndUpdate(
-        { email: email},
+        { email: email },
         {
           $set: {
             password: hash,

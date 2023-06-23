@@ -70,7 +70,7 @@ const Resetpasspage = () => {
           }}
         >
           <span>
-            Welcome to back MyShare . Login now to embark on your journey of
+Join  now to embark on your journey of
             cyber resilience and empowerment.
           </span>
         </div>

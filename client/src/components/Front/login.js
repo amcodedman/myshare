@@ -99,7 +99,7 @@ const Login = () => {
                 type="submit"
                 style={{ marginBottom: "50px", width: "25%" }}
               >
-                Submit
+                Login
               </Button>
             )}
 

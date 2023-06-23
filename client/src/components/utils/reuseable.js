@@ -29,16 +29,40 @@ export const showToastify = (type, message) => {
 
 
 export const CheckTopAds=(ads)=>{
-const div=document.querySelectorAll(".maincate")
+const div=document.querySelectorAll(".categorytem")
+const profile_container=document.querySelectorAll(".profile_layout")
 if(!ads){
     div.forEach((item)=>{
         if(item){
-            item.classList.add("addpadding")
+            item.classList.add("categorytem_margin")
+          
     
+        }
+    })
+    profile_container.forEach((item)=>{
+        if(item){
+            item.classList.add("addTopmarginprofile")
+        }
+    })
+}
+else{
+    div.forEach((item)=>{
+        if(item){
+            item.classList.remove("categorytem_margin")
+          
+    
+        }
+    })
+    profile_container.forEach((item)=>{
+        if(item){
+            item.classList.remove("addTopmarginprofile")
         }
     })
 
 }
+
+
+
 
 }
 
@@ -72,3 +96,46 @@ export const CheckHover=()=>{
 
     })
 }
+
+
+
+
+export const CheckTopp=()=>{
+    const div=document.querySelectorAll(".categorytem")
+    const profile_container=document.querySelectorAll(".profile_layout")
+
+        div.forEach((item)=>{
+            if(item){
+                console.log(item.classList)
+
+                if((item.classList.contains("categorytem"))){
+                    item.classList.add("categorytem_margin")
+                    item.classList.remove("categorytem")
+
+                    console.log("Adding category")
+                }
+              
+               
+              
+        
+            }
+        })
+        profile_container.forEach((item)=>{
+
+            if(item){
+                if(!(item.classList.contains("addTopmarginprofile"))){
+                    item.classList.add("addTopmarginprofile")
+                }
+            }
+        })
+        
+        
+    
+    }
+    
+    
+    
+    
+    
+    
+    

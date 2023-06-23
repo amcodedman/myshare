@@ -1,5 +1,5 @@
 import React from "react";
-import { StarFill } from "react-bootstrap-icons";
+import { StarFill,StarHalf } from "react-bootstrap-icons";
 
 const ContentPreview = () => {
   return (

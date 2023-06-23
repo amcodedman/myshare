@@ -60,6 +60,9 @@ state_c:{
 ipaddress:{
     type:String
 },
+blockrate:{
+    type:Number
+},
 address:{
     type:String,
     max:20
@@ -169,7 +172,8 @@ return token
 
  user_Schemas.methods.generate_token= function(){
      const user=this;
-     const userId={_id:user._id.toHexString(),email:user.email}
+     const userId={_id:user._id.toHexString()}
+    
      const token= jwt.sign(userId,process.env.DB_SECRET,{expiresIn:"1d"})
 return token
  }

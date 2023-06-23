@@ -3,15 +3,14 @@ import cookie from "react-cookies";
 import { GeoActive } from "./../type";
 import axios from "axios";
 
-const GetGeoCookie = async () =>  cookie.load("geo");
-const Getuser = async () =>  cookie.load("authuser");
-export const LoadsCookie = {
-  headers: {
-   
-    "authuser":Getuser()
+export const GetGeoCookie =  () =>  cookie.load("geo");
+export const Getusercookie =  () =>  cookie.load("authuser");
+export let Axiosinstance=()=>axios.create({
+ headers:{
+  "authuser":Getusercookie()
+ } 
+})
 
-  },
-};
 
 const RemoveGeoCookie = cookie.remove("geoi");
 
