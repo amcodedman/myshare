@@ -79,7 +79,9 @@ const Login = () => {
               label="Email"
             ></TextField>
 
-            <TextField
+            <input
+            placeholder="Password"
+            type="password"
               style={{ margin: "10px 10px 10px 0" }}
               name="password"
               value={Formik.values.password}
@@ -89,7 +91,7 @@ const Login = () => {
               helperText={Formik.touched.password && Formik.errors.password}
               {...Formik.getFieldHelpers("password")}
               label="Password"
-            ></TextField>
+            ></input>
 
             <div></div>
             {loading ? (

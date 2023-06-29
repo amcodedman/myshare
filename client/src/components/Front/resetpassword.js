@@ -56,6 +56,13 @@ const Resetpasspage = () => {
     }),
     onSubmit: (value) => {},
   });
+  useEffect(()=>{
+
+    if(Formik.values.password === Formik.values.comfirmpass){
+      document.getElementById("errorspan").classList.remove("showerror")
+    }
+   
+})
 
   return (
     <div
@@ -76,9 +83,11 @@ Join  now to embark on your journey of
         </div>
         <div className="formsp">
           <form onSubmit={Formik.handleSubmit} className="myform">
-            <TextField
+            <input
               style={{ margin: "10px 10px 10px 0" }}
               name="password"
+              placeholder="Password"
+            type="password"
               value={Formik.values.password}
               onChange={Formik.handleChange}
               onBlur={Formik.handleBlur}
@@ -86,8 +95,8 @@ Join  now to embark on your journey of
               helperText={Formik.touched.password && Formik.errors.password}
               {...Formik.getFieldHelpers("password")}
               label="Password"
-            ></TextField>
-            <TextField
+            ></input>
+            <input
               style={{ margin: "10px 10px 10px 0" }}
               name="comfirmpass"
               value={Formik.values.comfirmpass}
@@ -101,7 +110,8 @@ Join  now to embark on your journey of
               }
               {...Formik.getFieldHelpers("comfirmpass")}
               label="Comfirm Password"
-            ></TextField>
+            ></input>
+               <span id="errorspan" className="errorspan">password must be the same.</span>
             {showbtn ? (
               <div>
                 {loading ? (
@@ -109,8 +119,16 @@ Join  now to embark on your journey of
                 ) : (
                   <Button
                     onClick={() => {
-                      setload(true);
+                      if(Formik.values.password !==Formik.values.comfirmpass){
+        document.getElementById("errorspan").classList.add("showerror")
+
+  
+      }else{
+        setload(true);
                       dispatch(Passwordreset(Formik.values));
+      }
+
+                   
                     }}
                     style={{
                       marginBottom: "50px",

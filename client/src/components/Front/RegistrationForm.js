@@ -23,6 +23,7 @@ const MyForm = () => {
     }
   });
 
+  
   const dispatch = useDispatch();
   const Formik = useFormik({
     initialValues: {
@@ -45,11 +46,28 @@ const MyForm = () => {
       comfirmpass: Yup.string().required("comfirm password"),
     }),
     onSubmit: (value) => {
-     
+      if(value.password !==value.comfirmpass){
+        document.getElementById("errorspan").classList.add("showerror")
+
+  
+      }
+      else{
+
+         
       setload(true);
       dispatch(preRegister(value));
+      }
+    
     },
   });
+
+useEffect(()=>{
+
+    if(Formik.values.password === Formik.values.comfirmpass){
+      document.getElementById("errorspan").classList.remove("showerror")
+    }
+   
+})
 
   return (
     <div
@@ -119,9 +137,11 @@ const MyForm = () => {
               label="Email"
             ></TextField>
 
-            <TextField
+            <input
               style={{ margin: "10px 10px 10px 0" }}
               name="password"
+              placeholder="Password"
+            type="password"
               value={Formik.values.password}
               onChange={Formik.handleChange}
               onBlur={Formik.handleBlur}
@@ -129,13 +149,15 @@ const MyForm = () => {
               helperText={Formik.touched.password && Formik.errors.password}
               {...Formik.getFieldHelpers("password")}
               label="Password"
-            ></TextField>
+            ></input>
 
-            <TextField
+            <input
               style={{ margin: "10px 10px 10px 0" }}
               name="comfirmpass"
+              placeholder="Comfirm Password"
+            type="password"
               value={Formik.values.comfirmpass}
-              onChange={Formik.handleChange}
+             onChange={Formik.handleChange}
               onBlur={Formik.handleBlur}
               error={
                 Formik.touched.comfirmpass && Boolean(Formik.errors.comfirmpass)
@@ -145,7 +167,8 @@ const MyForm = () => {
               }
               {...Formik.getFieldHelpers("comfirmpass")}
               label="Comfirm Password"
-            ></TextField>
+            ></input>
+            <span id="errorspan" className="errorspan">password must be the same.</span>
 
             <div></div>
             {loading ? (

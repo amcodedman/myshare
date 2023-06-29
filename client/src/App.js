@@ -25,6 +25,7 @@ import UserProfile from "./components/Front/userProfile";
 import UserSec from "./components/Front/userSecurity";
 import UserNotification from "./components/Front/mynotification";
 import MyCart from "./components/Front/mycart";
+import FreezePage from "./components/Front/Pagefreeze";
 
 function App() {
   const notifications =useSelector((value)=>value.notification);
@@ -61,6 +62,7 @@ element={<Home/>}/>
   element={<MyForm/>}
   
 />
+
 <Route path="/user/login"  element={<Login/>}/>
 <Route path="/account/verification" element={<ConfirmAccount/>}/>
 <Route path="/account/passwordreset" element={<Resetpasspage/>}/>
@@ -69,6 +71,7 @@ element={<Home/>}/>
 <Route path="/user/myaccount/accountsettings" element={<UserSec/>}></Route>
 <Route path="/user/myaccount/notifications" element={<UserNotification/>}></Route>
 <Route path="/user/myaccount/cart" element={<MyCart/>}></Route>
+<Route path="/freeze" element={<FreezePage/>}></Route>
 </Routes>
 <ToastContainer/>
    </BrowserRouter>

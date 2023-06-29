@@ -490,7 +490,71 @@ margin-left: 80px;
   background-size: contain;
   height: 600px;
 }
+.freezeC{
+  position: absolute;
+  width: 100%;
+  z-index: 10000;
+  background-color: rgb(29, 22, 22,0.2);
+  display: flex;
+  flex-direction: column;
+  cursor:help;
+  justify-content: center;
+  align-items: center;
+}
+.freelayout{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  height: 300px;
+  border-radius: 5px;
+  box-shadow: 2px 3px 8px 2px rgb(65, 60, 60);
+  background-color: rgb(250, 250, 250);
+}
+.freeel_l{
+  display: flex;
+  height: 300px;
+  width: 30%;
+  background-repeat: no-repeat;
+  background-size: cover;
 
+
+}
+.dangers{
+  color: red;
+  padding: 0 5px 0 5px;
+  -webkit-animation: animdenger 1s linear infinite;
+  animation: animdenger 1s linear infinite;
+}
+.freeze_c{
+  width: 70%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto condensed;
+  padding: 10px;
+}
+.freeze_c h1{
+font-family: Roboto condensed;
+font-weight: bold;
+font-size: 25px;
+color: red;
+
+}
+
+.freeze_c p{
+  font-family: Roboto condensed;
+  
+  font-size: 19px;
+  color: rgb(36, 28, 28);
+}
+.brand{
+  padding: 5px;
+  
+}
 .hcontent_l {
   font-family: Roboto condensed;
 
@@ -922,9 +986,9 @@ margin-left: 80px;
 .hfrontads {
   height: 300px;
   width: 100%;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-color: rgb(250, 250, 250);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1294,12 +1358,23 @@ transition: 1s ease-in-out;
 input{
   -webkit-appearance: none;
   appearance: none;
- 
   outline: none;
   box-shadow: none !important;
- 
+  border-radius: 5px;
+  height: 50px;
+ padding: 10px;
   border: 1px solid rgb(219, 214, 214);
   padding: 3px;
+}
+.errorspan{
+  color:red;
+  width: 100%;
+  margin-bottom: 10px;
+  visibility: hidden;
+
+}
+.showerror{
+  visibility: visible;
 }
 .cartprice{
   width: 10%;
@@ -1374,4 +1449,16 @@ margin-top: -30px;font-size: 15px;
   }
 }
 
+
+@keyframes animdenger {
+  0%{
+    color: brown;
+  }
+  50%{
+    color: green;
+  }
+  100%{
+    color: red;
+  }
+}
 

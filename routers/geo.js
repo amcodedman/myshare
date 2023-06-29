@@ -2,6 +2,7 @@ const express = require("express");
 const { User } = require("../models/users");
 const routers = express.Router();
 const jwt = require("jsonwebtoken");
+const { GetGeo } = require("../middleware/auth");
 require("dotenv").config();
 routers.route("/user/:id").post(async (req, res) => {
   try {
@@ -107,27 +108,12 @@ routers.route("/cookieip").post(async (req, res) => {
 
 routers.route("/userip").post(async (req, res) => {
   try {
-    const responsefull = await fetch(
-      `https://api.ipdata.co/?api-key=${process.env.ipgeoAPI}`
+console.log("recieved")  
+const details=await GetGeo()
+  
+    res.status(200).json(
+      details
     );
-    const ipa = await responsefull.json();
-    const country = await ipa.country_name;
-    const userphonecode = await ipa.calling_code;
-    const continent = await ipa.continent_name;
-    const state_c = await ipa.region;
-    const timezone = [
-      await ipa.time_zone.name,
-      await ipa.time_zone.current_time,
-    ];
-    const ipaddress = await ipa.ip;
-    res.status(200).json({
-      country: country,
-      phonecode: userphonecode,
-      timezone: timezone,
-      state_c: state_c,
-      continent: continent,
-      ipaddress: ipaddress,
-    });
   } catch (error) {
     console.log(error);
     res.status(404).json({ error: error });

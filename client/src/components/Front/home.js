@@ -7,36 +7,58 @@ import CatTemplete from "./categTemplete";
 import { CheckProfile, Checkhover } from "./../utils/responsehover";
 import { CheckTopAds } from "../utils/reuseable";
 import ContentPreview from "./contentpreview";
+
 import AdsFront from "./Adsfront";
 import Testgood from "./HomeComment";
 import CourseView from "./courseviewed";
 import TopCate from "./topcates";
-import { GeoGet } from "../../store/actions/geod";
+import { GeoDetail, GeoGet } from "../../store/actions/geod";
 import { useDispatch, useSelector } from "react-redux";
 import { GeoActiveD } from "../../store/actions/usercookie";
 import LoaderView from "../utils/loaderView";
 import ProfileNav from "../utils/ProfileBar";
 import TopNav from "../utils/pagenav";
+import AdsFrontf from "./adsfrontf";
+import FreezePage from "./Pagefreeze";
+
 
 const Home = () => {
 
   const [loading, setload] = useState(true);
   const Checkuser = useSelector((item) => item.authuser);
+  const [holdp,setholdp]=useState(false)
+
+
+
   const [cat, setcat] = useState(false);
   const [alertProfile, setprofile] = useState(false);
   const [catsub, setsub] = useState(false);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(GeoActiveD());
-  });
+  const location = useSelector((item) => item.geodetails);
 
   useEffect(() => {
-    if (Checkuser) {
-      if (Checkuser.auth !==null) {
+    if (location) {
+      if (location.GEOD !==null) {
         setload(false);
+        console.log("off")
+       
       }
     }
-  }, [Checkuser]);
+  });
+
+  
+  useEffect(() => {
+    if (location) {
+      if (location.GEOD !==null) {
+       
+        if(location.GEOD.blockrate >0){
+          setholdp(true)
+        }
+       
+      
+      }
+    }
+  });
   useEffect(() => {
     // dispatch(GeoCookieT())
   }, []);
@@ -53,7 +75,9 @@ const Home = () => {
     CheckProfile(setprofile);
   });
 
-
+  useEffect(()=>{
+    dispatch(GeoGet())
+    },[])
   const [fn, setfn] = useState("");
   const [ln, setln] = useState("");
   const [email, setemail] = useState("");
@@ -70,22 +94,45 @@ const Home = () => {
   });
 
   const [topads, settopads] = useState(true);
+
+
+  useEffect(()=>{
+    if(location){
+      if(location.GEOD){
+        if(location.GEOD.country==="Ghana"){
+          settopads(false)
+
+        }
+       
+      }
+      
+    }
+  }
+   
+  )
   const Route = useNavigate();
   return (
     <>
       {loading ? (
         <LoaderView />
       ) : (
+        
         <div
           className="mainLayout"
           style={{ minHeight: `${window.innerHeight}px` }}
         >
+        {
+          holdp ?
+          <FreezePage IP={`${location && location.GEOD ? location.GEOD.ipaddress :"" }`} country={`${location && location.GEOD ? location.GEOD.country:"" }`} />:null
+        }
           <div className="maintop">
-            {topads ? <FOreignAds settopads={settopads} /> : null}
+            
 <TopNav setprofile={setprofile} topads={topads}  fn={fn} ln={ln} email={email}/>
             {cat ? <CatTemplete catsub={catsub} /> : null}
+            {topads ?
+             <AdsFrontf/> : <AdsFront/>}
 
-            <AdsFront />
+            
             <ContentPreview />
             <Testgood />
             <CourseView />
@@ -95,7 +142,7 @@ const Home = () => {
             <div
               className="homeContent"
               style={{
-                backgroundImage: `url('https://cdn.pixabay.com/photo/2018/04/16/05/32/technology-3323683_1280.jpg')`,
+                backgroundImage: `url('https://cdn.pixabay.com/photo/2017/07/31/11/46/laptop-2557586_1280.jpg')`,
               }}
             >
               <div className="hcontent_l">
