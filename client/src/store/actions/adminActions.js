@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as notify from "./notification";
 import { Axiosinstance, Getusercookie } from "./usercookie";
-
+import cookie from "react-cookies";
 const { USER_DETAIL, USERS, NEW_USER, PRE_REGISTER } = require("../type");
 
 export const get_users = (detail) => ({
@@ -95,11 +95,27 @@ export const SignIn = (data) => {
       );
     } catch (error) {
       dispatch(notify.notify_error({ msg: error.response.data.msg }));
-      dispatch(userDetail({ loading: false }));
-    
+      dispatch(userDetail({ loading: false })); 
     }
   };
 };
+
+
+
+
+
+export const Signout=()=>{
+  return async(dispatch)=>{
+
+ const RemoveGeoCookie = await cookie.remove("authuser");
+ dispatch(userDetail({ account: {}, auth: false,loading: false }));
+ dispatch(
+  notify.notify_success({
+    msg: ` Hope to see u back !!`,
+  })
+ )
+  }
+}
 
 export const AutoLogin = (data) => {
   return async (dispatch) => {
@@ -111,7 +127,7 @@ export const AutoLogin = (data) => {
           authuser: token,
         },
       });
-      console.log({dataaa:profiledetail.data});
+     
       dispatch(userDetail({ account: profiledetail.data, auth: true,loading: false }));
 
     } catch (error) {

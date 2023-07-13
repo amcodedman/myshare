@@ -26,6 +26,8 @@ import UserSec from "./components/Front/userSecurity";
 import UserNotification from "./components/Front/mynotification";
 import MyCart from "./components/Front/mycart";
 import FreezePage from "./components/Front/Pagefreeze";
+import Authcontainer from "./Authcontainer";
+import MyPanel from "./components/backend/mainpanel";
 
 function App() {
   const notifications =useSelector((value)=>value.notification);
@@ -59,19 +61,21 @@ dispatch(ClearNotify());
 element={<Home/>}/> 
 <Route
   path="/user/Signup"
-  element={<MyForm/>}
+  element={ <Authcontainer> <MyForm/></Authcontainer> }
   
 />
 
-<Route path="/user/login"  element={<Login/>}/>
-<Route path="/account/verification" element={<ConfirmAccount/>}/>
-<Route path="/account/passwordreset" element={<Resetpasspage/>}/>
-<Route path="user/login/forgottenpassword" element={<Forgotpass/>}></Route>
-<Route path="user" element={<UserProfile/>}></Route>
-<Route path="/user/myaccount/accountsettings" element={<UserSec/>}></Route>
-<Route path="/user/myaccount/notifications" element={<UserNotification/>}></Route>
-<Route path="/user/myaccount/cart" element={<MyCart/>}></Route>
-<Route path="/freeze" element={<FreezePage/>}></Route>
+<Route path="/user/login"  element={  <Authcontainer><Login/> </Authcontainer>}/>
+<Route path="/account/verification" element={ <Authcontainer><ConfirmAccount/> </Authcontainer>}/>
+<Route path="/account/passwordreset" element={<Authcontainer><Resetpasspage/> </Authcontainer>}/>
+<Route path="user/login/forgottenpassword" element={ <Authcontainer><Forgotpass/>  </Authcontainer>}></Route>
+<Route path="user" element={     <Authcontainer><UserProfile/>   </Authcontainer>    }></Route>
+<Route path="/user/myaccount/accountsettings" element={           <Authcontainer><UserSec/>  </Authcontainer>   }></Route>
+<Route path="/user/myaccount/notifications" element={      <Authcontainer><UserNotification/> </Authcontainer>   }></Route>
+<Route path="/user/myaccount/cart" element={        <Authcontainer><MyCart/>  </Authcontainer>   }></Route>
+<Route path="/freeze" element={   <FreezePage/> }></Route>
+<Route path="/mainadmin/dashboard" element={   <MyPanel/> }></Route>
+
 </Routes>
 <ToastContainer/>
    </BrowserRouter>

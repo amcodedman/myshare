@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 
 import { ChevronCompactRight } from "react-bootstrap-icons";
+
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Signout } from "../../store/actions/adminActions";
 
 const ProfileNav = (props) => {
   const navigate=useNavigate();
+
+  const dispatch=useDispatch();
   return (
     <div
       id="maincatloyout"
@@ -20,7 +25,7 @@ const ProfileNav = (props) => {
         <div className="profile_content">
           <div className="profile_name">
             <div className="uavatar" onClick={()=>navigate("/user")}>
-              <p className="presshoverAv">{(props.fn).charAt(0)}{(props.ln).charAt(0)}</p>
+              <p className="presshoverAv">{ props.fn ? (props.fn).charAt(0) :""}{props.ln ? (props.ln).charAt(0) :""}</p>
             </div>
             <div className="profiledetails">
               <h1 >{props.fn} {props.ln}</h1>
@@ -38,7 +43,9 @@ const ProfileNav = (props) => {
             <p className="presshover_p"> My Purchases</p>
           </div>
           <div className="myaccount_signout">
-            <span className="presshover_p">Sign out</span>
+            <span className="presshover_p" 
+            onClick={()=>dispatch(Signout())}
+            >Sign out</span>
          
           </div>
         </div>

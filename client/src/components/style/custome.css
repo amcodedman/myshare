@@ -478,6 +478,19 @@ margin-left: 80px;
   border-radius: 5px;
   margin-bottom: 30px;
 }
+
+
+.myformadmin {
+  font-family: Roboto condensed !important;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 90%;
+  padding: 40px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
 .homeContent {
   background-color: rgb(24, 25, 63);
   margin: 15px;
@@ -1207,6 +1220,15 @@ color: red;
   border-radius: 3px;
   border: 1px solid rgb(208, 208, 211);
 }
+.admin_box{
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  height: 100%;
+ 
+  border-radius: 3px;
+  border: 1px solid rgb(208, 208, 211);
+}
 .profile_box_m{
   width: 85%;
  
@@ -1248,6 +1270,34 @@ align-items: center;
   font-family: Roboto condensed;
   font-size: 14px;
   padding-top: 10px;
+}
+
+.profile_b_navadminmain{
+  position: relative;
+  width: 14%;
+  padding-top: 10px;
+  border-right: 1px solid rgb(208, 208, 211);
+  padding-right: 30px;
+ 
+
+}
+
+
+.fieldlayout{
+
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+}
+.profile_b_navadmin{
+
+  font-family: Roboto condensed;
+  font-size: 14px;
+ 
+  position: fixed;
+  z-index: 100;
+  
 }
 .profile_cont{
   display: flex;

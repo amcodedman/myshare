@@ -3,7 +3,7 @@ import TopNav from "../utils/pagenav";
 import ProfileNav from "../utils/ProfileBar";
 import LoaderView from "../utils/loaderView";
 import { useDispatch, useSelector } from "react-redux";
-import CatTemplete from "./categTemplete";
+
 import { Checkhover } from "../utils/responsehover";
 import { Avatar, TextField } from "@mui/material";
 import { useFormik } from "formik";
@@ -13,6 +13,8 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { CheckTopp } from "../utils/reuseable";
 import { updateAccount } from "../../store/actions/adminActions";
+import CatTemplete from "../Front/categTemplete";
+import AddCourse from "./AddCourse";
 
 const MyPanel= () => {
   const dispatch = useDispatch();
@@ -101,18 +103,21 @@ const MyPanel= () => {
         <LoaderView />
       ) : (
         <>
-          {cat ? <CatTemplete catsub={catsub} /> : null}
+      
           {alertProfile ? <ProfileNav fn={fn} ln={ln} email={email}/> : null}
           <div
             className="profilecontainer"
             style={{ minHeight: `${window.innerHeight}px` }}
           >
             <div>
-              <TopNav setprofile={setprofile} fn={fn} ln={ln} email={email}/>
+          
             </div>
             <div className="box_layout">
-              <div className="profile_box">
-                <div className="profile_b_nav">
+              <div className="admin_box">
+              <div className="profile_b_navadminmain">
+
+           
+                <div className="profile_b_navadmin">
                   <div className="profile_rev">
                     <Avatar
                       style={{
@@ -141,147 +146,18 @@ const MyPanel= () => {
                       className="p_span"
                       onClick={() => navigate("/user/myaccount/notifications")}
                     >
-                      My Notifications
+                      All Courses
                     </span>
-                    <span className="p_span">My Users</span>
-                    <span className="p_span">Danger Zone</span>
-                    <span className="p_span">Subscription</span>
+                    <span className="p_span">Accounts</span>
+                 
+                    <span className="p_span">Sign out</span>
                     <span className="p_span"   onClick={() => navigate("/user/myaccount/cart")}>Coupon Generation</span>
                   </div>
                 </div>
-
-                <div className="profile_box_m">
-                  <div className="profile_header">
-                    <h1>Create new Course</h1>
-                    <p>Add course</p>
-                  </div>
-                  <div className="update_form">
-                    <form onSubmit={Formik.handleSubmit} className="myform">
-                      <TextField
-                        style={{ margin: "10px 10px 10px 0", color: "red" }}
-                        name="firstname"
-                        label="firstname"
-                        {...Formik.getFieldHelpers("firstname")}
-                        value={Formik.values.firstname}
-                        onChange={Formik.handleChange}
-                        onBlur={Formik.handleBlur}
-                        error={
-                          Formik.touched.firstname &&
-                          Boolean(Formik.errors.firstname)
-                        }
-                        helperText={
-                          Formik.touched.firstname && Formik.errors.firstname
-                        }
-                      ></TextField>
-
-                      <TextField
-                        style={{ margin: "10px 10px 10px 0" }}
-                        name="lastname"
-                        value={Formik.values.lastname}
-                        onChange={Formik.handleChange}
-                        onBlur={Formik.handleBlur}
-                        error={
-                          Formik.touched.lastname &&
-                          Boolean(Formik.errors.lastname)
-                        }
-                        helperText={
-                          Formik.touched.lastname && Formik.errors.lastname
-                        }
-                        {...Formik.getFieldHelpers("lastname")}
-                        label="Lastname"
-                      ></TextField>
-                      <TextField
-                        style={{ margin: "10px 10px 10px 0" }}
-                        name="phone"
-                        value={Formik.values.phone}
-                        onChange={Formik.handleChange}
-                        onBlur={Formik.handleBlur}
-                        error={
-                          Formik.touched.phone && Boolean(Formik.errors.phone)
-                        }
-                        helperText={Formik.touched.phone && Formik.errors.phone}
-                        {...Formik.getFieldHelpers("phone")}
-                        label="Phone Number"
-                      ></TextField>
-                      <TextField
-                        style={{ margin: "10px 10px 10px 0" }}
-                        name="ex_phone"
-                        value={Formik.values.ex_phone}
-                        onChange={Formik.handleChange}
-                        onBlur={Formik.handleBlur}
-                        error={
-                          Formik.touched.ex_phone &&
-                          Boolean(Formik.errors.ex_phone)
-                        }
-                        helperText={
-                          Formik.touched.ex_phone && Formik.errors.ex_phone
-                        }
-                        {...Formik.getFieldHelpers("ex_phone")}
-                        label="Extra Line"
-                      ></TextField>
-
-                      <TextField
-                        style={{ margin: "10px 10px 10px 0" }}
-                        name="photo"
-                        value={Formik.values.photo}
-                        onChange={Formik.handleChange}
-                        onBlur={Formik.handleBlur}
-                        error={
-                          Formik.touched.photo && Boolean(Formik.errors.photo)
-                        }
-                        helperText={Formik.touched.photo && Formik.errors.photo}
-                        {...Formik.getFieldHelpers("photo")}
-                        label="Photo url"
-                      ></TextField>
-
-                      <TextField
-                        style={{ margin: "10px 10px 10px 0" }}
-                        name="address"
-                        value={Formik.values.address}
-                        onChange={Formik.handleChange}
-                        onBlur={Formik.handleBlur}
-                        {...Formik.getFieldHelpers("address")}
-                        label="My address"
-                      ></TextField>
-                      <TextField
-                        style={{ margin: "10px 10px 10px 0" }}
-                        name="age"
-                        value={Formik.values.age}
-                        onChange={Formik.handleChange}
-                        onBlur={Formik.handleBlur}
-                        {...Formik.getFieldHelpers("age")}
-                        label="My age"
-                      ></TextField>
-
-                      <div></div>
-
-                      {loadingbtn ? (
-                        <div
-                          style={{
-                            display: "flex",
-                            width: "100%",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            marginTop: "5px",
-                          }}
-                        >
-                          <PushSpinner color="aqua" size={17} />
-                        </div>
-                      ) : (
-                        <Button
-                          type="submit"
-                          style={{
-                            marginBottom: "50px",
-                            width: "25%",
-                            minWidth: "98%",
-                          }}
-                        >
-                          Update Details
-                        </Button>
-                      )}
-                    </form>
-                  </div>
                 </div>
+
+             <AddCourse/> 
+           </div>
               </div>
             </div>
 
@@ -293,7 +169,7 @@ const MyPanel= () => {
                 </p>
               </div>
             </div>
-          </div>
+      
         </>
       )}
     </>

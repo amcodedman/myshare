@@ -12,8 +12,6 @@ export let Axiosinstance=()=>axios.create({
 })
 
 
-const RemoveGeoCookie = cookie.remove("geoi");
-
 export const Gcookie = (data) => ({
   type: GeoActive,
   payload: data,

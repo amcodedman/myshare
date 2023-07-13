@@ -40,7 +40,7 @@ const Home = () => {
     if (location) {
       if (location.GEOD !==null) {
         setload(false);
-        console.log("off")
+      
        
       }
     }
@@ -100,7 +100,7 @@ const Home = () => {
     if(location){
       if(location.GEOD){
         if(location.GEOD.country==="Ghana"){
-          settopads(false)
+         settopads(false)
 
         }
        
@@ -126,7 +126,7 @@ const Home = () => {
           <FreezePage IP={`${location && location.GEOD ? location.GEOD.ipaddress :"" }`} country={`${location && location.GEOD ? location.GEOD.country:"" }`} />:null
         }
           <div className="maintop">
-            
+      <>{topads ? <FOreignAds settopads={settopads}/> :null}</>      
 <TopNav setprofile={setprofile} topads={topads}  fn={fn} ln={ln} email={email}/>
             {cat ? <CatTemplete catsub={catsub} /> : null}
             {topads ?
