@@ -5,9 +5,10 @@ import { Button } from 'react-bootstrap';
 import { useSelector,useDispatch } from 'react-redux';
 import { PushSpinner } from 'react-spinners-kit';
 import * as Yup from "yup";
-import { AddCourseServer, addContents, getCourse, getCourses } from '../../store/actions/datacollection';
-import CourseContent from './contents_sections';
-import CreateSections from '../utils/createsection';
+import { AddCourseServer,addContents,getCourses } from '../store/actions/datacollection';
+import AddContent from './backend/AddContent';
+
+
 
 const AddContentReuse=(props)=>{
     const [loadingbtn, setloadbtn] = useState(false);

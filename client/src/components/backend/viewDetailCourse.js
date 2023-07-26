@@ -9,7 +9,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useParams,} from "react-router-dom";
 import LoaderView from "../utils/loaderView"
-import  AddContentReuse  from "../utils/addcontentreuse"
+import AddContentReuse from "../addcontentreuse";
+
 
 
 const CourseDetail = () => {
@@ -73,7 +74,7 @@ const CourseDetail = () => {
 
         <div className=" courselabel">
               <div className="coursecontrol">
-                <h1>{mycourse.title}</h1>{" "}
+                <p className="courseheader">{mycourse.title}</p>{" "}
                 <div className="btnss">
                  
 
