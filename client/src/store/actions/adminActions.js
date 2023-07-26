@@ -127,7 +127,6 @@ export const AutoLogin = (data) => {
           authuser: token,
         },
       });
-     
       dispatch(userDetail({ account: profiledetail.data, auth: true,loading: false }));
 
     } catch (error) {

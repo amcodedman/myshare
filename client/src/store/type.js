@@ -12,3 +12,7 @@ export const USERS="users";
 export const PRE_REGISTER="pre-register";
 export const GEO="geo";
 export const GeoActive = "geoactive";
+export const MAIN_COURSE="main_course";
+export const SECTIONS="sectionss";
+export const CONTENTS="contents";
+export const  COURSES="allcourse"

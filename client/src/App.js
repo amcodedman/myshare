@@ -28,6 +28,9 @@ import MyCart from "./components/Front/mycart";
 import FreezePage from "./components/Front/Pagefreeze";
 import Authcontainer from "./Authcontainer";
 import MyPanel from "./components/backend/mainpanel";
+import CreateSections from "./components/utils/createsection";
+import Mycourses from "./components/backend/mycourses";
+import CourseDetail from "./components/backend/viewDetailCourse";
 
 function App() {
   const notifications =useSelector((value)=>value.notification);
@@ -75,6 +78,10 @@ element={<Home/>}/>
 <Route path="/user/myaccount/cart" element={        <Authcontainer><MyCart/>  </Authcontainer>   }></Route>
 <Route path="/freeze" element={   <FreezePage/> }></Route>
 <Route path="/mainadmin/dashboard" element={   <MyPanel/> }></Route>
+<Route path="/dash" element={   <CreateSections/> }></Route>
+<Route  path="/mainadmin/creatorcourses" element={<Mycourses/>}></Route>
+<Route  path="/mainadmin/singlecourse/:id" element={<CourseDetail/>}></Route>
+
 
 </Routes>
 <ToastContainer/>

@@ -142,11 +142,12 @@ routes.route("/getcourses").get(async (req, res) => {
       .populate("students")
       .populate("expections")
       .populate({ path: "contents", populate: { path: "sections" } })
-      .populate("Comments");
+      .populate("comments");
 
     res.status(200).json(data);
   } catch (error) {
     res.status(400).json({ msg: error });
+ console.log(error);
   }
 });
 
@@ -291,7 +292,7 @@ routes.route("/deletesection/:id").delete(async (req, res) => {
     }
   });
   
-  routes.route("/modifycourse/:id").delete(async (req, res) => {
+  routes.route("/deletecourse/:id").delete(async (req, res) => {
     try {
       const _id = req.params.id;
       const data = await CourseModel.findByIdAndDelete({_id})

@@ -2,12 +2,44 @@ import { TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import { PushSpinner } from 'react-spinners-kit';
 import * as Yup from "yup";
+import { AddCourseServer, getCourses } from '../../store/actions/datacollection';
+import AddContent from './AddContent';
+
 const AddCourse=()=>{
     const [loadingbtn, setloadbtn] = useState(false);
+    
+const dispatch=useDispatch();
+const newcourse=useSelector((value)=>value.newCourse)
+const [getnewcourse,setnewfield]=useState(false);
+const [courseid,setcourseid]=useState(null)
+const [coursename,setcoursename]=useState();
+useEffect(()=>{
+ 
+ if(newcourse && newcourse.data){
 
+  
+  if(newcourse.data.course ){
+    setcourseid(newcourse.data.course._id);
+  }
+ 
+  setnewfield(true)
+
+ } else{
+setnewfield(false)
+
+
+ }
+},[dispatch,newcourse])
+
+
+
+
+useEffect(()=>{
+  dispatch(getCourses());
+},[dispatch])
     const Formik = useFormik({
         initialValues: {
           title: "",
@@ -22,7 +54,7 @@ const AddCourse=()=>{
     
         enableReinitialize: true,
         validationSchema: Yup.object({
-         tiltle: Yup.string().required("field required"),
+         title: Yup.string().required("field required"),
          maincategory: Yup.string().required("field required"),
          subcategory: Yup.string().required("field required"),
          price: Yup.string().required("field required"),
@@ -35,7 +67,9 @@ const AddCourse=()=>{
         }),
         onSubmit: (value) => {
           setloadbtn(true);
-     
+        dispatch(
+          AddCourseServer(value))
+    
         },
       });
 
@@ -47,11 +81,28 @@ const AddCourse=()=>{
         }
       });
     return(
-        <div className="profile_box_m">
+        <div className="profile_box_m_admin">
         <div className="profile_header">
           <h1>Create new Course</h1>
           <p>Add course</p>
         </div>
+
+        {
+
+  getnewcourse ?
+
+  <div>
+<p>
+
+</p>
+<AddContent  id={courseid}  setnewfield={setnewfield} course={newcourse && newcourse.data? newcourse.data.course.title :null}/>
+
+
+  </div>
+
+
+:
+  
         <div className="update_form">
           <form onSubmit={Formik.handleSubmit} className="myformadmin">
           <div className='fieldlayout'>
@@ -89,7 +140,7 @@ const AddCourse=()=>{
                 Formik.touched.price && Formik.errors.price
               }
               {...Formik.getFieldHelpers("price")}
-              label="Course Price"
+              label="Price (GH₵)"
             ></TextField>
           </div>
 
@@ -130,61 +181,64 @@ const AddCourse=()=>{
 
            <TextField
               style={{ margin: "10px 10px 10px 0" }}
-              name="photo"
-              value={Formik.values.photo}
+              name="file"
+              value={Formik.values.file}
               onChange={Formik.handleChange}
               onBlur={Formik.handleBlur}
               error={
-                Formik.touched.photo && Boolean(Formik.errors.photo)
+                Formik.touched.file && Boolean(Formik.errors.file)
               }
-              helperText={Formik.touched.photo && Formik.errors.photo}
-              {...Formik.getFieldHelpers("photo")}
-              label="Photo url"
+              helperText={Formik.touched.file && Formik.errors.file}
+              {...Formik.getFieldHelpers("file")}
+              label="Image url"
             ></TextField>
 
             <TextField
               style={{ margin: "10px 10px 10px 0" }}
-              name="address"
-              value={Formik.values.address}
+              name="expections"
+              value={Formik.values.expections}
               onChange={Formik.handleChange}
               onBlur={Formik.handleBlur}
-              {...Formik.getFieldHelpers("address")}
-              label="My address"
+              {...Formik.getFieldHelpers("expections")}
+              helperText={Formik.touched.expections && Formik.errors.expections}
+              {...Formik.getFieldHelpers("expections")}
+              label="expections"
             ></TextField>
            </div>
 
             <TextField
-              style={{ margin: "10px 10px 10px 0" }}
-              name="photo"
-              value={Formik.values.photo}
+              style={{ margin: "10px 10px 10px 0"  }}
+              name="detail"
+              multiline
+      rows={10}
+              value={Formik.values.detail}
               onChange={Formik.handleChange}
               onBlur={Formik.handleBlur}
               error={
-                Formik.touched.photo && Boolean(Formik.errors.photo)
+                Formik.touched.detail && Boolean(Formik.errors.detail)
               }
-              helperText={Formik.touched.photo && Formik.errors.photo}
-              {...Formik.getFieldHelpers("photo")}
-              label="Photo url"
+              helperText={Formik.touched.detail && Formik.errors.detail}
+              {...Formik.getFieldHelpers("detail")}
+              label="Course Description"
             ></TextField>
 
             <TextField
+              multiline
+      rows={10}
+
               style={{ margin: "10px 10px 10px 0" }}
-              name="address"
-              value={Formik.values.address}
+              name="abstract"
+              value={Formik.values.abstract}
               onChange={Formik.handleChange}
               onBlur={Formik.handleBlur}
-              {...Formik.getFieldHelpers("address")}
-              label="My address"
+              {...Formik.getFieldHelpers("abstract")}
+              error={
+                Formik.touched.abstract && Boolean(Formik.errors.abstract)
+              }
+              helperText={Formik.touched.abstract && Formik.errors.abstract}
+              label="Abstract"
             ></TextField>
-            <TextField
-              style={{ margin: "10px 10px 10px 0" }}
-              name="age"
-              value={Formik.values.age}
-              onChange={Formik.handleChange}
-              onBlur={Formik.handleBlur}
-              {...Formik.getFieldHelpers("age")}
-              label="My age"
-            ></TextField>
+          
 
             <div></div>
 
@@ -214,6 +268,8 @@ const AddCourse=()=>{
             )}
           </form>
         </div>
+     
+      }
       </div>
     )
 }

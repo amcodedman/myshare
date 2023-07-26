@@ -1231,8 +1231,45 @@ color: red;
 }
 .profile_box_m{
   width: 85%;
+
  
 
+}
+.profile_box_m_admin{
+  width: 95%;
+  min-height: 600px;
+  font-family: Rotobo condensed;
+  
+  padding: 10px;
+ 
+
+}
+
+.profile_box_m_page{
+  width: 99%;
+  min-height: 600px;
+  font-family: Rotobo condensed;
+  
+  padding: 10px;
+ 
+
+}
+
+.sectionlayout{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  padding-bottom: 20px;
+  justify-content: space-evenly;
+  align-items: start;
+  
+}
+
+.sectionlayout p{
+  color: rgb(2, 9, 19);
 }
 .profile_header{
   height: 80px;
@@ -1243,6 +1280,271 @@ color: red;
   align-items: center;
   font-family: Roboto condensed;
   font-size: 17px;
+}
+
+
+
+
+.content_c{
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 5px;
+  border:1px solid rgb(232, 252, 251);
+box-shadow: 2px 2px 4px 6px rgb(243, 243, 245);
+transform: scale(1.01);
+background-color: rgb(255, 255, 255);
+padding: 10px;
+padding-bottom: 20px;
+font-family: Roboto condensed;
+transition: 1s ease-in-out;
+
+margin-bottom: 50px;
+}
+.contentshowbtn{
+  border-radius: 5px;
+  border:1px solid rgb(232, 252, 251);
+  box-shadow: 2px 2px 6px 6px rgb(240, 236, 236);
+  padding: 10px;
+  background-color: rgb(123, 213, 255);
+  cursor: pointer;
+  color: rgb(43, 38, 38);
+  transition: 1s ease-in-out;
+  
+}
+.contentshowbtn:hover{
+  background-color: rgb(98, 199, 247);
+  cursor: pointer;
+  color: azure;
+  transition: 1s ease-in-out;
+
+  
+  
+}
+.contentdeletebtn{
+ 
+  cursor: pointer;
+  color: azure;
+  transition: 1s ease-in-out;
+  border-radius: 5px;
+margin-left: 20px;
+margin-top: 20px;
+  box-shadow: 2px 2px 2px 4px rgb(221, 221, 221);
+  padding: 10px;
+  background-color: rgb(26, 19, 19);
+  
+}
+.contentdeletebtn:hover{
+
+  background-color: rgb(85, 3, 3);
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  transition: 1s ease-in-out;
+  
+}
+
+
+
+.plainlayout{
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: fixed;
+  z-index: 1200;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(7, 1, 1,0.3);
+ 
+}
+
+
+.courselabel{
+  width: 99%;
+  background-color: rgb(253, 253, 252);
+  margin: 10px;
+  margin-bottom: 80px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px 4px rgb(241, 238, 238);
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto condensed;
+}
+
+.courselabel h1{
+
+
+
+  color: rgb(59, 56, 56);
+}
+.plabel{
+  color:rgb(6, 126, 126);
+font-weight: bold;
+font-size: 25;
+}
+.courselabel h3{
+
+
+
+  color: rgb(29, 29, 68);
+}
+
+
+.contents_layout{
+
+
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(233, 238, 238);
+  margin-left: 20px;
+  margin-top: 50px;
+}
+.contentslabel{
+  background-color: aqua;
+  width: 150px;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top:-20px;
+  margin-left: 20px;
+}
+.btnlabel{
+  background-color: rgb(48, 49, 49);
+  width: 150px;
+  border-radius: 5px;
+  color:white;
+  padding: 5px;
+  margin-top:-20px;
+  margin-left: 20px; 
+  cursor: pointer;
+}
+.btnss{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.coursecontrol{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.divcontainer{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  min-height: 400px;
+  background-color: white;
+
+
+
+
+
+}
+.deletebtn{
+ 
+  cursor: pointer;
+  color: azure;
+  transition: 1s ease-in-out;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 4px rgb(221, 221, 221);
+  padding: 5px;
+  background-color: rgb(26, 19, 19);
+  
+}
+.deletebtn:hover{
+
+  background-color: rgb(85, 3, 3);
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  transition: 1s ease-in-out;
+  
+}
+
+
+
+
+
+
+
+.btnlayout{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: left;
+  align-items: center;
+}
+.content_c:hover{
+transition: 1s ease-in-out ;
+background-color: rgb(247, 247, 247);
+transform: scale(1.02);
+
+}
+.content_c h1{
+  font-size: 25px ;
+  font-weight: bold;
+}
+
+.Editor{
+width: 98%;
+  background-color: rgb(250, 252, 252);
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px 6px rgb(240, 236, 236);
+}
+.editorcontainer{
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+ padding: 10px;
+ justify-content: space-evenly;
+ align-items: start;
+}
+
+.contentnav{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: end;
+  align-items: end;
+}
+.sectionlayout{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: right;
+  align-items: center;
+}
+
+.content_section{
+
+  width: 95%;
+  min-height: 200px;
+  overflow: scroll;
+  background-color: rgb(224, 224, 224);
+  border-radius: 5px;
+  font-family: Roboto condensed;
+  
+  padding: 10px;
+  
+}
+
+.contentsections h1{
+  font-size: 25px;
+  color:rgb(27, 26, 31)
+
+}
+.contentsections{
+background-color: rgb(255, 255, 255);
+border-radius: 5px;
+margin:10px;
+width: 95%;
+
+
 }
 .profile_header h1{
   font-size: 20px;
@@ -1255,6 +1557,17 @@ color: red;
   flex-direction: column;
   justify-content: center;
 align-items: center;
+}
+
+.update_formscontent{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+align-items: center;
+
+border: 1px solid rgb(234, 234, 238);
+border-radius: 5px;
 }
 .profile_rev{
   display: flex;
@@ -1274,10 +1587,11 @@ align-items: center;
 
 .profile_b_navadminmain{
   position: relative;
-  width: 14%;
+  width: 15%;
   padding-top: 10px;
   border-right: 1px solid rgb(208, 208, 211);
   padding-right: 30px;
+  overflow: hidden;
  
 
 }
@@ -1291,10 +1605,10 @@ align-items: center;
 
 }
 .profile_b_navadmin{
-
+  width: 13%;
   font-family: Roboto condensed;
+  overflow: hidden;
   font-size: 14px;
- 
   position: fixed;
   z-index: 100;
   
@@ -1309,7 +1623,7 @@ cursor: pointer;
 
 }
 .p_span:hover{
- background-color: rgb(133, 127, 127);
+ background-color: rgb(172, 165, 165);
   }
 .profile_b_nav p{
   cursor: pointer;

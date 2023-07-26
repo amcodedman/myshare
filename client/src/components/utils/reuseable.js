@@ -138,4 +138,8 @@ export const CheckTopp=()=>{
     
     
     
-    
+    export function saveEditorContent(convertToRaw, editorState) {
+        const contentState = convertToRaw(editorState.getCurrentContent());
+        const contentString = JSON.stringify(contentState);
+        return contentString;
+      }

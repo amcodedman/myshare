@@ -15,22 +15,21 @@ import { CheckTopp } from "../utils/reuseable";
 import { updateAccount } from "../../store/actions/adminActions";
 import CatTemplete from "../Front/categTemplete";
 import AddCourse from "./AddCourse";
-import { getCourses } from "../../store/actions/datacollection";
-
-const MyPanel= () => {
-  const dispatch = useDispatch();
+import Allcourss from "./allcourse";
+import { getCourses } from '../../store/actions/datacollection';
+const Mycourses= () => {
+    const dispatch=useDispatch();
   const Checkuser = useSelector((item) => item.authuser);
   const navigate = useNavigate();
   const [fn, setfn] = useState("");
   const [ln, setln] = useState("");
 
- 
-
   useEffect(()=>{
     dispatch(getCourses);
     
+ 
+        },[dispatch])
     
-        },)
   const notifications = useSelector((value) => value.notification);
   useEffect(() => {
     if (notifications && notifications.notice) {
@@ -69,7 +68,7 @@ const MyPanel= () => {
       ) : (
         <>
       
-          {alertProfile ? <ProfileNav fn={fn} ln={ln} email={"email"}/> : null}
+          {alertProfile ? <ProfileNav fn={fn} ln={ln} email={""}/> : null}
           <div
             className="profilecontainer"
             style={{ minHeight: `${window.innerHeight}px` }}
@@ -97,7 +96,6 @@ const MyPanel= () => {
                     <span
                       className="p_span"
                      
-                      style={{ backgroundColor: "rgb(133, 127, 127)" }}
                     >
                       Create Course
                     </span>
@@ -113,6 +111,8 @@ const MyPanel= () => {
                     <span
                       className="p_span"
                       onClick={() => navigate("/mainadmin/creatorcourses")}
+                  
+                      style={{ backgroundColor: "rgb(133, 127, 127)" }}
                     >
                       All Courses
                     </span>
@@ -124,7 +124,7 @@ const MyPanel= () => {
                 </div>
                 </div>
 
-             <AddCourse/> 
+             <Allcourss/> 
            </div>
               </div>
             </div>
@@ -144,4 +144,4 @@ const MyPanel= () => {
   );
 };
 
-export default MyPanel;
+export default Mycourses;

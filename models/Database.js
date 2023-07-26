@@ -88,12 +88,11 @@ const CourseSchema = mongoose.Schema({
       ref: "contents",
     },
   ],
-  expections: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "points",
+  expections:{
+      type: String,
+     
     },
-  ],
+  
   rating: {
     type: Number,
     default: 0,
