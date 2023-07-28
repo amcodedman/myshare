@@ -17,3 +17,4 @@ export const SECTIONS="sectionss";
 export const CONTENTS="contents";
 export const  COURSES="allcourse"
 export const ACCESSCONTROL="accesscontrol";
+export const ALLCOUPONS="allcOUPons";

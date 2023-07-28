@@ -80,10 +80,7 @@ const Allcourss = () => {
                 {data.maincategory}
               </p>
 
-              <p>
-                <span className="plabel">Sub Category</span> :{" "}
-                {data.subcategory}
-              </p>
+             
               <p>
                 {" "}
                 <span className="plabel">Course Price</span>: GH₵ {data.price}

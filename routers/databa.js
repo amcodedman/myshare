@@ -6,6 +6,7 @@ const {
   ContentModel,
   pointsModel,
   controlv,
+  CouponGen,
 } = require("./../models/Database");
 
 const express = require("express");
@@ -35,6 +36,181 @@ routes.route("/createsection").post(async (req, res) => {
     console.log(error)
   }
 });
+
+
+
+routes.route("/generatecoupons").post(
+  async(req,res)=>{
+
+try{
+  function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  var randomname=["","SANA","CODED","KOBBY","THEHUB","MYSHARE","MESHARE","UG","THECONNECT"]
+let generatecount=1;
+
+if(req.body.count){
+  generatecount=req.body.count;
+
+}
+
+
+for(let i=0; i<generatecount; i++){
+ 
+  var pickname=randomname[getRandomNumber(1,randomname.length)]
+  const mycoupon=pickname+ getRandomNumber(1000,50000);
+  const coupon=new CouponGen({
+    name:mycoupon,
+    ...req.body
+  });
+  
+
+  
+ await coupon.save()
+
+
+}
+
+
+const mycoupons=await  CouponGen.find();
+res.status(200).json(mycoupons);
+
+
+
+}
+catch(error){
+
+  res.status(500).json({msg:error})
+  console.log(error);
+
+
+}
+
+  }
+)
+
+routes.route("/getcoupons").get(
+  async(req,res)=>{
+
+try{
+const coupon=await CouponGen.find();
+console.log("mycoupons")
+if(coupon){
+  res.status(200).json(coupon);
+}
+
+if(!coupon){
+
+  res.status(404).json({msg: "Coupons not found"});
+}
+}
+catch(error){
+
+  res.status(500).json({msg:error})
+
+
+}
+
+  }
+)
+
+routes.route("/getcoupon").get(
+  async(req,res)=>{
+
+try{
+
+const coupon=await CouponGen.findOne({"name":req.body.name});
+
+if(coupon){
+  res.status(200).json(coupon);
+}
+
+if(!coupon){
+
+  res.status(404).json({msg: "Coupon not found"});
+}
+}
+catch(error){
+
+  res.status(500).json({msg:error})
+
+
+}
+
+  }
+)
+
+
+routes.route("/applycoupon").patch(
+  async(req,res)=>{
+
+try{
+  const couponone=await CouponGen.findOne({"name":req.body.name});
+  if(
+    couponone 
+  ){
+    const _id=couponone._id
+    const coupon=await CouponGen.findByIdAndUpdate({_id},{
+      "$set":{
+        expired:true
+
+      }
+    },{new:true})
+    res.status(200).json(coupon)
+  }
+  else{
+    res.status(400).json({msg:"coupon not found"})
+  }
+}
+catch(error){
+  res.status(500).json({msg:error})
+}
+
+  }
+)
+routes.route("/deletecoupon/:id").delete(
+  async(req,res)=>{
+
+
+try{
+
+  console.log(req.params);
+  const couponone=await CouponGen.findOne({"name":req.params.id});
+  if(
+    couponone 
+  ){
+    const _id=couponone._id
+    const coupon=await CouponGen.findByIdAndDelete({_id});
+    res.status(200).json({msg:"coupon deleted"})
+  }
+  else{
+    res.status(400).json({msg:"coupon not found"});
+  }
+
+}
+catch(error){
+  res.status(500).json({msg:error})
+}
+  }
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 routes.route("/createcontent").post(async (req, res) => {
   try {

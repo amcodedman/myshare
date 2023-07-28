@@ -103,6 +103,10 @@ const CourseSchema = mongoose.Schema({
       ref: "users",
     },
   ],
+  feature:{
+    type:Number,
+    default: 0,
+  },
   comments: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -137,6 +141,26 @@ const commentSchema = mongoose.Schema(
 );
 
 
+const couponSchma=mongoose.Schema({
+  name:{
+
+    type:String,
+  },
+
+  amount:{
+    type:String,
+
+  },
+  expired:{
+    type:Boolean,
+    default:false,
+
+  }
+
+
+})
+
+
 const sitecontrols=mongoose.Schema({
 
 vpnaccess:{
@@ -153,16 +177,13 @@ type:Number
 }
 })
 
-
-
-
-
 const SectionModel = mongoose.model("sections", sectionSchema);
 const ContentModel = mongoose.model("contents", contentSchema);
 const pointsModel = mongoose.model("points", pointSchema);
 const commentsModel = mongoose.model("comments", commentSchema);
 const CourseModel = mongoose.model("courses", CourseSchema);
 const controlv=mongoose.model("controlv",sitecontrols);
+const CouponGen=mongoose.model("coupons",couponSchma);
 
 
 module.exports={
@@ -171,5 +192,6 @@ module.exports={
     pointsModel,
     commentsModel,
     CourseModel
-    ,controlv
+    ,controlv,
+    CouponGen
 }

@@ -11,6 +11,7 @@ import coursesl from "./allcourses";
 import newCourse from "./newcourse";
 import newSection from "./newsection";
 import ControlVersion from "./control";
+import tokens from "./coupons";
 
 const appReducers=combineReducers({
     personal,
@@ -21,6 +22,8 @@ const appReducers=combineReducers({
     newCourse,
     newContents,newSection,coursesl,
     ControlVersion
+    ,
+    tokens
 })
 
 export default appReducers

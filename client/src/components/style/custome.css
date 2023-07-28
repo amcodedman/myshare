@@ -1418,12 +1418,32 @@ margin-top: 20px;
   align-items: center;
   font-family: Roboto condensed;
 }
+.gearing{
+
+-webkit-animation: Move_gear 1s linear infinite;
+animation: Move_gear 1s linear infinite;
+
+}
+@keyframes Move_gear {
+  0%{
+    transform: rotate(180deg);
+
+  }
+100%{
+ 
+
+}
+
+
+  
+}
 
 .courselabel h1{
 
 
-
-  color: rgb(59, 56, 56);
+  color: rgb(6, 5, 15);
+  font-size: 23px;
+  font-weight: bold;
 }
 .plabel{
   color:rgb(6, 126, 126);
@@ -1488,10 +1508,47 @@ font-size: 25;
   transform: scale(1.4);
   cursor: pointer;
   }
-
+.gridlayout{
+  display:grid;
+  grid-template-columns: repeat(4,3fr );
+}
   .btnlabel hover{
     transition: 1 ease-in-out;
     transform: scale(1.4);
+}
+
+.couponcontainer{
+
+  background-color: darkgoldenrod;
+  padding: 20px;
+  font-family: Roboto condensed;
+  font-weight: bold;
+  margin: 30px;
+  border-radius: 10px;
+  color: rgb(12, 10, 22);
+  cursor: pointer;
+  box-shadow: 2px 2px 16px 6px rgb(204, 203, 206);
+  transition: 2s ease-in-out;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 60px;
+  width: 180px;
+  font-size: 14px;
+ 
+
+}
+.couponcontainer span{
+  margin-right: 10px;
+}
+
+.couponcontainer:hover{
+  color: rgb(212, 212, 213);
+  background-color: rgb(75, 55, 4);
+  transition: 2s ease-in-out;
+  transform: scale(1.1);
+
+
 }
 .btnss{
   display: flex;

@@ -78,6 +78,9 @@ active:{
     type:String,
     default:true
 },
+credit:{
+    type:Number
+}
 
 
 

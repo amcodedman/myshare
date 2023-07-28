@@ -119,7 +119,7 @@ const MyPanel= () => {
                     <span className="p_span">Accounts</span>
                  
                     <span className="p_span">Sign out</span>
-                    <span className="p_span"   onClick={() => navigate("/user/myaccount/cart")}>Coupon Generation</span>
+                    <span className="p_span"    onClick={() => navigate("/mainadim/generatetokens")}>Coupon Generation</span>
                   </div>
                 </div>
                 </div>

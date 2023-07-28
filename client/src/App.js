@@ -32,6 +32,7 @@ import CreateSections from "./components/utils/createsection";
 import Mycourses from "./components/backend/mycourses";
 import CourseDetail from "./components/backend/viewDetailCourse";
 import ControlVersion from "./components/backend/controlversion";
+import CouponPage from "./components/backend/couponGen";
 
 function App() {
   const notifications =useSelector((value)=>value.notification);
@@ -83,8 +84,7 @@ element={<Home/>}/>
 <Route  path="/mainadmin/creatorcourses" element={<Mycourses/>}></Route>
 <Route  path="/mainadmin/singlecourse/:id" element={<CourseDetail/>}></Route>
 <Route  path="/mainadmin/controlversion" element={<ControlVersion/>}></Route>
-
-
+<Route  path="/mainadim/generatetokens" element={<CouponPage/>}></Route>
 </Routes>
 <ToastContainer/>
    </BrowserRouter>
