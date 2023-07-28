@@ -16,3 +16,4 @@ export const MAIN_COURSE="main_course";
 export const SECTIONS="sectionss";
 export const CONTENTS="contents";
 export const  COURSES="allcourse"
+export const ACCESSCONTROL="accesscontrol";

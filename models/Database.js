@@ -137,12 +137,32 @@ const commentSchema = mongoose.Schema(
 );
 
 
+const sitecontrols=mongoose.Schema({
+
+vpnaccess:{
+  type:Number,
+  default:1
+
+}
+,
+topads:{
+  type:String
+},
+adscount:{
+type:Number
+}
+})
+
+
+
+
 
 const SectionModel = mongoose.model("sections", sectionSchema);
 const ContentModel = mongoose.model("contents", contentSchema);
 const pointsModel = mongoose.model("points", pointSchema);
 const commentsModel = mongoose.model("comments", commentSchema);
 const CourseModel = mongoose.model("courses", CourseSchema);
+const controlv=mongoose.model("controlv",sitecontrols);
 
 
 module.exports={
@@ -151,4 +171,5 @@ module.exports={
     pointsModel,
     commentsModel,
     CourseModel
+    ,controlv
 }

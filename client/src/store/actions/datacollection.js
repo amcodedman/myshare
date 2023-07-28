@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as notify from "./notification";
 
-const {  MAIN_COURSE, CONTENTS, SECTIONS,COURSES } = require("../type");
+const {  MAIN_COURSE, CONTENTS, SECTIONS,COURSES ,ACCESSCONTROL} = require("../type");
 
 
 export const maincourse = (data) => ({
@@ -9,6 +9,15 @@ export const maincourse = (data) => ({
   payload: data,
 });
 
+
+export  const controlv=(data) => ({
+
+
+
+  type:ACCESSCONTROL ,
+  payload:data
+} 
+  )
 export const contents_new = (data) => ({
   type: CONTENTS,
   payload: data,
@@ -197,3 +206,38 @@ export const addContents = (data) => {
     };
     
   
+
+
+    export const getControls=(id)=>{
+
+
+      return async(dispatch)=>{
+
+        try{
+          const result=await  axios.get("/data/getaccess");
+          dispatch(controlv(result.data[0]));
+
+        }catch(error){
+          
+        }
+      }
+
+    }
+    export const updateControls=(id,datacontrol)=>{
+
+
+      return async(dispatch)=>{
+
+        try{
+          const result=await  axios.patch(`/data/updatecontrols/${id}`,datacontrol);
+          dispatch(controlv(result.data));
+          dispatch(
+            notify.notify_success({
+              msg: `Updated !!`,
+            }));
+        }catch(error){
+          
+        }
+      }
+
+    }

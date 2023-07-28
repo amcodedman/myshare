@@ -3,23 +3,27 @@ import { RawToHtml } from "../utils/rawtohtml";
 import { IconButton } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 
-import { DeleteCourse, getCourses ,getCourse} from "../../store/actions/datacollection";
+import { DeleteCourse, getCourses ,getCourse, DeleteSection, DeleteContent} from "../../store/actions/datacollection";
 import { PushSpinner } from "react-spinners-kit";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useParams,} from "react-router-dom";
+import { useNavigate, useParams,} from "react-router-dom";
 import LoaderView from "../utils/loaderView"
 import AddContentReuse from "../addcontentreuse";
-
+import { Arrow90degLeft } from "react-bootstrap-icons";
+import AddSectionsResuse from "../utils/reuseasddsection";
 
 
 const CourseDetail = () => {
     const cours = useSelector((value) => value.newCourse);
     const [mycourse,setcourse]=useState(null);
     const [action,setaction]=useState(null);
+    const [contentheader,setheader]=useState(null);
+    const [contentid,setcontentid]=useState(null);
     const {id}=useParams()
   
 
+    const navigate=useNavigate();
 
   const [loadingbtn, setloadbtn] = useState(false);
   const notifications = useSelector((value) => value.notification);
@@ -48,10 +52,16 @@ const CourseDetail = () => {
   const Displayeditor=()=>{
     if(action=="newcontent"){
         return( 
-            <AddContentReuse/>
+            <AddContentReuse id={id}/>
         )
     }
-    if(action=="editcontent"){
+    if(action=="newsection"){
+      return(
+        <
+        AddSectionsResuse id={contentid}   header={contentheader}/>
+
+      )
+   
 
     }
   }
@@ -67,13 +77,30 @@ const CourseDetail = () => {
       className="profile_box_m_page"
       style={{ minHeight: `${window.innerHeight}px` }}
     >
-      <div className="profile_header">
-       
-      </div>
+    
+    <div  className="backlayout">
+    
+    <IconButton  
+      
+      onClick={()=>{
+        navigate("/mainadmin/creatorcourses")
+        
+      }}>  
+      
+      <Arrow90degLeft size={14} color="aqua"/>
+      </IconButton>
+
+      <span>Back</span>
+
+    </div>
+
+
       {mycourse ? 
 
         <div className=" courselabel">
+        <p>Title</p>
               <div className="coursecontrol">
+            
                 <p className="courseheader">{mycourse.title}</p>{" "}
                 <div className="btnss">
                  
@@ -97,8 +124,21 @@ const CourseDetail = () => {
                   )}
 
 
-                  <span className="btnlabel">new content</span>
-                  <span className="btnlabel">Modify Details</span>
+                  <span className="btnlabel"
+                        onClick={()=>{
+                    setaction("newcontent");
+                    setTimeout(()=>{
+                      document.getElementById("editorspace").scrollIntoView({behavior:"smooth"});
+
+                    },500)
+                   
+                  }}
+                  
+                   >new content</span>
+                  <span className="btnlabel"
+             
+                  >Modify Details</span>
+                  <span className="btnlabel">feature</span>
                 </div>{" "}
               </div>
 
@@ -140,9 +180,27 @@ const CourseDetail = () => {
                         <h1>{contents.title}</h1>
                        
                        <div>
-                       <span className="btnlabel">Add section</span>
+                       <span className="btnlabel"
+                       onClick={()=>{
+                        setheader(contents.title)
+                        setcontentid(contents._id)
+                        setaction("newsection");
+                    setTimeout(()=>{
+                      document.getElementById("editorspace").scrollIntoView({behavior:"smooth"});
+
+                    },500)
+                        
+                       }}
+                       
+                       
+                       
+                       >Add section</span>
                        <span className="btnlabel">Modify</span>
-                        <span className="btnlabel">Delete </span>
+                        <span
+                        onClick={()=>{
+                          dispatch(DeleteContent(contents._id))
+                        }}
+                         className="btnlabel_delete">Delete content </span>
                        </div>
                         </div>
                  
@@ -164,11 +222,15 @@ const CourseDetail = () => {
                                       
                                         <div className="coursecontrol">
 
-                                       <span className="btnlabel">Modify {section.title}</span>
+                              
+                                        <span
+                                        onClick={()=>{
+                                          dispatch(DeleteSection(section._id))
+                                        }}
+                                         className="btnlabel_delete">Delete</span>
 
-                                        <span className="btnlabel">Delete</span>
-
-                                        </div>  
+                                        </div> 
+                                        <div className="dividerline"></div> 
                                       </div>
                                     );
                                   }
@@ -182,18 +244,24 @@ const CourseDetail = () => {
               </div>
 
 <div>
-    <h1>Students:  </h1>
-    <p>Comments:  </p>
 
 
 </div>
-             
+
             </div>
        : (
         <div>
           <p>No courses</p>
         </div>
       )}
+
+
+    <div >{ Displayeditor()}</div> 
+
+      <h1>Students:  </h1>
+      <div id="editorspace"></div>
+    <p>Comments:  </p>
+   
     </div>
     :
     <LoaderView/>

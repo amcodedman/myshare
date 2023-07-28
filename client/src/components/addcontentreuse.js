@@ -59,7 +59,8 @@ const Formik = useFormik({
     return(
        
         
-        <div className="update_formscontent">
+        <div className="resuseformscontent">
+        <span>Add new Content</span>
 
     <form onSubmit={Formik.handleSubmit} className="myformadmin">
           <div className='fieldlayout'>

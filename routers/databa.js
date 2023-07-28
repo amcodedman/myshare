@@ -5,6 +5,7 @@ const {
   CourseModel,
   ContentModel,
   pointsModel,
+  controlv,
 } = require("./../models/Database");
 
 const express = require("express");
@@ -282,13 +283,14 @@ routes.route("/deletesection/:id").delete(async (req, res) => {
     }
   });
   
-  routes.route("deletecontent/:id").delete(async (req, res) => {
+  routes.route("/deletecontent/:id").delete(async (req, res) => {
     try {
       const _id = req.params.id;
       const data = await ContentModel.findByIdAndDelete({_id})
       res.status(200).json(data);
     } catch (error) {
       res.status(400).json({ msg: error });
+      console.log(error);
     }
   });
   
@@ -302,4 +304,78 @@ routes.route("/deletesection/:id").delete(async (req, res) => {
       res.status(400).json({ msg: error });
     }
   });
+
+
+
+  routes.route("/mangecontrolv").post(
+    async(req,res)=>{
+      try{
+
+        const addcontrols=new controlv(
+        {  ...req.body}
+        )
+
+
+        const data=await addcontrols.save();
+        res.status(200).json(data)
+
+      }
+
+      catch(error){
+        res.status(400).json({msg:"Unsuccessful"})
+        console.log(error);
+
+      }
+    }
+  )
+
+routes.route("/updatecontrols/:id")
+.patch(async(req,res)=>{
+  try{
+
+    const data=await controlv.findByIdAndUpdate({_id:req.params.id},{
+
+      "$set":{
+        ...req.body
+      }
+    },{new:true})
+
+
+
+    res.status(200).json(data);
+
+  }
+
+
+
+
+  catch(error){
+
+res.status(400).json({msg:"Unsuccessful"})
+
+  }
+})
+
+
+
+
+routes.route("/getaccess").get(
+  async(
+
+req,res
+
+  )=>{
+    try{
+
+
+    const control=await controlv.find({});
+    res.status(200).json(control);
+
+    }catch(err){
+
+res.status(400).json(err);
+
+    }
+  }
+)
 module.exports = routes;

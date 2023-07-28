@@ -106,12 +106,12 @@ const MyPanel= () => {
                     
                     <span
                       className="p_span"
-                      onClick={() => navigate("/user/myaccount/accountsettings")}
+                      onClick={() => navigate("/mainadmin/controlversion")}
                     >
                       Access Control Management
                     </span>
                     <span
-                      className="p_span"
+                   className="p_span"
                       onClick={() => navigate("/mainadmin/creatorcourses")}
                     >
                       All Courses

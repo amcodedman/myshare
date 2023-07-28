@@ -31,6 +31,7 @@ import MyPanel from "./components/backend/mainpanel";
 import CreateSections from "./components/utils/createsection";
 import Mycourses from "./components/backend/mycourses";
 import CourseDetail from "./components/backend/viewDetailCourse";
+import ControlVersion from "./components/backend/controlversion";
 
 function App() {
   const notifications =useSelector((value)=>value.notification);
@@ -81,6 +82,7 @@ element={<Home/>}/>
 <Route path="/dash" element={   <CreateSections/> }></Route>
 <Route  path="/mainadmin/creatorcourses" element={<Mycourses/>}></Route>
 <Route  path="/mainadmin/singlecourse/:id" element={<CourseDetail/>}></Route>
+<Route  path="/mainadmin/controlversion" element={<ControlVersion/>}></Route>
 
 
 </Routes>
