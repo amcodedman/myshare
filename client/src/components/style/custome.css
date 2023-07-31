@@ -459,10 +459,18 @@ margin-left: 80px;
   flex-direction: row;
   justify-content: space-between;
   font-family: Roboto condensed;
+  margin-bottom: 5px;
+  font-size: 15px
+}
+.linebtn{
+  width: 100%;
+  height: 1px;
+  background-color: rgb(238, 238, 238);
 }
 .content_layout:hover {
-  color: rgb(135, 245, 245);
+ color: rgb(1, 1, 18);
   cursor: pointer;
+  font-weight: bold;
 }
 .userlog span {
   margin: 0 5px 0 5px;
@@ -913,8 +921,10 @@ color: red;
   margin-left: 10px;
   margin-bottom: 20px;
 }
+
 .layoutspac {
   margin-right: 20px;
+ 
 }
 .layoutspac p {
   margin-right: 20px;
@@ -927,14 +937,41 @@ color: red;
   font-weight: bold;
   font-size: 13px;
 }
+
+
 .coursepreCstylef {
-  width: 20%;
+
   height: 100%;
+  margin-bottom: 20px;
+
+}
+.loadmorebtn{
+  margin-top: 30px;
+  font-weight: bold;
+  color:rgb(1, 1, 10);
+  cursor: pointer;
+  background-color: rgb(229, 242, 249);
+  padding:10px;
+  font-size: 13px;
+  border-radius: 5px;
+
+
+  
+}
+.loadmorebtn:hover{
+
+transition: 2s ease-in-out;
+  background-color: rgb(177, 175, 175);
+
+
+  
 }
 .coursepreCbox {
   width: 100%;
   height: 200px;
   border: 1px solid rgb(219, 219, 219);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .courserate {
   margin-left: 10px;
@@ -1109,10 +1146,9 @@ color: red;
   font-size: 20px;
 }
 .layouttest {
-  display: flex;
+  display: grid;
   flex-direction: row;
-  justify-content: left;
-  align-items: center;
+  grid-template-columns: repeat(4,3fr );
 }
 .usertest {
   margin-left: 30px;
@@ -1231,10 +1267,9 @@ color: red;
 }
 .profile_box_m{
   width: 85%;
-
  
-
 }
+
 .profile_box_m_admin{
   width: 95%;
   min-height: 600px;
@@ -1468,16 +1503,42 @@ font-size: 25;
   margin-top: 50px;
 }
 .contentslabel{
-  background-color: aqua;
-  width: 150px;
+  transition: 2s ease-in-out;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 4px 2px 4px rgb(232, 231, 231) ;
+
   border-radius: 5px;
   padding: 5px;
   margin-top:-20px;
   margin-left: 20px;
+  cursor: pointer;
 }
+.contentslabel:hover{
+  transition: 2s ease-in-out;
+  background-color: rgb(45, 54, 54);
+color:white;
+}
+
+
+
+.contentslabel_s{
+  transition: 2s ease-in-out;
+  background-color: rgb(161, 161, 161);
+
+  border-radius: 5px;
+  padding: 5px;
+  margin-top:-20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.contentslabel_s:hover{
+  transition: 2s ease-in-out;
+  background-color: aqua;
+color:rgb(23, 19, 19);
+}
+
 .btnlabel{
   background-color: rgb(48, 49, 49);
-  width: 150px;
   border-radius: 5px;
   color:white;
   padding: 5px;
@@ -1485,6 +1546,7 @@ font-size: 25;
   margin-left: 20px; 
   cursor: pointer;
 }
+
 
 .dividerline{
   width:98%;
@@ -1495,7 +1557,7 @@ font-size: 25;
 }
 .btnlabel_delete{
   background-color: rgb(89, 14, 28);
-  width: 150px;
+
   border-radius: 5px;
   color:white;
   padding: 5px;

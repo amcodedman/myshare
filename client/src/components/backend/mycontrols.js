@@ -35,7 +35,7 @@ const Mycontrolspage = () => {
       setcount(sitecontrols.control.adscount);
       setid(sitecontrols.control._id);
     }
-    console.log(adscount);
+  
   });
   const notifications = useSelector((value) => value.notification);
   useEffect(() => {

@@ -3,19 +3,20 @@ import { RawToHtml } from "../utils/rawtohtml";
 import { IconButton } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 
-import { DeleteCourse, getCourses ,getCourse, DeleteSection, DeleteContent} from "../../store/actions/datacollection";
+import { DeleteCourse, getCourses ,getCourse, DeleteSection, DeleteContent, clearCourse,updateCourse} from "../../store/actions/datacollection";
 import { PushSpinner } from "react-spinners-kit";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useNavigate, useParams,} from "react-router-dom";
 import LoaderView from "../utils/loaderView"
 import AddContentReuse from "../addcontentreuse";
-import { Arrow90degLeft } from "react-bootstrap-icons";
+import { Arrow90degLeft, ArrowDownShort, ArrowUpShort } from "react-bootstrap-icons";
 import AddSectionsResuse from "../utils/reuseasddsection";
+import UpdateCourse from "../utils/rupdatecourse";
 
 
 const CourseDetail = () => {
-    const cours = useSelector((value) => value.newCourse);
+    const cours = useSelector((value) => value.Cours);
     const [mycourse,setcourse]=useState(null);
     const [action,setaction]=useState(null);
     const [contentheader,setheader]=useState(null);
@@ -26,6 +27,9 @@ const CourseDetail = () => {
     const navigate=useNavigate();
 
   const [loadingbtn, setloadbtn] = useState(false);
+  const [ content_id, setcontent_id]=useState(null);
+  const [showsection,setshow]=useState(false);
+
   const notifications = useSelector((value) => value.notification);
   useEffect(() => {
     if (notifications && notifications.notice) {
@@ -37,7 +41,7 @@ const CourseDetail = () => {
   useEffect(() => {
     dispatch(getCourse(id));
    
-  });
+  },[dispatch,id]);
 
 
   useEffect(()=>{
@@ -59,6 +63,16 @@ const CourseDetail = () => {
       return(
         <
         AddSectionsResuse id={contentid}   header={contentheader}/>
+
+      )
+   
+
+
+    }
+    if(action=="updatecourse"){
+      return(
+        <
+        UpdateCourse id={mycourse ? mycourse._id :""}   course={mycourse}/>
 
       )
    
@@ -90,7 +104,10 @@ const CourseDetail = () => {
       <Arrow90degLeft size={14} color="aqua"/>
       </IconButton>
 
-      <span>Back</span>
+      <span
+      onClick={()=>{
+        dispatch(clearCourse());
+      }}>Back</span>
 
     </div>
 
@@ -135,10 +152,37 @@ const CourseDetail = () => {
                   }}
                   
                    >new content</span>
-                  <span className="btnlabel"
+                  <span
+                    className="btnlabel"
+
+                    onClick={()=>{
+                    setaction("updatecourse");
+                    setTimeout(()=>{
+                      document.getElementById("editorspace").scrollIntoView({behavior:"smooth"});
+
+                    },500)
+                   
+                  }}
              
                   >Modify Details</span>
-                  <span className="btnlabel">feature</span>
+                  {
+                    mycourse.feature?
+                    <span 
+                  onClick={()=>{
+                    dispatch(updateCourse(mycourse._id,{"feature":false}))
+                  }}
+                    className="contentslabel">featured</span>
+                    :
+                    <span 
+                     onClick={()=>{
+                    dispatch(updateCourse(mycourse._id,{"feature":true}))
+                  }}
+                    className="contentslabel_s">Add feature</span>
+
+
+
+                  }
+                 
                 </div>{" "}
               </div>
 
@@ -195,7 +239,7 @@ const CourseDetail = () => {
                        
                        
                        >Add section</span>
-                       <span className="btnlabel">Modify</span>
+                       <span   className="btnlabel">Modify</span>
                         <span
                         onClick={()=>{
                           dispatch(DeleteContent(contents._id))
@@ -208,11 +252,39 @@ const CourseDetail = () => {
                           <p>{contents.abstract} </p>
                           
                           <div>
-                             <span className="contentslabel">
-                              Contents Sections
+                          {
+                            showsection && content_id==contents._id ?
+                            <span 
+                               onClick={()=>{
+                            
+                              setshow(false)
+                              
+                            }}
+                            className="contentslabel_s">
+                             Close Sections <ArrowUpShort/>
                             </span>
+                        
+                          :
 
-                            {contents.sections.length > 0
+                          <span
+                            onClick={()=>{
+                              setcontent_id(contents._id);
+                              setshow(true)
+                              
+                            }}
+                             className="contentslabel">
+                             Show Sections <ArrowDownShort/>
+                            </span>
+                           
+
+                          }
+                            
+
+{
+  showsection && content_id==contents._id ?
+<>
+
+{contents.sections.length > 0
                               ? contents.sections.map(
                                   (section, sectionindex) => {
                                     return (
@@ -236,6 +308,10 @@ const CourseDetail = () => {
                                   }
                                 )
                               : null}
+</>
+:null
+  
+}
                           </div>
                         </div>
                       );

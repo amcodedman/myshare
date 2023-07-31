@@ -71,4 +71,4 @@ if(process.env.NODE_ENV==="production"){
 
 }
 
-console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
+

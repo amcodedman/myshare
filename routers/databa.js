@@ -8,7 +8,7 @@ const {
   controlv,
   CouponGen,
 } = require("./../models/Database");
-
+const { sortArticles } = require("../middleware/utils");
 const express = require("express");
 const routes = express.Router();
 /** creation */
@@ -174,7 +174,7 @@ routes.route("/deletecoupon/:id").delete(
 
 try{
 
-  console.log(req.params);
+
   const couponone=await CouponGen.findOne({"name":req.params.id});
   if(
     couponone 
@@ -313,6 +313,27 @@ routes.route("/getcontents").get(async (req, res) => {
   }
 });
 
+routes.route("/getcoursespaginate").post(async (req, res) => {
+  try {
+
+    let sortArgs = sortArticles(req.body);
+
+      const data = await CourseModel.find({}) .sort([[sortArgs.sortBy, sortArgs.order]])
+    .skip(sortArgs.skip)
+    .limit(sortArgs.limit)
+      .populate("students")
+      .populate("expections")
+      .populate({ path: "contents", populate: { path: "sections" } })
+      .populate("comments");
+
+    res.status(200).json(data);
+    
+  } catch (error) {
+    res.status(400).json({ msg: error });
+ console.log(error);
+  }
+});
+
 routes.route("/getcourses").get(async (req, res) => {
   try {
     const data = await CourseModel.find({})
@@ -422,6 +443,7 @@ routes.route("/modifysection/:id").patch(async (req, res) => {
   routes.route("/modifycourse/:id").patch(async (req, res) => {
     try {
       const _id = req.params.id;
+      console.log(req.body);
       const data = await CourseModel.findByIdAndUpdate({_id},{
         $set:{
             ...req.body
@@ -431,6 +453,7 @@ routes.route("/modifysection/:id").patch(async (req, res) => {
       res.status(200).json(data);
     } catch (error) {
       res.status(400).json({ msg: error });
+
     }
   });
   

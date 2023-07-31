@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as notify from "./notification";
 
-const {  MAIN_COURSE, CONTENTS, SECTIONS,COURSES ,ACCESSCONTROL,ALLCOUPONS} = require("../type");
+const {  COURSESP,COURSEBYID,MAIN_COURSE, CONTENTS, SECTIONS,COURSES ,ACCESSCONTROL,ALLCOUPONS} = require("../type");
 
 
 export const maincourse = (data) => ({
@@ -9,6 +9,10 @@ export const maincourse = (data) => ({
   payload: data,
 });
 
+export const coursebyid = (data) => ({
+  type: COURSEBYID,
+  payload: data,
+});
 
 export  const controlv=(data) => ({
 
@@ -36,6 +40,10 @@ export const section_new = (data) => ({
   });
   
 
+  export const AllcourseP = (data) => ({
+    type:COURSESP,
+    payload: data,
+  });
 
 
 
@@ -56,7 +64,7 @@ axios.defaults.headers.post["Content-Type"] = "application/json";
 export const AddCourseServer = (data) => {
   return async (dispatch, getdispatch) => {
     try {
-      console.log("rev")
+     
       const newd = await axios.post("/data/addcourse", data);
     
       dispatch(
@@ -66,7 +74,7 @@ export const AddCourseServer = (data) => {
         notify.notify_success({
           msg: `new Course Add !!`,
         }))
-        console.log({msg:newd.data})
+      
     } catch (error) {
       console.log(error.response.data);
     }
@@ -105,7 +113,7 @@ export const addContents = (data) => {
          contents_new({content:newd.data})
 
         );
-        console.log(newd.data)
+      
         dispatch(
             notify.notify_success({
               msg: `Add !`,
@@ -190,14 +198,60 @@ export const addContents = (data) => {
         try {
           const newd = await axios.get(`/data/getcourses`);
           dispatch(
-            Allcourse({courses:newd.data})
+            Allcourse(newd.data)
           );
-          console.log(newd.data)
+      
         } catch (error) {
           console.log(error.response.data);
         }
       };
     };
+
+
+
+
+
+
+
+    export const getCoursesP = (data) => {
+      return async (dispatch, getdispatch) => {
+        try {
+     
+          const newd = await axios.post(`/data/getcoursespaginate`,data);
+       
+
+        let newdata=[...newd.data]; 
+   
+          const prevdata=getdispatch().coursesp
+          if(prevdata){
+            newdata=[...prevdata.AllcourseP,...newd.data];
+  
+
+        }
+       
+        dispatch(
+          AllcourseP(newdata)
+        );
+
+        
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     export const getCoupons= () => {
       return async (dispatch, getdispatch) => {
@@ -208,7 +262,7 @@ export const addContents = (data) => {
             Allcoupons(newd.data)
           );
 
-          console.log(newd.data);
+      
         } catch (error) {
           console.log(error.response.data);
         }
@@ -243,7 +297,7 @@ export const addContents = (data) => {
   export const Deletecoupon = (data) => {
     return async (dispatch, getdispatch) => {
       try {
-        console.log(data);
+    
         const newd = await axios.delete(`/data/deletecoupon/${data}`,{name:"dddd"});
 
         dispatch(
@@ -312,12 +366,52 @@ export const addContents = (data) => {
           const newd = await axios.get(`/data/getcourse/${id}`);
           
       dispatch(
-        maincourse({course:newd.data})
+        coursebyid({course:newd.data})
 
       );
 
 
-          console.log({"REPLACE":newd.data})
+        } catch (error) {
+          console.log(error.response.data);
+        }
+      };
+    };
+
+
+
+    export const updateCourse = (id,data) => {
+      return async (dispatch, getdispatch) => {
+        try {
+        
+          const newd = await axios.patch(`/data/modifycourse/${id}`,data);
+          
+      dispatch(
+        coursebyid({course:newd.data})
+      );
+
+
+
+      dispatch(
+        notify.notify_success({
+          msg: `Updated !!`,
+        }));
+
+        } catch (error) {
+          console.log(error.response.data);
+        }
+      };
+    };
+    export const clearCourse = (id) => {
+      return async (dispatch, getdispatch) => {
+        try {
+    
+          
+      dispatch(
+        coursebyid(null)
+
+      );
+
+
         } catch (error) {
           console.log(error.response.data);
         }

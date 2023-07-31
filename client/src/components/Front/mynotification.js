@@ -34,7 +34,7 @@ const UserNotification = () => {
         setemail(Checkuser.account.email)
       }
     }
-    console.log({fn,ln})  
+  
   });
   const notifications = useSelector((value) => value.notification);
   useEffect(() => {

@@ -41,7 +41,7 @@ const Forgotpass = () => {
      
     }),
     onSubmit: (value) => {
-      console.log(value);
+    
       setload(true);
       dispatch(SendresetLink(value));
     },

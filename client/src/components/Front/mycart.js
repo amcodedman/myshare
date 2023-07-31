@@ -18,7 +18,7 @@ import { StarFill, StarHalf, Check } from "react-bootstrap-icons";
 const MyCart = () => {
   const [promocode, setcode] = useState();
   const ApplyCoupon = () => {
-    console.log(promocode);
+  
   };
   const dispatch = useDispatch();
   const Checkuser = useSelector((item) => item.authuser);

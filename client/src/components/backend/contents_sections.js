@@ -41,7 +41,7 @@ const CourseContent = (props) => {
    }
   })
   useEffect(()=>{
-    console.log({"course":courseid})
+  
     dispatch(getCourse(courseid));
   
   },[dispatch,courseid])

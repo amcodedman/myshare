@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import { Lock, Search } from "react-bootstrap-icons";
 import { Avatar, IconButton } from "@mui/material";
@@ -20,9 +20,33 @@ import ProfileNav from "../utils/ProfileBar";
 import TopNav from "../utils/pagenav";
 import AdsFrontf from "./adsfrontf";
 import FreezePage from "./Pagefreeze";
+import { getCourses, getCoursesP } from "../../store/actions/datacollection";
 
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const courses = useSelector((value) => value.coursesl);
+  const init_sort={ sortBy: '_id', order: 'desc', limit: 4, skip: 0}
+  const [sort,Setsort] =useReducer((state, new_sort)=>({...state,new_sort}),init_sort)
+  const Loadmore=() => {
+    const Skip = sort.skip + sort.limit
+    Setsort({skip: Skip})
+    //dispatch(All_tickets({sort, skip: Skip}))
+}
+
+
+
+
+  useEffect(()=>{
+    dispatch(
+      getCourses()
+    )
+  })
+
+
+
+
+
 
   const [loading, setload] = useState(true);
   const Checkuser = useSelector((item) => item.authuser);
@@ -33,13 +57,16 @@ const Home = () => {
   const [cat, setcat] = useState(false);
   const [alertProfile, setprofile] = useState(false);
   const [catsub, setsub] = useState(false);
-  const dispatch = useDispatch();
+
   const location = useSelector((item) => item.geodetails);
 
   useEffect(() => {
     if (location) {
-      if (location.GEOD !==null) {
-        setload(false);
+      if (location.GEOD !==null ) {
+        if(courses){
+          setload(false);
+        }
+    
       
        
       }
@@ -139,70 +166,7 @@ const Home = () => {
             <TopCate />
             {alertProfile ? <ProfileNav  fn={fn} ln={ln} email={email}/> : null}
 
-            <div
-              className="homeContent"
-              style={{
-                backgroundImage: `url('https://cdn.pixabay.com/photo/2017/07/31/11/46/laptop-2557586_1280.jpg')`,
-              }}
-            >
-              <div className="hcontent_l">
-                <p>
-                  Hi there, Join the Content sharing Revolution Powered By
-                  Secure access
-                </p>
-                <div className="hcontent_l_intro">
-                  <span>
-                    Introducing the dawn of a revolutionary era in content
-                    sharing! Unlock the power of secure access and embark on a
-                    journey that will redefine the way you connect, collaborate,
-                    and explore. Join our vibrant community and be part of a
-                    digital revolution that ensures your privacy and protection
-                    are paramount. With cutting-edge technology and a seamless
-                    user experience, our platform invites you to discover a
-                    world where sharing knowledge, creativity, and ideas knows
-                    no boundaries. It's time to elevate your content sharing
-                    game and embrace the future. Register now and experience the
-                    thrill of secure access like never before!
-                  </span>
-                  <span className="membershipbtn">Join Our membership</span>
-                </div>
-              </div>
-              <div className="hcontent_r">
-                <div className="lform"></div>
-                <div className="rform">
-                  <p>Share</p>
-                  <span className="uploadicon">Upload</span>
-                  <div className="uploadspace">
-                    <span>Choose a file</span>
-                    <span>*Required </span>
-                  </div>
-                  <div>
-                    <div className="progressicon">
-                      <p>
-                        <span className="percenticon">20%</span>
-                        progress
-                      </p>
-                      <div className="progressbar">
-                        <div className="fillprogress">dawn</div>
-                      </div>
-                      <span className="pause">Pause</span>
-                    </div>
-                    <div className="userDet">
-                      <p>
-                        <span>User ID</span> :1293**************
-                      </p>
-                    </div>
-
-                    <div>
-                      <span className="Lock">
-                        {" "}
-                        <Lock /> Submit
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+       
           </div>
           <div
             className="frontpage"

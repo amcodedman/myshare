@@ -104,8 +104,8 @@ const CourseSchema = mongoose.Schema({
     },
   ],
   feature:{
-    type:Number,
-    default: 0,
+    type:Boolean,
+    default: false,
   },
   comments: [
     {

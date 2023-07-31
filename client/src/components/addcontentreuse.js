@@ -60,7 +60,7 @@ const Formik = useFormik({
        
         
         <div className="resuseformscontent">
-        <span>Add new Content</span>
+        <span className='headername'>Add new Content</span>
 
     <form onSubmit={Formik.handleSubmit} className="myformadmin">
           <div className='fieldlayout'>

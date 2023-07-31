@@ -18,3 +18,5 @@ export const CONTENTS="contents";
 export const  COURSES="allcourse"
 export const ACCESSCONTROL="accesscontrol";
 export const ALLCOUPONS="allcOUPons";
+export const COURSEBYID="coursebyid"
+export const COURSESP="coursep"

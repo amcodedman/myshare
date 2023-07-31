@@ -1,7 +1,17 @@
-import React from "react";
-import { StarFill,StarHalf } from "react-bootstrap-icons";
+import React, { useEffect } from "react";
+import { StarFill, StarHalf } from "react-bootstrap-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { getCourses } from "../../store/actions/datacollection";
 
 const ContentPreview = () => {
+  const courses = useSelector((value) => value.coursesl);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCourses());
+  });
+
   return (
     <div
       className="homepreview"
@@ -16,8 +26,9 @@ const ContentPreview = () => {
             <span>Business</span>
             <span>Data Science</span>
           </div>
+
           <div className="coursepreviewmain">
-            <h1>Expand your career opportunities with Python</h1>
+            <h1>Expand your career opportunities in Programming</h1>
             <p>
               Take one of Udemy’s range of Python courses and learn how to code
               using this incredibly useful language. Its simple syntax and
@@ -29,74 +40,36 @@ const ContentPreview = () => {
             <span className="coursepreviewmainbtn">Checkout Python</span>
 
             <div className="coursepreC">
-              <div className="coursepreCstylef layoutspac">
-                <div className="coursepreCbox"></div>
-                <p>Automate the Boring Stuff with Python Programming</p>
+              <div className="layouttest">
+                {courses && courses.Allcourse
+                  ? courses.Allcourse.filter(
+                      (data) => data.maincategory ==="Programming"
+                    ).map((value, index) => {
+                      return (
+                        <div className="coursepreCstylef layoutspac">
+                        <div  style={{
+                backgroundImage: `url('${value.file}')`,
+              }}
+           className="coursepreCbox"></div>
+                 <p>{value.title}</p>
                 <p className="prevAuthor">
                   {" "}
                   <span>Author </span>Man coded
                 </p>
                 <div className="courserate">
-                  <span>4.6</span>
+                  <span>{value.rating}</span>
                   <span className="starrate">
                     <StarFill color=" rgb(153, 153, 0)" size={10} />
                     <StarFill color=" rgb(153, 153, 0)" size={10} />
-                    <StarFill color=" rgb(153, 153, 0)" size={10} />
+                    <StarFill color=" rgb(153, 153, 0.5)" size={10} />
                   </span>
                   <span>(1000)</span>
                 </div>
-              </div>
-
-              <div className="coursepreCstylef layoutspac">
-                <div className="coursepreCbox"></div>
-                <p>Automate the Boring Stuff with Python Programming</p>
-                <p className="prevAuthor">
-                  {" "}
-                  <span>Author </span>Man coded
-                </p>
-                <div className="courserate">
-                  <span>4.6</span>
-                  <span className="starrate">
-                    <StarFill color=" rgb(153, 153, 0)" size={10} />
-                    <StarFill color=" rgb(153, 153, 0)" size={10} />
-                    <StarFill color=" rgb(153, 153, 0)" size={10} />
-                  </span>
-                  <span>(1000)</span>
-                </div>
-              </div>
-              <div className="coursepreCstylef layoutspac">
-                <div className="coursepreCbox"></div>
-                <p>Automate the Boring Stuff with Python Programming</p>
-                <p className="prevAuthor">
-                  {" "}
-                  <span>Author </span>Man coded
-                </p>
-                <div className="courserate">
-                  <span>4.6</span>
-                  <span className="starrate">
-                    <StarFill color=" rgb(153, 153, 0)" size={10} />
-                    <StarFill color=" rgb(153, 153, 0)" size={10} />
-                    <StarFill color=" rgb(153, 153, 0)" size={10} />
-                  </span>
-                  <span>(1000)</span>
-                </div>
-              </div>
-              <div className="coursepreCstylef layoutspac">
-                <div className="coursepreCbox"></div>
-                <p>Automate the Boring Stuff with Python Programming</p>
-                <p className="prevAuthor">
-                  {" "}
-                  <span>Author </span>Man coded
-                </p>
-                <div className="courserate">
-                  <span>4.6</span>
-                  <span className="starrate">
-                    <StarFill color=" rgb(153, 153, 0)" size={10} />
-                    <StarFill color=" rgb(153, 153, 0)" size={10} />
-                    <StarFill color=" rgb(153, 153, 0)" size={10} />
-                  </span>
-                  <span>(1000)</span>
-                </div>
+                        </div>
+                      );
+                    })
+                  : null}
+              
               </div>
             </div>
           </div>

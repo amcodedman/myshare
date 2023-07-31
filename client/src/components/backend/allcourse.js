@@ -39,7 +39,7 @@ const Allcourss = () => {
         <h1>All Course</h1>
       </div>
       {courses && courses.Allcourse ? (
-        courses.Allcourse.courses.map((data, index) => {
+        courses.Allcourse.map((data, index) => {
           return (
             <div className=" courselabel" key={index} data-aos="fade-up">
             <p>No {index+1}</p>
