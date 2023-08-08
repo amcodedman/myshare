@@ -737,7 +737,22 @@ color: red;
   border-radius: 5px;
   background-color: rgb(70, 226, 226);
 }
+.layouturl{
+  display: flex;
+  flex-direction: row;  
+  font-family: Roboto condensed;
+  font-weight: bold;
+  color: rgb(2, 29, 52);
+  cursor: pointer;
+  transition: 1s ease-in-out;
+}
 
+.layouturl p:hover{
+
+  transition: 1s ease-in-out;
+  color: rgb(4, 109, 74);
+  cursor: pointer;
+}
 .frontpage {
   width: 98%;
   border-radius: 5px;
@@ -893,6 +908,7 @@ color: red;
   padding: 10px;
   border: 1px solid rgb(228, 225, 225);
   background-color: rgb(85, 241, 241);
+ 
   border-radius: 5px;
   transition: 1s ease-in-out;
 }
@@ -920,7 +936,11 @@ color: red;
   margin-top: 20px;
   margin-left: 10px;
   margin-bottom: 20px;
+  -webkit-animation: showcontent 1s ease-in-out ;
 }
+
+
+
 
 .layoutspac {
   margin-right: 20px;
@@ -944,6 +964,34 @@ color: red;
   height: 100%;
   margin-bottom: 20px;
 
+}
+
+
+
+.coursepreColumn {
+
+  height: 100%;
+  margin-bottom: 20px;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  border: 1px solid rgb(219, 219, 219);
+
+}
+
+
+.columntitle{
+  font-size: 22px;
+  font-family: Roboto condensed ;
+  font-weight: bold;
+}
+
+
+.columnabstract{
+  font-family: Roboto condensed ;
+ font-size: 18px;
+ color: rgb(77, 78, 78);
 }
 .loadmorebtn{
   margin-top: 30px;
@@ -972,6 +1020,18 @@ transition: 2s ease-in-out;
   border: 1px solid rgb(219, 219, 219);
   background-repeat: no-repeat;
   background-size: contain;
+}
+.layoutdetail{
+  width: 60%;
+}
+
+.coursepreCboxcolum {
+  width: 25%;
+  height: 200px;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 20px;
 }
 .courserate {
   margin-left: 10px;
@@ -1149,6 +1209,15 @@ transition: 2s ease-in-out;
   display: grid;
   flex-direction: row;
   grid-template-columns: repeat(4,3fr );
+}
+
+.layoutcolumn {
+  margin-top: 50px;
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+ justify-content: start;
+
 }
 .usertest {
   margin-left: 30px;
@@ -2024,6 +2093,16 @@ margin-top: -30px;font-size: 15px;
   flex-direction: column;
   height: 100%;
 }
+
+
+@keyframes showcontent {
+
+  0%{
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  
+}
 @keyframes topcat_anim {
   0% {
     transform: translateY(-150px);
@@ -2042,7 +2121,8 @@ margin-top: -30px;font-size: 15px;
     visibility: hidden;
   }
   100% {
-    transform: translateY(150px);
+    transform: translateY(100px);
+   
   }
 }
 

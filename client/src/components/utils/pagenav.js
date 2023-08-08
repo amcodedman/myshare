@@ -28,7 +28,7 @@ const TopNav=(props)=>{
         <div className="navbar">
               <div className="navcontainer">
                 <span className="sitename">
-                  <p>Thehub</p>
+                  <p>Myshare</p>
                 </span>
               </div>
               <div className="searchspace">

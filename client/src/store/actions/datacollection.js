@@ -76,7 +76,10 @@ export const AddCourseServer = (data) => {
         }))
       
     } catch (error) {
-      console.log(error.response.data);
+      dispatch(
+        notify.notify_error({
+          msg: `failed !`,
+        }))
     }
   };
 };
@@ -97,7 +100,10 @@ export const addSection = (data) => {
               msg: `Add`,
             }))
       } catch (error) {
-        console.log(error.response.data);
+        dispatch(
+          notify.notify_error({
+            msg: `failed !`,
+          }))
       }
     };
   };
@@ -120,7 +126,10 @@ export const addContents = (data) => {
             }))
   
       } catch (error) {
-        console.log(error.response.data);
+        dispatch(
+          notify.notify_error({
+            msg: `failed !`,
+          }))
       }
     };
   };
@@ -202,10 +211,36 @@ export const addContents = (data) => {
           );
       
         } catch (error) {
-          console.log(error.response.data);
+        
         }
       };
     };
+
+
+
+    export const CoursesClear = (data) => {
+      return async (dispatch, getdispatch) => {
+        try {
+
+       
+        dispatch(
+          AllcourseP(null)
+        );
+
+        
+        } catch (error) {
+         
+        }
+      };
+    };
+
+
+
+
+
+
+
+
 
 
 
@@ -239,6 +274,13 @@ export const addContents = (data) => {
         }
       };
     };
+
+
+
+
+
+
+
 
 
 

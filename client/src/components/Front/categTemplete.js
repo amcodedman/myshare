@@ -1,9 +1,11 @@
 import React, { useState,useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ChevronCompactRight } from "react-bootstrap-icons";
-import { getCourses } from "../../store/actions/datacollection";
+import { CoursesClear, getCourses, getCoursesP } from "../../store/actions/datacollection";
+import { useNavigate } from "react-router-dom";
 
 const CatTemplete = (props) => {
+  const navigateTo=useNavigate();
   const dispatch = useDispatch();
   const courses = useSelector((value) => value.coursesl);
   useEffect(()=>{
@@ -13,10 +15,10 @@ const CatTemplete = (props) => {
   },[dispatch])
   const [categories,setcat]=useState([])
   const [subcategories,setsubcat]=useState([])
-  const [catset,setcate]=useState()
+  const [catset,setcate]=useState("")
   let Arraycat=[];
   let Arraysubcat=[];
-
+  const init_sort = { sortBy: "_id", order: "desc", limit: 30, skip: 0 };
 
   useEffect(()=>{
     if(courses){
@@ -51,7 +53,7 @@ const CatTemplete = (props) => {
             }
           })
           
-          console.log(Arraysubcat)
+         
           setsubcat(Arraysubcat)
      
    
@@ -82,8 +84,16 @@ const CatTemplete = (props) => {
                  <>
                  <div
                   onMouseOver={()=>{
+                    setcate(data)
                     GetSubcat(data)
 
+                  }}
+                  onClick={()=>{
+
+         
+
+dispatch(getCoursesP(init_sort));
+navigateTo(`/courses/category/${data}`)
                   }}
                    className="content_layout">
                   
@@ -113,9 +123,14 @@ const CatTemplete = (props) => {
                 return(
                   <>
                   <div
-                  onMouseOver={()=>{
-                    setcate(data)
+             
 
+                  onClick={()=>{
+
+                    dispatch(getCoursesP(init_sort));
+
+
+navigateTo(`/courses/category/${catset}/${data}`)
                   }}
                    className="content_layout">
                   

@@ -42,6 +42,7 @@ useEffect(()=>{
       <h1>Some hot courses to get started with</h1>
       <div className="layouttest">
       {
+        
        courses && courses.AllcourseP ?
        courses.AllcourseP.filter((data)=>data.title).map((data,index)=>{
 return(

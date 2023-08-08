@@ -33,6 +33,8 @@ import Mycourses from "./components/backend/mycourses";
 import CourseDetail from "./components/backend/viewDetailCourse";
 import ControlVersion from "./components/backend/controlversion";
 import CouponPage from "./components/backend/couponGen";
+import CourseSearch from "./components/Front/coursearch";
+import SubCategories from "./components/Front/subcatesearch";
 
 function App() {
   const notifications =useSelector((value)=>value.notification);
@@ -83,6 +85,8 @@ element={<Home/>}/>
 <Route path="/dash" element={   <CreateSections/> }></Route>
 <Route  path="/mainadmin/creatorcourses" element={<Mycourses/>}></Route>
 <Route  path="/mainadmin/singlecourse/:id" element={<CourseDetail/>}></Route>
+<Route  path="/courses/category/:getcategory" element={<CourseSearch/>}></Route>
+<Route  path="/courses/category/:getcategory/:getsubcat" element={<SubCategories/>}></Route>
 <Route  path="/mainadmin/controlversion" element={<ControlVersion/>}></Route>
 <Route  path="/mainadim/generatetokens" element={<CouponPage/>}></Route>
 </Routes>
