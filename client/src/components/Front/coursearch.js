@@ -9,21 +9,26 @@ import { StarFill, StarHalf } from "react-bootstrap-icons";
 import { GeoDetail, GeoGet } from "../../store/actions/geod";
 import { useDispatch, useSelector } from "react-redux";
 
-
 import LoaderView from "../utils/loaderView";
 import ProfileNav from "../utils/ProfileBar";
 import TopNav from "../utils/pagenav";
 
 import FreezePage from "./Pagefreeze";
-import { CoursesClear, getCourses, getCoursesP } from "../../store/actions/datacollection";
-
+import {
+  CoursesClear,
+  getCourses,
+  getCoursesP,
+} from "../../store/actions/datacollection";
 
 const CourseSearch = () => {
-    const {getcategory} =useParams()
-    const newcat = decodeURIComponent(getcategory);
+  const { getcategory } = useParams();
+  const newcat = decodeURIComponent(getcategory);
 
   const dispatch = useDispatch();
-  const courses = useSelector((value) => value.coursesp);
+  const courses = useSelector((value) => value.coursesl);
+  useEffect(() => {
+    dispatch(getCourses());
+  });
   const reducer = (state, action) => {
     switch (action.type) {
       case "UPDATE_SKIP":
@@ -34,7 +39,7 @@ const CourseSearch = () => {
   };
   const init_sort = { sortBy: "_id", order: "desc", limit: 30, skip: 0 };
   const [sort, Setsort] = useReducer(reducer, init_sort);
-  const navigateTo=useNavigate();
+  const navigateTo = useNavigate();
   useEffect(() => {
     const Skip = sort.skip + sort.limit;
     Setsort({ type: "UPDATE_SKIP", payload: Skip });
@@ -151,40 +156,38 @@ const CourseSearch = () => {
             />
             {cat ? <CatTemplete catsub={catsub} /> : null}
 
-
-
             <div className="layoutcolumn">
-            <div className="layouturl">
-                <p onClick={()=>{
-                  dispatch(CoursesClear())
-                  setTimeout(()=>{
-                    navigateTo("/")
-                  },500)
-                }}>Home</p>
+              <div className="layouturl">
+                <p
+                  onClick={() => {
+                 
+                      navigateTo("/");
+            
+                  }}
+                >
+                  Home
+                </p>
                 <span>/</span>
                 <span>Category</span>
                 <span>/</span>
                 <p>{newcat}</p>
-            </div>
-              {courses && courses.AllcourseP
-                ? courses.AllcourseP.filter((data) => data.maincategory===newcat).map(
-                    (data, index) => {
-                      return (
+              </div>
+              {courses && courses.Allcourse
+                ? courses.Allcourse.filter(
+                    (data) => data.maincategory === newcat
+                  ).map((data, index) => {
+                    return (
+                      <div key={index} className="coursepreColumn">
                         <div
-                          key={index}
-                          className="coursepreColumn"
-                        >
-                          <div
-                            style={{
-                              backgroundImage: `url('${data.file}')`,
-                            }}
-                            className="coursepreCboxcolum"
-                          ></div>
-                          <div className="layoutdetail">
+                          style={{
+                            backgroundImage: `url('${data.file}')`,
+                          }}
+                          className="coursepreCboxcolum"
+                        ></div>
+                        <div className="layoutdetail">
                           <p className="columntitle">{data.title}</p>
                           <p className="columnabstract">{data.abstract}</p>
 
-                         
                           <p className="prevAuthor">
                             {" "}
                             <span>Author </span>Admin
@@ -199,19 +202,24 @@ const CourseSearch = () => {
                             <span>(1000)</span>
                           </div>
                           <div className="enrollnow">
-                            <span className="enrollbtn">Enroll Now</span>
-                          </div>
+                            <span className="enrollbtn" 
+                            onClick={()=>{
+                              navigateTo(
+`/studycommunity/course/${data.maincategory}/${data.title}/${data._id}`
+                              )
 
+                           
+                            }}
+                            >Learn now</span>
                           </div>
-                    
                         </div>
-                      );
-                    }
-                  )
-                : null}
+                      </div>
+                    );
+                  })
+                :  <LoaderView />}
             </div>
 
-            {alertProfile ? <ProfileNav fn={fn} ln={ln} email={email} /> : null}
+            {alertProfile ? <ProfileNav fn={fn} ln={ln} email={email} /> :null}
           </div>
           <div
             className="frontpage"
@@ -220,7 +228,7 @@ const CourseSearch = () => {
           <div className="footer">
             <div className="frontitemhover">
               <p>
-                Powered By Cybertec Inc
+                 Powered By Badu Technologies. All rights reserved
                 <span style={{ color: "green" }}> @ </span> 2023
               </p>
             </div>

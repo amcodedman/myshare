@@ -26,7 +26,10 @@ const SubCategories = () => {
   const newcat = decodeURIComponent(getcategory);
   const newsub = decodeURIComponent(getsubcat);
   const dispatch = useDispatch();
-  const courses = useSelector((value) => value.coursesp);
+  const courses = useSelector((value) => value.coursesl);
+  useEffect(() => {
+    dispatch(getCourses());
+  });
   const reducer = (state, action) => {
     switch (action.type) {
       case "UPDATE_SKIP":
@@ -158,11 +161,9 @@ const SubCategories = () => {
               <div className="layouturl">
                 <p
                   onClick={() => {
-                    dispatch(CoursesClear());
-                    setTimeout(()=>{
-
+                  
                       navigateTo("/");
-                    },500)
+            
 
                   }}
                 >
@@ -173,11 +174,10 @@ const SubCategories = () => {
                 <span> / </span>
                 <p
                   onClick={() => {
-                    dispatch(CoursesClear());
-                    setTimeout(() => {
-                      dispatch(getCoursesP(sort));
+                   
+                 
                       navigateTo(`/courses/category/${newcat}`);
-                    }, 500);
+                 
                   }}
                 >
                   {newcat}
@@ -185,8 +185,8 @@ const SubCategories = () => {
                 <span> / </span>
                 <p>{newsub}</p>
               </div>
-              {courses && courses.AllcourseP
-                ? courses.AllcourseP.filter(
+              {courses && courses.Allcourse
+                ? courses.Allcourse.filter(
                     (data) => data.subcategory === newsub
                   ).map((data, index) => {
                     return (
@@ -215,7 +215,15 @@ const SubCategories = () => {
                             <span>(1000)</span>
                           </div>
                           <div className="enrollnow">
-                            <span className="enrollbtn">Enroll Now</span>
+                            <span className="enrollbtn" 
+                            onClick={()=>{
+                              navigateTo(
+`/studycommunity/course/${data.maincategory}/${data.title}/${data._id}`
+                              )
+
+                           
+                            }}
+                            >Learn now</span>
                           </div>
                         </div>
                       </div>
@@ -233,7 +241,7 @@ const SubCategories = () => {
           <div className="footer">
             <div className="frontitemhover">
               <p>
-                Powered By Cybertec Inc
+                 Powered By Badu Technologies. All rights reserved
                 <span style={{ color: "green" }}> @ </span> 2023
               </p>
             </div>

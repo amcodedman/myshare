@@ -107,7 +107,7 @@ const Forgotpass = () => {
       <div className="footer">
         <div className="frontitemhover">
           <p>
-            Powered By Cybertec Inc<span style={{ color: "green" }}> @ </span>{" "}
+             Powered By Badu Technologies. All rights reserved<span style={{ color: "green" }}> @ </span>{" "}
             2023
           </p>
         </div>

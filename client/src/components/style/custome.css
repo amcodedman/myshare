@@ -1078,15 +1078,28 @@ transition: 2s ease-in-out;
 }
 .enrollbtn {
   border-radius: 5px;
-  background-color: aqua;
+  background-color: rgb(182, 191, 191);
   display: flex;
   flex-direction: column;
-  padding: 5px;
+  padding:5px 10px 5px 10px;
   font-family: Roboto condensed;
-  font-size: 10px;
+  font-size: 13px;
   cursor: pointer;
-  margin-right: 5px;
+  transition:2s ease-in-out;
+
 }
+
+.enrollbtn :hover{
+  border-radius: 5px;
+  background-color: aqua;
+  transition:2s ease-in-out;
+  transform: scale(1.1);
+
+
+}
+
+
+
 .starrate {
   margin-left: 5px;
   margin-right: 5px;
@@ -1193,6 +1206,13 @@ transition: 2s ease-in-out;
   background-color: rgb(206, 191, 191);
   margin-left: 30px;
 }
+
+.breaklinei {
+  width: 90%;
+  height: 1px;
+  background-color: rgb(136, 135, 135);
+
+}
 .CourseView {
   width: 100%;
   min-height: 400px;
@@ -1217,6 +1237,142 @@ transition: 2s ease-in-out;
   display: flex;
   flex-direction: column;
  justify-content: start;
+
+}
+
+
+.layoutstudy{
+
+  display: flex;
+  flex-direction: row;
+justify-content: space-between;
+ width: 100%;
+
+
+
+}
+.contentslayoutfix{
+
+  width: 20%;
+
+}
+
+
+
+.contentslayout{
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: start;
+  overflow-y: scroll;
+  overflow-x:hidden;
+  background-color: rgb(227, 227, 227);
+}
+.contentfixed{
+margin-top: -70px;
+  position:fixed;
+  z-index: 200;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: start;
+  overflow-y: scroll;
+  overflow-x:hidden;
+  background-color: rgb(227, 227, 227);
+
+
+}
+
+.coursehead{
+
+  background-color: rgb(193, 199, 197);
+
+  width: 100%;
+  padding: 10px;
+  font-family: Roboto condensed;
+  color: rgb(68, 62, 62);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.coursesub{
+  background-color: rgb(193, 199, 197);
+
+  width: 100%;
+  padding: 3px;
+  font-family: Roboto condensed;
+  color: rgb(68, 62, 62);
+  font-weight: bold;
+  cursor: pointer;
+}
+.course_c{
+  width: 100%;
+  padding: 5px;
+  font-family: Roboto condensed;
+
+  color: rgb(4, 42, 42);
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 1s ease-in-out;
+}
+
+
+
+.course_c:hover{
+
+  color: rgb(57, 68, 68);
+  background-color: azure;
+  transition: 1s ease-in-out;
+  
+}
+
+
+.courdescr{
+  font-family: Roboto condensed;
+}
+
+
+.courdescr h1{
+  font-size: 25px;
+
+}
+.subsection{
+  background-color:rgb(164, 164, 164);
+  width: 100%;
+  padding: 5px;
+padding-left: 10px;
+color: rgb(255, 255, 255);
+font-size: 13px;
+cursor: pointer;
+}
+.roomcontent{
+  background-color: rgb(243, 247, 249);
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(228, 226, 229);
+}
+.roomcontent p{
+font-size: 15px;
+color: rgb(24, 32, 42);
+}
+.courdescr h2{
+  font-size: 18px;
+}
+.courdescr p{
+  padding-left: 30px;
+  font-size: 14px;
+}
+.maincourselayout{
+
+  width:80%;
+  padding: 40px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
 
 }
 .usertest {

@@ -210,7 +210,7 @@ const Home = () => {
           <div className="footer">
             <div className="frontitemhover">
               <p>
-                Powered By Cybertec Inc
+                 Powered By Badu Technologies. All rights reserved
                 <span style={{ color: "green" }}> @ </span> 2023
               </p>
             </div>

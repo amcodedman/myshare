@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { StarFill, StarHalf } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { getCourses } from "../../store/actions/datacollection";
+import {getCoursesP, getCourses } from "../../store/actions/datacollection";
 
+import { useNavigate } from "react-router-dom";
 const ContentPreview = () => {
   const courses = useSelector((value) => value.coursesl);
 const [coursetype,setcoursetype]=useState("Programming");
@@ -11,6 +12,10 @@ const [coursetype,setcoursetype]=useState("Programming");
   useEffect(() => {
     dispatch(getCourses());
   });
+
+
+  const init_sort = { sortBy: "_id", order: "desc", limit: 100, skip: 0 };
+  const navigateTo=useNavigate();
 
   return (  
     <div
@@ -84,7 +89,17 @@ coursetype==="Programming" ?
               games to sites to apps.
             </p>
 
-            <span className="coursepreviewmainbtn">Checkout Python</span>
+            <span className="coursepreviewmainbtn" 
+                        onClick={()=>{
+
+dispatch(getCoursesP(init_sort));
+
+
+navigateTo(`/courses/category/Programming`)
+}}
+
+            
+            >Checkout more Programming courses</span>
 
             <div className="coursepreC">
             <div className="layouttest">
@@ -99,10 +114,6 @@ coursetype==="Programming" ?
             }}
          className="coursepreCbox"></div>
                <p>{value.title}</p>
-              <p className="prevAuthor">
-                {" "}
-                <span>Author </span>Man coded
-              </p>
               <div className="courserate">
                 <span>{value.rating}</span>
                 <span className="starrate">
@@ -112,6 +123,17 @@ coursetype==="Programming" ?
                 </span>
                 <span>(1000)</span>
               </div>
+              <div className="enrollnow">
+                            <span className="enrollbtn" 
+                            onClick={()=>{
+                              navigateTo(
+`/studycommunity/course/${value.maincategory}/${value.title}/${value._id}`
+                              )
+
+                           
+                            }}
+                            >Learn now</span>
+                          </div>
                       </div>
                     );
                   })
@@ -139,7 +161,18 @@ coursetype==="Business" ?
              and knowledge needed to thrive in the dynamic corporate landscape.
             </p>
 
-            <span className="coursepreviewmainbtn">Checkout Python</span>
+            <span className="coursepreviewmainbtn"
+            
+            
+            onClick={()=>{
+
+dispatch(getCoursesP(init_sort));
+
+
+navigateTo(`/courses/category/Business`)
+}}
+
+            >Checkout Business Courses</span>
 <div className="coursepreC">
             <div className="layouttest">
               {courses && courses.Allcourse
@@ -153,10 +186,7 @@ coursetype==="Business" ?
             }}
          className="coursepreCbox"></div>
                <p>{value.title}</p>
-              <p className="prevAuthor">
-                {" "}
-                <span>Author </span>Man coded
-              </p>
+           
               <div className="courserate">
                 <span>{value.rating}</span>
                 <span className="starrate">
@@ -166,6 +196,17 @@ coursetype==="Business" ?
                 </span>
                 <span>(1000)</span>
               </div>
+              <div className="enrollnow">
+                            <span className="enrollbtn" 
+                            onClick={()=>{
+                              navigateTo(
+`/studycommunity/course/${value.maincategory}/${value.title}/${value._id}`
+                              )
+
+                           
+                            }}
+                            >Learn now</span>
+                          </div>
                       </div>
                     );
                   })
@@ -193,7 +234,15 @@ coursetype==="Data Science" ?
              how to work with large datasets and employ cutting-edge techniques to drive data-driven innovation.
             </p>
 
-            <span className="coursepreviewmainbtn">Checkout Python</span>
+            <span className="coursepreviewmainbtn"
+            
+                        
+            onClick={()=>{
+
+
+navigateTo(`/courses/category/Business`)
+}}
+>Checkout Data Science Courses</span>
 <div className="coursepreC">
 
             <div className="layouttest">
@@ -208,10 +257,7 @@ coursetype==="Data Science" ?
             }}
          className="coursepreCbox"></div>
                <p>{value.title}</p>
-              <p className="prevAuthor">
-                {" "}
-                <span>Author </span>Man coded
-              </p>
+         
               <div className="courserate">
                 <span>{value.rating}</span>
                 <span className="starrate">
@@ -221,6 +267,18 @@ coursetype==="Data Science" ?
                 </span>
                 <span>(1000)</span>
               </div>
+
+              <div className="enrollnow">
+                            <span className="enrollbtn" 
+                            onClick={()=>{
+                              navigateTo(
+`/studycommunity/course/${value.maincategory}/${value.title}/${value._id}`
+                              )
+
+                           
+                            }}
+                            >Learn now</span>
+                          </div>
                       </div>
                     );
                   })

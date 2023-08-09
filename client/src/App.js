@@ -35,6 +35,7 @@ import ControlVersion from "./components/backend/controlversion";
 import CouponPage from "./components/backend/couponGen";
 import CourseSearch from "./components/Front/coursearch";
 import SubCategories from "./components/Front/subcatesearch";
+import CourseStudy from "./components/Front/studycourse";
 
 function App() {
   const notifications =useSelector((value)=>value.notification);
@@ -87,6 +88,7 @@ element={<Home/>}/>
 <Route  path="/mainadmin/singlecourse/:id" element={<CourseDetail/>}></Route>
 <Route  path="/courses/category/:getcategory" element={<CourseSearch/>}></Route>
 <Route  path="/courses/category/:getcategory/:getsubcat" element={<SubCategories/>}></Route>
+<Route  path="/studycommunity/course/:getcategory/:coursename/:courseid" element={<CourseStudy/>}></Route>
 <Route  path="/mainadmin/controlversion" element={<ControlVersion/>}></Route>
 <Route  path="/mainadim/generatetokens" element={<CouponPage/>}></Route>
 </Routes>

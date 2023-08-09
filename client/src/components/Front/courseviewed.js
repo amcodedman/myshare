@@ -2,8 +2,10 @@ import React, { useEffect, useReducer } from "react";
 import { StarFill, StarHalf } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getCoursesP } from "../../store/actions/datacollection";
+import { useNavigate } from "react-router-dom";
 
 const CourseView = () => {
+  const navigateTo=useNavigate();
   const dispatch = useDispatch();
   const reducer = (state, action) => {
     switch (action.type) {
@@ -67,7 +69,16 @@ return(
             <span>(1000)</span>
           </div>
           <div className="enrollnow">
-            <span className="enrollbtn">Enroll Now</span>
+            <span className="enrollbtn"
+                onClick={()=>{
+                              navigateTo(
+`/studycommunity/course/${data.maincategory}/${data.title}/${data._id}`
+                              )
+
+                           
+                            }}
+            
+            >Learn now</span>
              
           </div>
         </div>
