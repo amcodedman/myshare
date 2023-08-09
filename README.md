@@ -1,3 +1,4 @@
+
 📘 MyShare E-Learning Web App
 Welcome to MyShare, your go-to e-learning platform that offers a variety of courses to enhance your knowledge and skills. 🚀
 
@@ -28,3 +29,7 @@ License 📜
 This project is powered by Badu Technologies.
 
 We hope you enjoy using MyShare to expand your knowledge and skills. Happy learning! 🎓🌟
+
+![myshare](https://github.com/amcodedman/myshare/assets/136466838/0ca57aab-7eab-4962-8cff-8e82fe87c885)
+
+
