@@ -1,6 +1,6 @@
 import React, { useEffect, useState,useReducer } from "react";
 import { useNavigate } from "react-router-dom";
-import { Lock, Search } from "react-bootstrap-icons";
+import { Lock, Search ,MenuButtonWide, List, XCircle} from "react-bootstrap-icons";
 import { Avatar, IconButton } from "@mui/material";
 import FOreignAds from "../reuseables";
 import CatTemplete from "./categTemplete";
@@ -21,6 +21,7 @@ import TopNav from "../utils/pagenav";
 import AdsFrontf from "./adsfrontf";
 import FreezePage from "./Pagefreeze";
 import { getCourses, getCoursesP } from "../../store/actions/datacollection";
+import MobileNav from "../utils/mobileNav";
 
 
 const Home = () => {
@@ -139,7 +140,8 @@ const Home = () => {
   )
   const Route = useNavigate();
   return (
-    <>
+    <div className="MainContainer" >
+   
       {loading ? (
         <LoaderView />
       ) : (
@@ -148,13 +150,22 @@ const Home = () => {
           className="mainLayout"
           style={{ minHeight: `${window.innerHeight}px` }}
         >
-        {
+
+
+
+        { 
           holdp ?
           <FreezePage IP={`${location && location.GEOD ? location.GEOD.ipaddress :"" }`} country={`${location && location.GEOD ? location.GEOD.country:"" }`} />:null
         }
           <div className="maintop">
       <>{topads ? <FOreignAds settopads={settopads}/> :null}</>      
-<TopNav setprofile={setprofile} topads={topads}  fn={fn} ln={ln} email={email}/>
+      <div className="desktopNav"><TopNav setprofile={setprofile} topads={topads}  fn={fn} ln={ln} email={email}/></div>
+  
+      <div className="mobiletopNav">    
+  <MobileNav setprofile={setprofile} topads={topads}  fn={fn} ln={ln} email={email} /></div>
+  
+
+      
             {cat ? <CatTemplete catsub={catsub} /> : null}
             {topads ?
              <AdsFrontf/> : <AdsFront/>}
@@ -172,39 +183,10 @@ const Home = () => {
             className="frontpage"
             style={{ minHeight: `${window.innerHeight}px` }}
           >
-            <p>Joint Use lets Drop It , Download and Share It...</p>
+            <p>Contributors</p>
 
             <div className="frontpage_c">
-              <div
-                className="frontitem"
-                style={{
-                  backgroundImage: `url('https://www.pngall.com/wp-content/uploads/4/Digital-Cyber-Security.png')`,
-                }}
-              >
-                <div className="frontitemhover">
-                  <p>Secure access</p>
-                </div>
-              </div>
-              <div
-                className="frontitem"
-                style={{
-                  backgroundImage: `url('https://img.freepik.com/premium-photo/shopping-price-tag-free_165073-954.jpg?w=740')`,
-                }}
-              >
-                <div className="frontitemhover">
-                  <p>Fress Trial</p>
-                </div>
-              </div>
-              <div
-                className="frontitem"
-                style={{
-                  backgroundImage: `url('https://img.freepik.com/free-vector/organic-flat-customer-support-illustration_23-2148899174.jpg?w=740&t=st=1685300127~exp=1685300727~hmac=9f0e56779a5e67b2230060baba91a15e7f83647b5191a83806dc8ca615b57553')`,
-                }}
-              >
-                <div className="frontitemhover">
-                  <p>24 Hours full support</p>
-                </div>
-              </div>
+           
             </div>
           </div>
           <div className="footer">
@@ -217,7 +199,7 @@ const Home = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

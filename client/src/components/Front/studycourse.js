@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Book, Lightning } from "react-bootstrap-icons";
+import { ArrowUpCircle, Book, CaretUp, CaretUpFill, Lightning, List, XCircle } from "react-bootstrap-icons";
 
 import FOreignAds from "../reuseables";
 import CatTemplete from "./categTemplete";
@@ -17,10 +17,53 @@ import TopNav from "../utils/pagenav";
 import FreezePage from "./Pagefreeze";
 import { getCourse } from "../../store/actions/datacollection";
 import { RawToHtml } from "../utils/rawtohtml";
+import MobileNav from "../utils/mobileNav";
+import { Icon, IconButton } from "@mui/material";
 
 const CourseStudy = () => {
-  const dispatch = useDispatch();
 
+
+
+
+
+
+
+
+
+
+
+  const Componentbtn=()=>{
+
+
+    const btn=document.getElementById("actionbtnup");
+    const top=document.documentElement.scrollTop
+
+
+    if(top>window.innerHeight){
+      if(
+        btn &&  !btn.classList.contains("showbtnaction")
+      ){
+        btn.classList.add("showbtnaction")
+
+      }
+    }else{
+      if(
+        btn &&   btn.classList.contains("showbtnaction")
+        ){
+          btn.classList.remove("showbtnaction")
+  
+        }
+
+    }
+  }
+
+
+  useEffect(()=>{
+
+    window.addEventListener("scroll",Componentbtn)
+  },[])
+  const dispatch = useDispatch();
+const [menus,setmenu]=useState(false);
   const handleScroll = () => {
     const divElement = document.getElementById("contentslayout");
     const mynav=document.getElementById("topnavs")
@@ -28,7 +71,7 @@ const CourseStudy = () => {
 
       const rect = divElement.getBoundingClientRect();
       const navtop = document.documentElement.scrollTop
-      console.log(navtop)
+    
        
            
             if (rect.top <= 1) {
@@ -148,6 +191,7 @@ const CourseStudy = () => {
     } else {
       return (
         <>
+        
           {data.contents
             .filter((values) => values._id === showcontents)
             .map((item, index) => {
@@ -296,6 +340,15 @@ const CourseStudy = () => {
           className="mainLayout"
           style={{ minHeight: `${window.innerHeight}px` }}
         >
+         <div className="actionbtnup" id="actionbtnup" style={{top:`${window.innerHeight-80}px`}}><IconButton
+           
+           
+           
+           onClick={()=>{
+          document.documentElement.scrollTo(0,0)
+            
+           }}> <CaretUpFill color=" rgb(163, 172, 171)" size={25}/></IconButton></div>
+ 
           {holdp ? (
             <FreezePage
               IP={`${location && location.GEOD ? location.GEOD.ipaddress : ""}`}
@@ -306,8 +359,7 @@ const CourseStudy = () => {
           ) : null}
           <div className="maintop">
             <>{topads ? <FOreignAds settopads={settopads} /> : null}</>
-         
-            <div  id="topnavs">
+         <div className="desktopNav" id="topnavs">
             <TopNav
               setprofile={setprofile}
               topads={topads}
@@ -317,6 +369,9 @@ const CourseStudy = () => {
             />
 
             </div>
+            <div className="mobiletopNav">    
+  <MobileNav/></div>
+           
             {cat ? <CatTemplete catsub={catsub} /> : null}
 
             <div
@@ -325,7 +380,8 @@ const CourseStudy = () => {
                 minHeight: `${window.innerHeight}px`,
               }}
             >
-              <div className="contentslayoutfix">
+      
+            <div className=" contentslayoutfix desktopNav">
                 <div
                   id="contentslayout"
                   className="contentslayout"
@@ -402,6 +458,101 @@ const CourseStudy = () => {
                     : null}
                 </div>
               </div>
+              <div className="mobiletopNav"><IconButton
+               onClick={()=>setmenu(!menus)}>{
+                menus ?
+                <XCircle  color="black" size={30}/>
+                :
+                <List color="black" size={30}/>
+               }
+
+             
+              </IconButton></div>
+{
+  menus ?
+  
+  <div className=" contentslayoutfixm mobiletopNav">
+                <div
+                  id="contentslayout"
+                  className="contentslayout"
+                  tyle={{
+                    minHeight: `${window.innerHeight}px`,
+                  }}
+                >
+                  <div
+                    className="coursehead"
+                    onClick={() => {
+                      setcontents("overview");
+                    }}
+                    style={{
+                      backgroundColor: `${
+                        showcontents === "overview"
+                          ? "rgb(193, 199, 197)"
+                          : "rgb(193, 199, 197,0)"
+                      }`,
+                    }}
+                  >
+                    Course Overview
+                  </div>
+
+                  {mycourse && mycourse.contents
+                    ? mycourse.contents.map((data, index) => {
+                        return (
+                          <>
+                            <div
+                              key={index}
+                              className="course_c"
+                              style={{
+                                backgroundColor: `${
+                                  showcontents === data._id
+                                    ? "rgb(122, 124, 124)"
+                                    : ""
+                                }`,
+                              }}
+                              onClick={() => {
+                                setcontents(data._id);
+                              }}
+                            >
+                              {data.title}
+                            </div>
+
+                            {showcontents === data._id
+                              ? data.sections.map((items, indes) => {
+                                  return (
+                                    <div
+                                      className="coursesub"
+                                      onClick={() =>
+                                        document
+                                          .getElementById(`${items._id}`)
+                                          .scrollIntoView({
+                                            behavior: "smooth",
+                                          })
+                                      }
+                                    >
+                                      <div>
+                                        <p style={{ fontSize: "14px" }}>
+                                          {" "}
+                                          {items.title}
+                                        </p>
+                                      </div>
+                                      <div className="breaklinei"></div>
+                                    </div>
+                                  );
+                                })
+                              : null}
+
+                            <div className="breakline"></div>
+                          </>
+                        );
+                      })
+                    : null}
+                </div>
+              </div>
+              :null
+
+}
+
+            
 
               <div
                 className="maincourselayout"
@@ -429,7 +580,7 @@ const CourseStudy = () => {
           </div>
         </div>
       )}
-    </>
+        </>
   );
 };
 

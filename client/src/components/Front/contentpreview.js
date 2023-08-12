@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef  } from "react";
 import { StarFill, StarHalf } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import {getCoursesP, getCourses } from "../../store/actions/datacollection";
 
 import { useNavigate } from "react-router-dom";
+import { showascen } from "../utils/coursesanim";
 const ContentPreview = () => {
   const courses = useSelector((value) => value.coursesl);
 const [coursetype,setcoursetype]=useState("Programming");
@@ -16,6 +17,15 @@ const [coursetype,setcoursetype]=useState("Programming");
 
   const init_sort = { sortBy: "_id", order: "desc", limit: 100, skip: 0 };
   const navigateTo=useNavigate();
+
+
+
+useEffect(()=>{
+
+  showascen();
+
+
+})
 
   return (  
     <div

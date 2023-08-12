@@ -92,7 +92,7 @@ const CatTemplete = (props) => {
 
          
 
-dispatch(getCoursesP(init_sort));
+
 navigateTo(`/courses/category/${data}`)
                   }}
                    className="content_layout">
@@ -127,7 +127,7 @@ navigateTo(`/courses/category/${data}`)
 
                   onClick={()=>{
 
-                    dispatch(getCoursesP(init_sort));
+                
 
 
 navigateTo(`/courses/category/${catset}/${data}`)

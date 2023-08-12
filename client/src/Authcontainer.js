@@ -3,9 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 
 import FreezePage from "./components/Front/Pagefreeze";
 import { GeoGet } from "./store/actions/geod";
+import { getCourses } from "./store/actions/datacollection";
 const Authcontainer=(props)=>{
     const [holdp,setholdp]=useState(false)
     const dispatch = useDispatch();
+    
+  useEffect(()=>{
+    dispatch(
+      getCourses()
+    )
+  },[dispatch])
+
+
     useEffect(()=>{
         dispatch(GeoGet())
         },[])

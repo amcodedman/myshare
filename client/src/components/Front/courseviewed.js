@@ -3,6 +3,7 @@ import { StarFill, StarHalf } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getCoursesP } from "../../store/actions/datacollection";
 import { useNavigate } from "react-router-dom";
+import { showcoursesm } from "../utils/coursesanim";
 
 const CourseView = () => {
   const navigateTo=useNavigate();
@@ -15,9 +16,11 @@ const CourseView = () => {
         return state;
     }
   };
-  const init_sort={ sortBy: '_id', order: 'desc', limit: 4, skip: 0}
+  const init_sort={ sortBy: '_id', order: 'desc', limit: 12, skip: 0}
   const [sort,Setsort] =useReducer(reducer, init_sort);
-
+useEffect(()=>{
+  showcoursesm()
+})
   useEffect(()=>{
      const Skip = sort.skip + sort.limit 
      Setsort({ type: 'UPDATE_SKIP', payload: Skip });
@@ -48,7 +51,7 @@ useEffect(()=>{
        courses && courses.AllcourseP ?
        courses.AllcourseP.filter((data)=>data.title).map((data,index)=>{
 return(
-  <div key={index} className="coursepreCstylef layoutspac">
+  <div key={index} className="coursepreCstylef layoutspacv">
           <div
            style={{
                 backgroundImage: `url('${data.file}')`,

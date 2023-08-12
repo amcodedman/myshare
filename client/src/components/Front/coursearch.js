@@ -19,6 +19,7 @@ import {
   getCourses,
   getCoursesP,
 } from "../../store/actions/datacollection";
+import MobileNav from "../utils/mobileNav";
 
 const CourseSearch = () => {
   const { getcategory } = useParams();
@@ -147,13 +148,21 @@ const CourseSearch = () => {
           ) : null}
           <div className="maintop">
             <>{topads ? <FOreignAds settopads={settopads} /> : null}</>
-            <TopNav
+        <div className="desktopNav">  <TopNav
               setprofile={setprofile}
               topads={topads}
               fn={fn}
               ln={ln}
               email={email}
-            />
+            /></div>
+
+<div className="mobiletopNav">    
+  <MobileNav  setprofile={setprofile}
+              topads={topads}
+              fn={fn}
+              ln={ln}
+              email={email}/></div>
+           
             {cat ? <CatTemplete catsub={catsub} /> : null}
 
             <div className="layoutcolumn">

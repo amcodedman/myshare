@@ -51,6 +51,10 @@
   margin-top: -20px;
   margin-bottom: -30px;
 }
+
+.mobiletopNav{
+  display: none;
+}
 .backgroundimage {
   height: 650px;
 
@@ -66,25 +70,24 @@
 }
 .backgroundimage span {
   font-family: Roboto condensed;
-  color:rgb(3, 76, 82);
+  color: rgb(3, 76, 82);
   font-size: 25px;
   margin-top: 50px;
   font-weight: bold;
 }
-.forgottenp{
+.forgottenp {
   color: rgb(143, 41, 41);
   padding: 5px;
   transition: 1s ease-in-out;
   width: 35%;
   border-radius: 5px;
 }
-.forgottenp:hover{
+.forgottenp:hover {
   color: rgb(231, 1, 1);
   background-color: aquamarine;
 
   cursor: pointer;
   transition: 1s ease-in-out;
- 
 }
 .formsp {
   height: 6 50px;
@@ -95,13 +98,12 @@
   flex-direction: column;
 }
 .formsp form {
- margin-top: 40px;
- width: 65%;
- display: flex;
-
+  margin-top: 40px;
+  width: 65%;
+  display: flex;
 }
 
-.btnblock{
+.btnblock {
   width: 97%;
   padding: 5px;
   background-color: rgb(46, 46, 78);
@@ -113,7 +115,6 @@
   font-family: Roboto condensed;
   border-radius: 5px;
   margin-top: 5px;
-
 }
 .maintop {
   display: flex;
@@ -134,11 +135,9 @@
   box-shadow: 4px 2px 8px 2px rgb(238, 238, 238);
   z-index: 1002;
 }
-.plain_space{
+.plain_space {
   width: 65%;
   min-height: 70px;
-
-
 }
 .navcontainer {
   display: flex;
@@ -199,12 +198,46 @@
   padding: 0 10px 0 10px;
   color: rgb(99, 99, 102);
 }
-
+.searchboxMobile {
+  border-radius: 20px;
+  border: 1px solid rgb(82, 160, 140);
+  height: 40px;
+  margin-right: 20px;
+  padding: 0 10px 0 10px;
+  color: rgb(99, 99, 102);
+}
 .searchbutton {
   position: relative;
   margin-left: -60px;
   margin-right: 30px;
   transition: 1s ease-in-out;
+}
+
+.searchbuttonmobile {
+  position: relative;
+  transition: 1s ease-in-out;
+}
+
+.displayrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  transition: 1s ease-in-out;
+  -webkit-animation: 1s ease-in-out searchar_anim;
+  animation: 1s ease-in-out searchar_anim;
+}
+
+
+
+@keyframes searchar_anim {
+  0%{
+    
+    opacity: 0;
+    color: rgb(129, 119, 119,0);
+    transform: translateX(10%);
+  }
+  
 }
 .userlog {
   background-color: rgb(143, 247, 247);
@@ -275,7 +308,7 @@
   position: fixed;
   z-index: 1003;
   margin-top: 145px;
-  background-color: rgba(165, 165, 165, 0.0);
+  background-color: rgba(165, 165, 165, 0);
 }
 .catLayout {
   display: flex;
@@ -289,12 +322,11 @@
   width: 15%;
   height: 650px;
 }
-.leftlayout_p{
+.leftlayout_p {
   display: flex;
   flex-direction: row;
   width: 80%;
   height: 650px;
-
 }
 .rightlayout {
   display: flex;
@@ -309,9 +341,8 @@
   height: 450px;
   margin-right: 20px;
   z-index: 2000;
-
 }
-.profileArrow{
+.profileArrow {
   display: flex;
   width: 100%;
 
@@ -319,25 +350,24 @@
   justify-content: right;
   align-items: center;
 }
-.profile_content{
+.profile_content {
   display: flex;
   min-height: 450px;
-  background-color:white;
+  background-color: white;
   box-shadow: 2px 4px 6px 4px rgb(226, 225, 225);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
 }
-.profile_name{
+.profile_name {
   height: 70px;
   display: flex;
   flex-direction: row;
-  justify-content:start;
+  justify-content: start;
   border-bottom: 1px solid rgb(192, 192, 192);
   width: 100%;
-  
 }
-.profilelist{
+.profilelist {
   display: flex;
   flex-direction: column;
   padding-left: 15px;
@@ -348,15 +378,15 @@
   border-bottom: 1px solid rgb(192, 192, 192);
 }
 
-.presshover_p{
- cursor: pointer;
+.presshover_p {
+  cursor: pointer;
   font-family: Roboto condensed;
   color: rgb(104, 106, 107);
   font-size: 16px;
   margin-bottom: 8px;
   transition: 1s ease-in-out;
 }
-.myaccount{
+.myaccount {
   display: flex;
   flex-direction: column;
   padding-left: 15px;
@@ -366,40 +396,38 @@
   padding-top: 10px;
   border-bottom: 1px solid rgb(192, 192, 192);
 }
-.myaccount_signout{
+.myaccount_signout {
   display: flex;
   flex-direction: column;
   padding-left: 15px;
   padding-top: 40px;
   font-family: Roboto condensed;
   color: rgb(104, 106, 107);
-
 }
-.myaccount_signout span{
- 
-color: rgb(252, 252, 252);
-background-color: rgb(63, 61, 61);
-width: 90px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-border-radius: 5px;
-margin-top: 50px;
-margin-left: 80px;
+.myaccount_signout span {
+  color: rgb(252, 252, 252);
+  background-color: rgb(63, 61, 61);
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin-top: 50px;
+  margin-left: 80px;
 }
-.presshover_p{
+.presshover_p {
   cursor: pointer;
-   font-family: Roboto condensed;
-   color: rgb(104, 106, 107);
-   font-size: 16px;
-   margin-bottom: 8px;
- }
- .text_derco{
+  font-family: Roboto condensed;
+  color: rgb(104, 106, 107);
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.text_derco {
   color: aqua;
   transition: 1s ease-in-out;
 }
-.uavatar{
+.uavatar {
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -413,34 +441,29 @@ margin-left: 80px;
   color: rgb(202, 201, 201);
   padding-top: 15px;
 }
-.presshoverAv:hover{
+.presshoverAv:hover {
   color: aqua;
 }
-.profiledetails{
-
+.profiledetails {
   padding: 15px 15px 15px 5px;
 }
-.profiledetails h1{
+.profiledetails h1 {
   font-size: 18px;
   font-family: Roboto condensed;
-  
 }
-.profiledetails p{
+.profiledetails p {
   font-size: 12px;
   font-family: Roboto condensed;
   margin-top: -10px;
-  
 }
-.triangle{
+.triangle {
   display: flex;
   height: 20px;
   width: 20px;
-  background-color:white;
+  background-color: white;
   margin-right: 8px;
   transform: rotate(45deg);
   margin-top: 14px;
-
-  
 }
 .maincate {
   display: flex;
@@ -451,24 +474,54 @@ margin-left: 80px;
   background-color: white;
 
   padding: 10px;
-
 }
 
+
+.actionbtnup{
+  display: flex;
+  position: fixed;
+  z-index: 10000;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(7, 114, 105);
+ 
+
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  
+  left: 88%;
+}
+.showbtnaction{
+  opacity: 1;
+  -webkit-animation: showactionbtn 2s ease-in-out;
+animation: showactionbtn 2s ease-in-out;
+}
+@keyframes showactionbtn {
+  0%{
+    transform: translateY(20%);
+    opacity: 0;
+    background-color: aqua;
+    color: blueviolet;
+  }
+  
+}
 .content_layout {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-family: Roboto condensed;
   margin-bottom: 5px;
-  font-size: 15px
+  font-size: 15px;
 }
-.linebtn{
+.linebtn {
   width: 100%;
   height: 1px;
   background-color: rgb(238, 238, 238);
 }
 .content_layout:hover {
- color: rgb(1, 1, 18);
+  color: rgb(1, 1, 18);
   cursor: pointer;
   font-weight: bold;
 }
@@ -486,7 +539,6 @@ margin-left: 80px;
   border-radius: 5px;
   margin-bottom: 30px;
 }
-
 
 .myformadmin {
   font-family: Roboto condensed !important;
@@ -511,18 +563,18 @@ margin-left: 80px;
   background-size: contain;
   height: 600px;
 }
-.freezeC{
+.freezeC {
   position: absolute;
   width: 100%;
   z-index: 10000;
-  background-color: rgb(29, 22, 22,0.2);
+  background-color: rgb(29, 22, 22, 0.2);
   display: flex;
   flex-direction: column;
-  cursor:help;
+  cursor: help;
   justify-content: center;
   align-items: center;
 }
-.freelayout{
+.freelayout {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -533,22 +585,20 @@ margin-left: 80px;
   box-shadow: 2px 3px 8px 2px rgb(65, 60, 60);
   background-color: rgb(250, 250, 250);
 }
-.freeel_l{
+.freeel_l {
   display: flex;
   height: 300px;
   width: 30%;
   background-repeat: no-repeat;
   background-size: cover;
-
-
 }
-.dangers{
+.dangers {
   color: red;
   padding: 0 5px 0 5px;
   -webkit-animation: animdenger 1s linear infinite;
   animation: animdenger 1s linear infinite;
 }
-.freeze_c{
+.freeze_c {
   width: 70%;
   height: 200px;
   display: flex;
@@ -558,23 +608,21 @@ margin-left: 80px;
   font-family: Roboto condensed;
   padding: 10px;
 }
-.freeze_c h1{
-font-family: Roboto condensed;
-font-weight: bold;
-font-size: 25px;
-color: red;
-
+.freeze_c h1 {
+  font-family: Roboto condensed;
+  font-weight: bold;
+  font-size: 25px;
+  color: red;
 }
 
-.freeze_c p{
+.freeze_c p {
   font-family: Roboto condensed;
-  
+
   font-size: 19px;
   color: rgb(36, 28, 28);
 }
-.brand{
+.brand {
   padding: 5px;
-  
 }
 .hcontent_l {
   font-family: Roboto condensed;
@@ -737,9 +785,9 @@ color: red;
   border-radius: 5px;
   background-color: rgb(70, 226, 226);
 }
-.layouturl{
+.layouturl {
   display: flex;
-  flex-direction: row;  
+  flex-direction: row;
   font-family: Roboto condensed;
   font-weight: bold;
   color: rgb(2, 29, 52);
@@ -747,8 +795,7 @@ color: red;
   transition: 1s ease-in-out;
 }
 
-.layouturl p:hover{
-
+.layouturl p:hover {
   transition: 1s ease-in-out;
   color: rgb(4, 109, 74);
   cursor: pointer;
@@ -775,7 +822,7 @@ color: red;
   width: 100%;
   height: auto;
 }
-.loadingcontainer{
+.loadingcontainer {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -783,21 +830,19 @@ color: red;
   align-items: center;
   background-color: aliceblue;
 }
-.userAvatar{
+.userAvatar {
   border-radius: 30px;
   box-shadow: 2px 2px 6px 2px rgb(205, 203, 207);
   margin-left: -50px;
   cursor: pointer;
   transition: 1s ease-in-out;
-  
 }
-.userAvatar:hover{
+.userAvatar:hover {
   border-radius: 30px;
   box-shadow: 2px 2px 6px 2px rgb(243, 243, 243);
   margin-left: -50px;
   cursor: pointer;
   transition: 1s ease-in-out;
-  
 }
 .frontitem {
   display: flex;
@@ -908,7 +953,7 @@ color: red;
   padding: 10px;
   border: 1px solid rgb(228, 225, 225);
   background-color: rgb(85, 241, 241);
- 
+
   border-radius: 5px;
   transition: 1s ease-in-out;
 }
@@ -936,17 +981,33 @@ color: red;
   margin-top: 20px;
   margin-left: 10px;
   margin-bottom: 20px;
-  -webkit-animation: showcontent 1s ease-in-out ;
+  -webkit-animation: showcontent 1s ease-in-out;
+  animation: showcontent 1s ease-in-out;
 }
-
-
-
 
 .layoutspac {
   margin-right: 20px;
+  opacity: 0;
+  transition: 1s ease-in-out;
+}
+
+.layoutspacv {
+  margin-right: 20px;
+  opacity: 0;
+  transition: 1s ease-in-out;
+}
+
+
+.showspac {
  
+  opacity: 1;
+  transition: 1s ease-in-out;
 }
 .layoutspac p {
+  margin-right: 20px;
+  margin-bottom: 2px;
+}
+.layoutspacv p {
   margin-right: 20px;
   margin-bottom: 2px;
 }
@@ -959,17 +1020,15 @@ color: red;
 }
 
 
-.coursepreCstylef {
 
+
+
+.coursepreCstylef {
   height: 100%;
   margin-bottom: 20px;
-
 }
 
-
-
 .coursepreColumn {
-
   height: 100%;
   margin-bottom: 20px;
   width: 95%;
@@ -977,42 +1036,32 @@ color: red;
   flex-direction: row;
   justify-content: start;
   border: 1px solid rgb(219, 219, 219);
-
 }
 
-
-.columntitle{
+.columntitle {
   font-size: 22px;
-  font-family: Roboto condensed ;
+  font-family: Roboto condensed;
   font-weight: bold;
 }
 
-
-.columnabstract{
-  font-family: Roboto condensed ;
- font-size: 18px;
- color: rgb(77, 78, 78);
+.columnabstract {
+  font-family: Roboto condensed;
+  font-size: 18px;
+  color: rgb(77, 78, 78);
 }
-.loadmorebtn{
+.loadmorebtn {
   margin-top: 30px;
   font-weight: bold;
-  color:rgb(1, 1, 10);
+  color: rgb(1, 1, 10);
   cursor: pointer;
   background-color: rgb(229, 242, 249);
-  padding:10px;
+  padding: 10px;
   font-size: 13px;
   border-radius: 5px;
-
-
-  
 }
-.loadmorebtn:hover{
-
-transition: 2s ease-in-out;
+.loadmorebtn:hover {
+  transition: 2s ease-in-out;
   background-color: rgb(177, 175, 175);
-
-
-  
 }
 .coursepreCbox {
   width: 100%;
@@ -1021,7 +1070,7 @@ transition: 2s ease-in-out;
   background-repeat: no-repeat;
   background-size: contain;
 }
-.layoutdetail{
+.layoutdetail {
   width: 60%;
 }
 
@@ -1070,10 +1119,12 @@ transition: 2s ease-in-out;
   font-family: Roboto condensed;
 }
 .topcatebox {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+ 
+  grid-template-columns: repeat(4, 1fr);
   min-height: 350px;
-
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
 }
 .enrollbtn {
@@ -1081,24 +1132,19 @@ transition: 2s ease-in-out;
   background-color: rgb(182, 191, 191);
   display: flex;
   flex-direction: column;
-  padding:5px 10px 5px 10px;
+  padding: 5px 10px 5px 10px;
   font-family: Roboto condensed;
   font-size: 13px;
   cursor: pointer;
-  transition:2s ease-in-out;
-
+  transition: 2s ease-in-out;
 }
 
-.enrollbtn :hover{
+.enrollbtn :hover {
   border-radius: 5px;
   background-color: aqua;
-  transition:2s ease-in-out;
+  transition: 2s ease-in-out;
   transform: scale(1.1);
-
-
 }
-
-
 
 .starrate {
   margin-left: 5px;
@@ -1136,6 +1182,8 @@ transition: 2s ease-in-out;
   flex-direction: column;
   justify-content: left;
   padding: 20px 0 0 20px;
+  -webkit-animation: ads-anim 2s ease-in-out;
+  animation: ads-anim 2s ease-in-out;
 }
 .frontadslayoutbox h1 {
   font-family: Roboto condensed;
@@ -1211,7 +1259,6 @@ transition: 2s ease-in-out;
   width: 90%;
   height: 1px;
   background-color: rgb(136, 135, 135);
-
 }
 .CourseView {
   width: 100%;
@@ -1228,7 +1275,7 @@ transition: 2s ease-in-out;
 .layouttest {
   display: grid;
   flex-direction: row;
-  grid-template-columns: repeat(4,3fr );
+  grid-template-columns: repeat(4, 3fr);
 }
 
 .layoutcolumn {
@@ -1236,43 +1283,37 @@ transition: 2s ease-in-out;
   margin-left: 40px;
   display: flex;
   flex-direction: column;
- justify-content: start;
-
+  justify-content: start;
 }
 
-
-.layoutstudy{
-
+.layoutstudy {
   display: flex;
   flex-direction: row;
-justify-content: space-between;
- width: 100%;
-
-
-
+  justify-content: space-between;
+  width: 100%;
 }
-.contentslayoutfix{
-
+.contentslayoutfix {
   width: 20%;
-
+}
+.contentslayoutfixm {
+  width: 100%;
 }
 
 
 
-.contentslayout{
 
-
+.contentslayout {
   display: flex;
   flex-direction: column;
   justify-content: left;
   align-items: start;
   overflow-y: scroll;
-  overflow-x:hidden;
+  overflow-x: hidden;
   background-color: rgb(227, 227, 227);
 }
-.contentfixed{
-margin-top: -70px;
-  position:fixed;
+.contentfixed {
+  margin-top: -70px;
+  position: fixed;
   z-index: 200;
   width: 20%;
   display: flex;
@@ -1280,14 +1321,11 @@ margin-top: -70px;
   justify-content: left;
   align-items: start;
   overflow-y: scroll;
-  overflow-x:hidden;
+  overflow-x: hidden;
   background-color: rgb(227, 227, 227);
-
-
 }
 
-.coursehead{
-
+.coursehead {
   background-color: rgb(193, 199, 197);
 
   width: 100%;
@@ -1298,7 +1336,7 @@ margin-top: -70px;
   cursor: pointer;
 }
 
-.coursesub{
+.coursesub {
   background-color: rgb(193, 199, 197);
 
   width: 100%;
@@ -1308,7 +1346,7 @@ margin-top: -70px;
   font-weight: bold;
   cursor: pointer;
 }
-.course_c{
+.course_c {
   width: 100%;
   padding: 5px;
   font-family: Roboto condensed;
@@ -1320,60 +1358,51 @@ margin-top: -70px;
   transition: 1s ease-in-out;
 }
 
-
-
-.course_c:hover{
-
+.course_c:hover {
   color: rgb(57, 68, 68);
   background-color: azure;
   transition: 1s ease-in-out;
-  
 }
 
-
-.courdescr{
+.courdescr {
   font-family: Roboto condensed;
 }
 
-
-.courdescr h1{
+.courdescr h1 {
   font-size: 25px;
-
 }
-.subsection{
-  background-color:rgb(164, 164, 164);
+.subsection {
+  background-color: rgb(164, 164, 164);
   width: 100%;
   padding: 5px;
-padding-left: 10px;
-color: rgb(255, 255, 255);
-font-size: 13px;
-cursor: pointer;
+  padding-left: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 13px;
+  cursor: pointer;
 }
-.roomcontent{
+.roomcontent {
   background-color: rgb(243, 247, 249);
   padding: 20px;
   border-radius: 5px;
   border: 1px solid rgb(228, 226, 229);
 }
-.roomcontent p{
-font-size: 15px;
-color: rgb(24, 32, 42);
+.roomcontent p {
+  font-size: 15px;
+  color: rgb(24, 32, 42);
 }
-.courdescr h2{
+.courdescr h2 {
   font-size: 18px;
 }
-.courdescr p{
+.courdescr p {
   padding-left: 30px;
   font-size: 14px;
 }
-.maincourselayout{
-
-  width:80%;
+.maincourselayout {
+  width: 80%;
   padding: 40px 20px 20px 20px;
   display: flex;
   flex-direction: column;
   justify-content: left;
-
 }
 .usertest {
   margin-left: 30px;
@@ -1396,23 +1425,26 @@ color: rgb(24, 32, 42);
 }
 
 .topcatlayout {
-  width: 20%;
+
+  width: 95%;
   height: 250px;
-  background-color: blue;
+  background-color: rgb(191, 214, 214);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-right: 20px;
+background-repeat: no-repeat;
+background-size: contain;
+ 
 }
-.profilecontainer{
+.profilecontainer {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.box_layout{
+.box_layout {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -1420,7 +1452,6 @@ color: rgb(24, 32, 42);
   align-items: center;
   margin-top: 40px;
   margin-bottom: 30px;
-  
 }
 .catebtn {
   display: flex;
@@ -1458,7 +1489,7 @@ color: rgb(24, 32, 42);
   transform: translateY(150px);
   color: white;
 }
-.addTopmarginprofile{
+.addTopmarginprofile {
   margin-top: 67px;
 }
 .categorytem_margin {
@@ -1469,43 +1500,39 @@ color: rgb(24, 32, 42);
   position: fixed;
   z-index: 1005;
   background-color: rgba(209, 209, 209, 0.1);
- 
 }
 
-.profile_box{
+.profile_box {
   display: flex;
   flex-direction: row;
   width: 90%;
   height: 100%;
- 
+
   border-radius: 3px;
   border: 1px solid rgb(208, 208, 211);
 }
-.admin_box{
+.admin_box {
   display: flex;
   flex-direction: row;
   width: 95%;
   height: 100%;
- 
+
   border-radius: 3px;
   border: 1px solid rgb(208, 208, 211);
 }
-.profile_box_m{
+.profile_box_m {
   width: 85%;
- 
 }
 
-.profile_box_m_admin{
+.profile_box_m_admin {
   width: 95%;
   min-height: 600px;
   font-family: Rotobo condensed;
-  
-  padding: 10px;
- 
 
+  padding: 10px;
 }
 
-.profile_box_m_page{
+.profile_box_m_page {
   width: 99%;
   min-height: 600px;
   font-family: Rotobo condensed;
@@ -1513,10 +1540,8 @@ color: rgb(24, 32, 42);
   padding: 10px;
   display: flex;
   flex-direction: column;
-
-
 }
-.backlayout{
+.backlayout {
   display: flex;
   flex-direction: row;
   width: 10%;
@@ -1529,12 +1554,10 @@ color: rgb(24, 32, 42);
   border-radius: 10px;
   border: 1px solid white;
   transition: 1s ease-in-out;
-
 }
 
-
-.contolv{
-  display:  flex;
+.contolv {
+  display: flex;
   flex-direction: column;
   font-family: Roboto condensed;
   color: rgb(43, 45, 45);
@@ -1544,23 +1567,19 @@ color: rgb(24, 32, 42);
 
   margin-left: 50px;
 }
-.contolv h1{
-
-margin-bottom: 40px;
-font-weight: bold;
-font-size: 17;
+.contolv h1 {
+  margin-bottom: 40px;
+  font-weight: bold;
+  font-size: 17;
 }
-.backlayout:hover{
+.backlayout:hover {
   transition: 1s ease-in-out;
   background-color: rgb(164, 157, 157);
   box-shadow: 2px 1px 4px 6px rgb(238, 229, 250);
   border-radius: 5px;
-  
-
-
 }
 
-.sectionlayout{
+.sectionlayout {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -1570,14 +1589,12 @@ font-size: 17;
   padding-bottom: 20px;
   justify-content: space-evenly;
   align-items: start;
-  
 }
 
-
-.sectionlayout p{
+.sectionlayout p {
   color: rgb(2, 9, 19);
 }
-.profile_header{
+.profile_header {
   height: 80px;
   border-bottom: 1px solid rgb(208, 208, 211);
   display: flex;
@@ -1588,72 +1605,57 @@ font-size: 17;
   font-size: 17px;
 }
 
-
-
-
-.content_c{
-
+.content_c {
   display: flex;
   flex-direction: column;
   width: 100%;
   border-radius: 5px;
-  border:1px solid rgb(232, 252, 251);
-box-shadow: 2px 2px 4px 6px rgb(243, 243, 245);
-transform: scale(1.01);
-background-color: rgb(255, 255, 255);
-padding: 10px;
-padding-bottom: 20px;
-font-family: Roboto condensed;
-transition: 1s ease-in-out;
+  border: 1px solid rgb(232, 252, 251);
+  box-shadow: 2px 2px 4px 6px rgb(243, 243, 245);
+  transform: scale(1.01);
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  padding-bottom: 20px;
+  font-family: Roboto condensed;
+  transition: 1s ease-in-out;
 
-margin-bottom: 50px;
+  margin-bottom: 50px;
 }
-.contentshowbtn{
+.contentshowbtn {
   border-radius: 5px;
-  border:1px solid rgb(232, 252, 251);
+  border: 1px solid rgb(232, 252, 251);
   box-shadow: 2px 2px 6px 6px rgb(240, 236, 236);
   padding: 10px;
   background-color: rgb(123, 213, 255);
   cursor: pointer;
   color: rgb(43, 38, 38);
   transition: 1s ease-in-out;
-  
 }
-.contentshowbtn:hover{
+.contentshowbtn:hover {
   background-color: rgb(98, 199, 247);
   cursor: pointer;
   color: azure;
   transition: 1s ease-in-out;
-
-  
-  
 }
-.contentdeletebtn{
- 
+.contentdeletebtn {
   cursor: pointer;
   color: azure;
   transition: 1s ease-in-out;
   border-radius: 5px;
-margin-left: 20px;
-margin-top: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
   box-shadow: 2px 2px 2px 4px rgb(221, 221, 221);
   padding: 10px;
   background-color: rgb(26, 19, 19);
-  
 }
-.contentdeletebtn:hover{
-
+.contentdeletebtn:hover {
   background-color: rgb(85, 3, 3);
   cursor: pointer;
   color: rgb(255, 255, 255);
   transition: 1s ease-in-out;
-  
 }
 
-
-
-.plainlayout{
-
+.plainlayout {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -1661,12 +1663,10 @@ margin-top: 20px;
   z-index: 1200;
   justify-content: center;
   align-items: center;
-  background-color: rgb(7, 1, 1,0.3);
- 
+  background-color: rgb(7, 1, 1, 0.3);
 }
 
-
-.courselabel{
+.courselabel {
   width: 99%;
   background-color: rgb(253, 253, 252);
   margin: 10px;
@@ -1678,48 +1678,59 @@ margin-top: 20px;
   align-items: center;
   font-family: Roboto condensed;
 }
-.gearing{
 
--webkit-animation: Move_gear 1s linear infinite;
-animation: Move_gear 1s linear infinite;
+.companyname{
 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.companyname p{
+padding-top:10px;
+font-family: Roboto condensed;
+font-size: 13px;
+font-weight: bold;
+color: rgb(66, 66, 63);
+-webkit-animation: cname_anim 1s ease-in-out;
+
+}
+
+
+.companyname img{
+
+  -webkit-animation: cimg_anim 1s ease-in-out;
+  
+  }
+.gearing {
+  -webkit-animation: Move_gear 1s linear infinite;
+  animation: Move_gear 1s linear infinite;
 }
 @keyframes Move_gear {
-  0%{
+  0% {
     transform: rotate(180deg);
-
   }
-100%{
- 
-
+  100% {
+  }
 }
 
-
-  
-}
-
-.courselabel h1{
-
-
+.courselabel h1 {
   color: rgb(6, 5, 15);
   font-size: 23px;
   font-weight: bold;
 }
-.plabel{
-  color:rgb(6, 126, 126);
-font-weight: bold;
-font-size: 25;
+.plabel {
+  color: rgb(6, 126, 126);
+  font-weight: bold;
+  font-size: 25;
 }
-.courselabel h3{
+.courselabel h3 {
   font-size: 20;
 
   color: rgb(29, 29, 68);
 }
 
-
-.contents_layout{
-
-
+.contents_layout {
   width: 98%;
   display: flex;
   flex-direction: column;
@@ -1727,85 +1738,81 @@ font-size: 25;
   margin-left: 20px;
   margin-top: 50px;
 }
-.contentslabel{
+.contentslabel {
   transition: 2s ease-in-out;
   background-color: rgb(255, 255, 255);
-  box-shadow: 2px 4px 2px 4px rgb(232, 231, 231) ;
+  box-shadow: 2px 4px 2px 4px rgb(232, 231, 231);
 
   border-radius: 5px;
   padding: 5px;
-  margin-top:-20px;
+  margin-top: -20px;
   margin-left: 20px;
   cursor: pointer;
 }
-.contentslabel:hover{
+.contentslabel:hover {
   transition: 2s ease-in-out;
   background-color: rgb(45, 54, 54);
-color:white;
+  color: white;
 }
 
-
-
-.contentslabel_s{
+.contentslabel_s {
   transition: 2s ease-in-out;
   background-color: rgb(161, 161, 161);
 
   border-radius: 5px;
   padding: 5px;
-  margin-top:-20px;
+  margin-top: -20px;
   margin-left: 20px;
   cursor: pointer;
 }
-.contentslabel_s:hover{
+.contentslabel_s:hover {
   transition: 2s ease-in-out;
   background-color: aqua;
-color:rgb(23, 19, 19);
+  color: rgb(23, 19, 19);
 }
 
-.btnlabel{
+.btnlabel {
   background-color: rgb(48, 49, 49);
   border-radius: 5px;
-  color:white;
+  color: white;
   padding: 5px;
-  margin-top:-20px;
-  margin-left: 20px; 
+  margin-top: -20px;
+  margin-left: 20px;
   cursor: pointer;
 }
 
-
-.dividerline{
-  width:98%;
+.dividerline {
+  width: 98%;
   height: 1px;
   background-color: rgb(96, 93, 88);
   margin-top: 30px;
   margin-bottom: 30px;
 }
-.btnlabel_delete{
+.btnlabel_delete {
   background-color: rgb(89, 14, 28);
 
   border-radius: 5px;
-  color:white;
+  color: white;
   padding: 5px;
-  margin-top:-20px;
-  margin-left: 20px; 
+  margin-top: -20px;
+  margin-left: 20px;
   cursor: pointer;
 }
-.btnlabel_delete hover{
+.btnlabel_delete hover {
   transition: 1 ease-in-out;
   transform: scale(1.4);
   cursor: pointer;
-  }
-.gridlayout{
-  display:grid;
-  grid-template-columns: repeat(4,3fr );
 }
-  .btnlabel hover{
-    transition: 1 ease-in-out;
-    transform: scale(1.4);
+.gridlayout {
+  display: grid;
+  grid-template-columns: repeat(4, 3fr);
+}
+.btnlabel hover {
+  transition: 1 ease-in-out;
+  transform: scale(1.4);
 }
 
-.couponcontainer{
-
+.couponcontainer {
   background-color: darkgoldenrod;
   padding: 20px;
   font-family: Roboto condensed;
@@ -1822,48 +1829,38 @@ color:rgb(23, 19, 19);
   height: 60px;
   width: 180px;
   font-size: 14px;
- 
-
 }
-.couponcontainer span{
+.couponcontainer span {
   margin-right: 10px;
 }
 
-.couponcontainer:hover{
+.couponcontainer:hover {
   color: rgb(212, 212, 213);
   background-color: rgb(75, 55, 4);
   transition: 2s ease-in-out;
   transform: scale(1.1);
-
-
 }
-.btnss{
+.btnss {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-.coursecontrol{
+.coursecontrol {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
-.divcontainer{
+.divcontainer {
   display: flex;
   flex-direction: column;
   width: 50%;
   min-height: 400px;
   background-color: white;
-
-
-
-
-
 }
-.deletebtn{
- 
+.deletebtn {
   cursor: pointer;
   color: azure;
   transition: 1s ease-in-out;
@@ -1871,65 +1868,54 @@ color:rgb(23, 19, 19);
   box-shadow: 2px 2px 2px 4px rgb(221, 221, 221);
   padding: 5px;
   background-color: rgb(26, 19, 19);
-  
 }
-.deletebtn:hover{
-
+.deletebtn:hover {
   background-color: rgb(85, 3, 3);
   cursor: pointer;
   color: rgb(255, 255, 255);
   transition: 1s ease-in-out;
-  
 }
 
-
-
-
-
-
-
-.btnlayout{
+.btnlayout {
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: left;
   align-items: center;
 }
-.content_c:hover{
-transition: 1s ease-in-out ;
-background-color: rgb(247, 247, 247);
-transform: scale(1.02);
-
+.content_c:hover {
+  transition: 1s ease-in-out;
+  background-color: rgb(247, 247, 247);
+  transform: scale(1.02);
 }
-.content_c h1{
-  font-size: 25px ;
+.content_c h1 {
+  font-size: 25px;
   font-weight: bold;
 }
 
-.Editor{
-width: 98%;
+.Editor {
+  width: 98%;
   background-color: rgb(250, 252, 252);
   border-radius: 5px;
   box-shadow: 2px 2px 6px 6px rgb(240, 236, 236);
 }
-.editorcontainer{
-
+.editorcontainer {
   display: flex;
   flex-direction: column;
   width: 100%;
- padding: 10px;
- justify-content: space-evenly;
- align-items: start;
+  padding: 10px;
+  justify-content: space-evenly;
+  align-items: start;
 }
 
-.contentnav{
+.contentnav {
   display: flex;
   flex-direction: column;
   width: 100%;
   justify-content: end;
   align-items: end;
 }
-.sectionlayout{
+.sectionlayout {
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -1937,81 +1923,75 @@ width: 98%;
   align-items: center;
 }
 
-.content_section{
-
+.content_section {
   width: 95%;
   min-height: 200px;
   overflow: scroll;
   background-color: rgb(224, 224, 224);
   border-radius: 5px;
   font-family: Roboto condensed;
-  
+
   padding: 10px;
-  
 }
 
-.contentsections h1{
+.contentsections h1 {
   font-size: 25px;
-  color:rgb(27, 26, 31)
-
+  color: rgb(27, 26, 31);
 }
-.contentsections{
-background-color: rgb(255, 255, 255);
-border-radius: 5px;
-margin:10px;
-width: 95%;
-
-
+.contentsections {
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  margin: 10px;
+  width: 95%;
 }
-.profile_header h1{
+.profile_header h1 {
   font-size: 20px;
   font-weight: bold;
   padding-top: 5px;
 }
-.update_form{
+.update_form {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-align-items: center;
+  align-items: center;
 }
 
-.update_formscontent{
+.update_formscontent {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-align-items: center;
-border: 1px solid rgb(234, 234, 238);
-border-radius: 5px;
+  align-items: center;
+  border: 1px solid rgb(234, 234, 238);
+  border-radius: 5px;
 }
 
-.resuseformscontent{
+.resuseformscontent {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-align-items: center;
+  align-items: center;
 
-border: 1px solid rgb(234, 234, 238);
-background-color: rgb(246, 246, 246);
-padding-top: 50px;
-border-radius: 5px;
-font-family: Roboto condensed;
+  border: 1px solid rgb(234, 234, 238);
+  background-color: rgb(246, 246, 246);
+  padding-top: 50px;
+  border-radius: 5px;
+  font-family: Roboto condensed;
 }
 
+.headername {
+  font-family: Roboto condensed;
+  font-size: 20px;
+  background-color: aqua;
+  padding: 5px 10px 5px 10px;
 
-.headername{
-font-family: Roboto condensed;
-font-size: 20px;
-background-color: aqua;
-padding: 5px 10px 5px 10px;
-
-border-radius: 5px;
-margin-bottom: -20px;
-z-index: 2;
+  border-radius: 5px;
+  margin-bottom: -20px;
+  z-index: 2;
 }
-.profile_rev{
+.profile_rev {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2019,7 +1999,7 @@ z-index: 2;
   font-weight: bold;
 }
 
-.profile_b_nav{
+.profile_b_nav {
   width: 15%;
   border-right: 1px solid rgb(208, 208, 211);
   font-family: Roboto condensed;
@@ -2027,70 +2007,61 @@ z-index: 2;
   padding-top: 10px;
 }
 
-.profile_b_navadminmain{
+.profile_b_navadminmain {
   position: relative;
   width: 15%;
   padding-top: 10px;
   border-right: 1px solid rgb(208, 208, 211);
   padding-right: 30px;
   overflow: hidden;
- 
-
 }
 
-
-.fieldlayout{
-
+.fieldlayout {
   display: flex;
   flex-direction: row;
   width: 400px;
-
 }
-.fieldlay{
-
+.fieldlay {
   display: flex;
   flex-direction: row;
   width: 400px;
   margin-bottom: 40px;
-
 }
-.profile_b_navadmin{
+.profile_b_navadmin {
   width: 13%;
   font-family: Roboto condensed;
   overflow: hidden;
   font-size: 14px;
   position: fixed;
   z-index: 100;
-  
 }
-.profile_cont{
+.profile_cont {
   display: flex;
   flex-direction: column;
-  
 }
-.p_span{padding: 10px 10px 10px 10px;
-cursor: pointer;
-
+.p_span {
+  padding: 10px 10px 10px 10px;
+  cursor: pointer;
 }
-.p_span:hover{
- background-color: rgb(172, 165, 165);
-  }
-.profile_b_nav p{
+.p_span:hover {
+  background-color: rgb(172, 165, 165);
+}
+.profile_b_nav p {
   cursor: pointer;
   transition: 1s ease-in-out;
 }
-.profile_b_nav p:hover{
+.profile_b_nav p:hover {
   cursor: pointer;
   color: rgb(8, 211, 211);
   transition: 1s ease-in-out;
 }
-.notification_form{
+.notification_form {
   display: flex;
   flex-direction: column;
   padding: 5px;
   font-family: Roboto condensed;
 }
-.carthead{
+.carthead {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -2100,7 +2071,7 @@ cursor: pointer;
   font-weight: bold;
   border-bottom: 1px solid rgb(204, 204, 204);
 }
-.carttotal{
+.carttotal {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -2108,26 +2079,25 @@ cursor: pointer;
   padding-left: 10px;
   align-items: center;
   font-weight: bold;
-margin-top: 20px;
+  margin-top: 20px;
 }
-.cart_promo{
+.cart_promo {
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 40px;
   align-items: center;
   font-weight: bold;
-margin-top: 20px;
-justify-content: right;
-padding-right: 25px;
-
+  margin-top: 20px;
+  justify-content: right;
+  padding-right: 25px;
 }
-.promo_h{
+.promo_h {
   margin-bottom: -30px;
   margin-right: 0px;
   font-size: 20px;
 }
-.cartcheckout{
+.cartcheckout {
   background-color: aqua;
   padding: 8px;
   border-radius: 5px;
@@ -2135,129 +2105,130 @@ padding-right: 25px;
   box-shadow: 2px 3px 6px 2px rgb(241, 231, 231);
   transition: 1s ease-in-out;
 }
-.cartcheckout:hover{
-transition: 1s ease-in-out;
+.cartcheckout:hover {
+  transition: 1s ease-in-out;
   box-shadow: 2px 3px 6px 2px rgb(233, 229, 229);
 }
-.cartlist_layout{
+.cartlist_layout {
   display: flex;
   flex-direction: row;
   width: 100%;
   padding-left: 10px;
   align-items: center;
   border-bottom: 1px solid rgb(243, 239, 239);
-
 }
-.cartDescript{
+.cartDescript {
   width: 70%;
-
 }
-.cartpromo_s{
+.cartpromo_s {
   width: 70%;
-
 }
-.cartauth{
+.cartauth {
   width: 20%;
 }
-.cartpromo{
-  
+.cartpromo {
   display: flex;
   flex-direction: row;
 }
-.appl_promo{
+.appl_promo {
   padding: 5px 10px 5px 10px;
   background-color: rgb(172, 169, 169);
-  
 }
 
-
-.courseheader{
-
+.courseheader {
   font-size: 17;
-  color:rgb(34, 36, 36);
+  color: rgb(34, 36, 36);
 }
 
-input{
+input {
   -webkit-appearance: none;
   appearance: none;
   outline: none;
   box-shadow: none !important;
   border-radius: 5px;
   height: 50px;
- padding: 10px;
+  padding: 10px;
   border: 1px solid rgb(219, 214, 214);
   padding: 3px;
 }
-.errorspan{
-  color:red;
+.errorspan {
+  color: red;
   width: 100%;
   margin-bottom: 10px;
   visibility: hidden;
-
 }
-.showerror{
+.showerror {
   visibility: visible;
 }
-.cartprice{
+.cartprice {
   width: 10%;
 }
-.cartprice_t{
+.cartprice_t {
   width: 10%;
   color: rgb(7, 11, 58);
 }
 
-.cartlist_d{
+.cartlist_d {
   width: 66%;
   display: flex;
   flex-direction: row;
   margin-top: 10px;
-  
 }
-.list_frame{
+.list_frame {
   height: 110px;
   width: 110px;
   border-radius: 3px;
   background-color: rgb(20, 169, 238);
 }
-.list_detail{
+.list_detail {
   display: flex;
   flex-direction: column;
   font-family: Roboto condensed;
   font-size: 18px;
   padding: 10px;
 }
-.list_title{
+.list_title {
   font-size: 15px;
   font-weight: bold;
 }
-.list_point{
+.list_point {
   font-size: 13px;
 }
-.cartlist_author{
+.cartlist_author {
   width: 24%;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
-.cartlist_author p{
+.cartlist_author p {
   margin-top: -50px;
 }
-.cartlist_price{
-
-margin-top: -30px;font-size: 15px;
+.cartlist_price {
+  margin-top: -30px;
+  font-size: 15px;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
-
-
-@keyframes showcontent {
-
+@keyframes cimg_anim{
   0%{
+    opacity: 0;
+    transform: translateY(10%);
+
+  }
+}
+@keyframes cname_anim{
+  0%{
+    opacity: 0;
+    transform: translateY(-10%);
+
+  }
+}
+@keyframes showcontent {
+  0% {
     transform: translateX(200px);
     opacity: 0;
   }
-  
 }
 @keyframes topcat_anim {
   0% {
@@ -2278,20 +2249,330 @@ margin-top: -30px;font-size: 15px;
   }
   100% {
     transform: translateY(100px);
-   
   }
 }
 
 
+
+@keyframes ads-anim {
+  0% {
+   opacity: 0;
+   transform: translateY(10%);
+  }
+  
+}
 @keyframes animdenger {
-  0%{
+  0% {
     color: brown;
   }
-  50%{
+  50% {
     color: green;
   }
-  100%{
+  100% {
     color: red;
+  }
+}
+
+@media only screen and (max-width: 930px) {
+
+  
+.mobiletopNav{
+  display: flex;
+  width: 100%;
+
+}
+  .MainContainer {
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+  .desktopNav {
+    display: none;
+  }
+  .topcatebox {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    height: 250px;
+    width: 100%;
+  }
+
+  .mobileNav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 80px;
+    background-color: white;
+    justify-content: space-between;
+    font-family: Roboto condensed;
+    align-items: center;
+    padding: 10px;
+  
+  }
+
+  .mainmenu {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    z-index: 2000;
+    background-color: rgb(109, 131, 131, 0);
+    -webkit-animation: showMenu_m 1s ease-in-out; 
+    animation: showMenu_m 1s ease-in-out; 
+  }
+
+  .menu_left {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    background-color: rgb(240, 240, 240);
+    padding: 10px;
+  }
+  .menu_right {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    background-color: rgb(109, 131, 131,0);
+    padding-top: 15px;
+    padding-left: 10px;
+
+  }
+
+  .menu_p{
+
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px; 
+    font-family: Roboto condensed;
+  }
+
+  
+  .menu_h1{
+margin-top: 20px;
+    font-weight: bold; 
+     font-size: 15px;
+    font-family: Roboto condensed;
+    
+  }
+  .menu_h1 span{
+    padding-left: 60px;
+    -webkit-animation: showarrow 2s ease-in-out; 
+  }
+ 
+
+  @keyframes showarrow {
+    0%{
+      opacity: 0;
+      color: aqua;
+      transform: translateX(10%);
+    }
+    
+  }
+
+ 
+
+  .layouttest {
+    
+    grid-template-columns: repeat(2, 2fr);
+  }
+  
+
+
+  .testlayout {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 98%;
+    min-height: 300px;
+    margin-left: 0px;
+  
+  
+  }
+  .menu_right_span {
+  
+    margin-top: 50px;
+   background-color: rgb(55, 90, 90);
+   width: 40px;
+   height: 40px;
+border-radius: 30px;   
+  }
+
+
+
+  .frontadslayoutbox {
+    margin-left: 5px;
+    width: 95%;
+  }
+  .frontadslayoutbox h1 {
+    font-size: 15px;
+  }
+  .frontadslayoutbox p {
+    
+    font-size: 12px;
+  
+  
+  
+  }
+
+
+  .coursepreviewmain h1 {
+    font-weight: bold;
+    font-size: 15px;
+  }
+  
+
+  .coursepreviewmain p {
+    
+    font-size: 12px;
+  }
+  
+  .coursepreCbox {
+    width: 100%;
+    height: 100px;  
+    border: 1px solid rgb(219, 219, 219);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .testmain h1 {
+    margin-left: 15px;
+  
+  }
+  
+  .textbox {
+ 
+    width: 90%;
+    margin-bottom: 10px;
+    
+ 
+  }
+  .layoutspac p {
+    margin-right: 5px;
+    margin-bottom: 2px;
+    font-size: 12px;
+  }
+
+  .layoutspacv p {
+    margin-right: 5px;
+    margin-bottom: 2px;
+    font-size: 12px;
+  }
+
+
+  .homepreview h1 {
+    font-size: 15px;
+  
+  }
+  .coursepreviewlayout {
+    width: 99%;
+  }
+  .topcatlayout {
+    width: 95%;
+    height: 100px;
+
+  }
+  .topcatlayout p{
+    font-size: 10px;
+   
+
+  }
+
+
+  .coursepreColumn {
+    height: 100%;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 2px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    border: 1px solid rgb(219, 219, 219);
+  }
+
+
+
+  .coursepreCboxcolum {
+    width: 95%;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+   
+  }
+
+
+  .frontitemhover {
+  font-family: Roboto condensed;
+  font-size: 12px;
+  }
+
+  .layoutstudy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    width: 100%;
+  }
+  .profile_box {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    
+  }
+
+  
+  .textbox p {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+  .textbox p span {
+    color: rgb(0, 0, 0);
+  
+  }
+  .layoutdetail {
+    width: 100%;
+  }
+
+  .columntitle {
+    font-size: 14px;
+   
+  }
+
+  .columnabstract {
+
+    font-size: 11px;
+    
+  }
+  .profile_header {
+   width: 100%;
+  }
+  
+  .profile_b_nav{
+    display: none;
+  }
+
+  .maincourselayout {
+    width: 100%;
+
+  }
+
+  .myform {
+ 
+    width: 98%;
+   
+  }
+  @keyframes showMenu_m {
+    0%{
+      opacity: 0.6;
+      transform: translateX(-50%);
+    }
+    
   }
 }
 
