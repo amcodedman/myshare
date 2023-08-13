@@ -60,7 +60,10 @@ export const section_new = (data) => ({
 
 
 axios.defaults.headers.post["Content-Type"] = "application/json";
-
+axios.interceptors.request.use(config => {
+  config.mode = "cors";
+  return config;
+});
 export const AddCourseServer = (data) => {
   return async (dispatch, getdispatch) => {
     try {

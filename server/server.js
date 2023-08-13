@@ -6,7 +6,7 @@ const bodyParser=require("body-parser")
 const cookieParser=require("cookie-parser")
 const PORT=process.env.PORT ||3003
 const path=require("path")
-
+const cors=require('cors');
 const MongoUrl=`mongodb+srv://numbonayar:${process.env.DB_PASS}@cluster0.ulrnjef.mongodb.net/?retryWrites=true&w=majority`
 
 
@@ -18,7 +18,7 @@ const geo=require("./routers/geo")
 const database=require("./routers/databa")
 
 const {checkToken}=require("./middleware/auth")
-
+app.use(cors())
 app.use(bodyParser.json())
 
 app.use(cookieParser())

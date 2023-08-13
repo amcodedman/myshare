@@ -6,6 +6,10 @@ export const GeoDetail = (item) => ({
   payload: item,
 });
 axios.defaults.headers.post["Content-Type"] = "application/json";
+axios.interceptors.request.use(config => {
+  config.mode = "cors";
+  return config;
+});
 export const GeoGet = () => {
   return async (dispatch) => {
     try {
