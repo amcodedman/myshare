@@ -30,6 +30,7 @@ exports.GetGeo = async (data) => {
 exports.checkToken = async (req, res, next) => {
   try {
     console.log({headers:req.headers})
+    console.log({head:req})
     let checker = req.headers["authuser"];
 
     if (checker) {
