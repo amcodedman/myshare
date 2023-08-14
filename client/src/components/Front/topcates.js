@@ -56,7 +56,7 @@ navigateTo(`/courses/category/Programming`)
 navigateTo(`/courses/category/Data Science`)
                   }}
           style={{
-            backgroundImage: `url('https://myportfoliocontent.s3.eu-north-1.amazonaws.com/ControllerImg/stack.ico30163.183381289273')`,
+            backgroundImage: `url('https://myportfoliocontent.s3.eu-north-1.amazonaws.com/ControllerImg/data+center+picture.png89268.20860813982')`,
           }}
         >
           <div className="catebtn"><p className="topcat_pi">Data Science</p></div>

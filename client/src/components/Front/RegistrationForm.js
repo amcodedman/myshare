@@ -77,7 +77,7 @@ useEffect(()=>{
       
       <div className="registerme">
         <div
-          className="backgroundimage"
+          className="backgroundim"
           style={{
             backgroundImage: `url('https://cdn.pixabay.com/photo/2018/03/03/20/02/laptop-3196481_1280.jpg')`,
           }}

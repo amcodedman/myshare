@@ -71,7 +71,7 @@ const Resetpasspage = () => {
     >
       <div className="registerme">
         <div
-          className="backgroundimage"
+          className="backgroundim"
           style={{
             backgroundImage: `url('https://cdn.pixabay.com/photo/2015/10/22/17/28/stack-of-books-1001655_1280.jpg')`,
           }}

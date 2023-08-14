@@ -76,6 +76,30 @@
   margin-top: 50px;
   font-weight: bold;
 }
+
+
+.backgroundim{
+  height: 650px;
+
+  background-color: white;
+  width: 40%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+
+  align-items: baseline;
+  padding: 50px;
+}
+.backgroundim span {
+  font-family: Roboto condensed;
+  color: rgb(3, 76, 82);
+  font-size: 25px;
+  margin-top: 50px;
+  font-weight: bold;
+}
+
+
 .forgottenp {
   color: rgb(143, 41, 41);
   padding: 5px;
@@ -2538,7 +2562,11 @@ padding-top: 10px;
     font-size: 11px;
   
   }
-
+  .backgroundim {
+   
+    display: none;
+   
+  }
 
   .admessage span {
     margin-left: 50px;
@@ -2632,6 +2660,17 @@ padding-top: 10px;
     font-size: 10px;
   
   }
+  .formsp {
+ 
+    width: 100%;
+   
+  }
+  .formsp form {
+    
+    width: 98%;
+   
+  }
+  
   .myform {
  
     width: 98%;

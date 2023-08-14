@@ -55,7 +55,7 @@ const Login = () => {
     >
       <div className="registerme">
         <div
-          className="backgroundimage"
+          className="backgroundim"
           style={{
             backgroundImage: `url('https://cdn.pixabay.com/photo/2016/11/29/06/48/pens-1867899_1280.jpg')`,
           }}
