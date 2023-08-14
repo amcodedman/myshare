@@ -2585,6 +2585,16 @@ padding-top: 10px;
   font-size: 12px;
   }
 
+
+  .myform {
+   
+    font-size: 10px;
+  
+    width: 100%;
+   
+  }
+  
+
   .layoutstudy {
     display: flex;
     flex-direction: column;

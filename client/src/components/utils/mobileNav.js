@@ -119,8 +119,13 @@ const MobileNav = (props) => {
                   </>
                 ) : (
                   <>
-                    <span onClick={() => Route("/user/Signup")} className="menu_p">Join us</span>
-                    <span onClick={() => Route("/user/login")} className="menu_p">Login </span>
+                    <span onClick={() =>{ 
+                      enableScroll()
+
+                      Route("/user/Signup")}} className="menu_p">Join us</span>
+                    <span onClick={() => {
+                         enableScroll()
+                      Route("/user/login")}} className="menu_p">Login </span>
                   </>
                 )}
               </>
