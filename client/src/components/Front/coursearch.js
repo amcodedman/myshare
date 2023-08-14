@@ -202,7 +202,7 @@ const CourseSearch = () => {
           </div>
           <div
             className="frontpage"
-            style={{ minHeight: `${window.innerHeight}px` }}
+            style={{ minHeight: `${window.innerHeight-300}px-` }}
           ></div>
           <div className="footer">
             <div className="frontitemhover">

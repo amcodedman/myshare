@@ -812,7 +812,7 @@ animation: showactionbtn 2s ease-in-out;
 .frontpage p {
   font-family: Roboto condensed;
   font-size: 35px;
-  color: aqua;
+  color: rgb(46, 59, 59);
 }
 .frontpage_c {
   display: flex;
@@ -2344,6 +2344,12 @@ input {
 
   }
 
+  .frontpage p {
+  
+    font-size: 15px;
+  
+  }
+
   .menu_p{
 
     font-weight: bold;
@@ -2568,7 +2574,7 @@ padding-top: 10px;
   
   .textbox p {
     margin-left: 5px;
-    font-size: 12px;
+    font-size: 9px;
   }
   .textbox p span {
     color: rgb(0, 0, 0);

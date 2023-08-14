@@ -9,19 +9,19 @@ const Testgood = () => {
         <div className="textbox">
           <h1 className="comma">"</h1>
           <p>
-            I am proud to say that after a few months of taking this course...
-            <span>
-              I passed my exam and am now an AWS Certified Cloud Practitioner!
-            </span>{" "}
-            This content was exactly what the CCP exam covered.
-          </p>
+I'm delighted to announce that following a few months of active participation in "The Complete SQL Bootcamp: Go from Zero to Hero"...
+<span>
+I've successfully completed the course and have transformed into an SQL Maestro!
+</span>{" "}
+The course material perfectly encompassed the subject matter tested in the certification evaluation.
+</p>
 
           <div className="usertest">
-            <Avatar /> <span>John mens</span>
+            <Avatar /> <span>James mensah</span>
           </div>
           <div className="breakline"></div>
           <div className="testcourse">
-            Become a Product Manager | Learn the Skills & Get the Job
+          The Complete SQL Bootcamp: Go from Zero to Hero
           </div>
         </div>
 
@@ -31,19 +31,18 @@ const Testgood = () => {
         <div className="textbox">
           <h1 className="comma">"</h1>
           <p>
-            I am proud to say that after a few months of taking this course...
-            <span>
-              I passed my exam and am now an AWS Certified Cloud Practitioner!
-            </span>{" "}
-            This content was exactly what the CCP exam covered.
-          </p>
-
+I'm thrilled to announce that following several months of engaging with the "Artificial Intelligence (ARS): Build the Most Powerful AI" course...
+<span>
+I successfully cleared my assessment and am now a certified AI Mastermind!
+</span>{" "}
+The course material perfectly aligned with the AI Mastermind certification exam.
+</p>
           <div className="usertest">
-            <Avatar /> <span>John mens</span>
+            <Avatar /> <span>Kofi Mark</span>
           </div>
           <div className="breakline"></div>
           <div className="testcourse">
-            Become a Product Manager | Learn the Skills & Get the Job
+          Artificial Intelligence (ARS): Build the Most Powerful AI
           </div>
         </div>
 
@@ -53,19 +52,19 @@ const Testgood = () => {
         <div className="textbox">
           <h1 className="comma">"</h1>
           <p>
-            I am proud to say that after a few months of taking this course...
-            <span>
-              I passed my exam and am now an AWS Certified Cloud Practitioner!
-            </span>{" "}
-            This content was exactly what the CCP exam covered.
-          </p>
+I'm excited to share that after dedicating a few months to the "Cyber Security: Info Security, Combat Cyber Threats, ChatGPT" course...
+<span>
+I have triumphed in my examination and am now a certified Cyber Security Defender!
+</span>{" "}
+The course content comprehensively covered the topics tested in the certification assessment.
+</p>
 
           <div className="usertest">
-            <Avatar /> <span>John mens</span>
+            <Avatar /> <span>Sana Adams</span>
           </div>
           <div className="breakline"></div>
           <div className="testcourse">
-            Become a Product Manager | Learn the Skills & Get the Job
+          Cyber Security: Info Security, Combat Cyber Threats, ChatGPT
           </div>
         </div>
 
