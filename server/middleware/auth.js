@@ -43,7 +43,7 @@ exports.GetGeo=async()=>{
   }
 
   catch(error){
-    console.log({error: error})
+    console.log({errorss: error})
 
   }
   
