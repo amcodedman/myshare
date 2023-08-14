@@ -17,17 +17,20 @@ exports.GetGeo = async () => {
     const userphonecode = await ipa.calling_code;
     const continent = await ipa.continent_name;
     const state_c = await ipa.region;
+    console.log(state_c)
     const timezone = [
       await ipa.time_zone.name,
       await ipa.time_zone.current_time,
     ];
     const ipaddress =  ipa.ip;
+    console.log(ipaddress)
     const checkSecure = await axios.get(
       `http://v2.api.iphub.info/ip/${ipaddress}`,
       {
         headers: { "X-Key": `${process.env.IPUB}=` },
       }
     );
+
 
     const secure = await checkSecure.data;
     return {
