@@ -2528,7 +2528,7 @@ border-radius: 30px;
   }
   .admessage {
    
-
+padding-top: 10px;
     font-size: 11px;
   
   }
@@ -2621,6 +2621,11 @@ border-radius: 30px;
 
   }
 
+  .adofferlimit {
+  
+    font-size: 10px;
+  
+  }
   .myform {
  
     width: 98%;
