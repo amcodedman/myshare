@@ -123,22 +123,28 @@ export const Signout=()=>{
 export const AutoLogin = (data) => {
   return async (dispatch) => {
     try {
+
+
       console.log("AutoLogin");
-      let token = Getusercookie();
-      console.log({"yes":token})
-      const profiledetail = await axios.get(`${API}/user/profile`, {
+      let token = Getusercookie()
+
+      const config = {
         headers: {
-          authuser: token,
+          'authuser': token,
+          // other headers can be added here
         },
-      });
+      };
+      
+     ;
+      console.log({"yes":token})
+      const profiledetail = await axios.post(`${API}/user/profile`, null,config);
       console.log({"final" :profiledetail.data})
       dispatch(userDetail({ account: profiledetail.data, auth: true,loading: false }));
 
     } catch (error) {
       dispatch(notify.notify_error({ msg: error }));
       dispatch(userDetail({ loading: false,auth: false,}));
-      console.log("profiledetail.data");
-
+      
      
     }
   };

@@ -266,11 +266,9 @@ routers.route("/unblockuser/:id").patch(async (req, res) => {
 });
 
 ////////////////// profile0
-routers.route("/profile").get(Checkuser, async (req, res) => {
+routers.route("/profile").post(Checkuser, async (req, res) => {
   try {
     console.log("profile");
-
-    
     const user = await req.user;
 if(user !== undefined){
   res.status(200).json(user);
