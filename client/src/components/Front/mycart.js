@@ -111,7 +111,7 @@ const MyCart = () => {
            <div className="profile_cont">
                     <span
                       className="p_span"
-                     
+                      onClick={() => navigate("/user")}
                     >
                       Profile
                     </span>

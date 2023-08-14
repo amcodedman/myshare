@@ -370,7 +370,11 @@ const [menus,setmenu]=useState(false);
 
             </div>
             <div className="mobiletopNav">    
-  <MobileNav/></div>
+  <MobileNav     setprofile={setprofile}
+              topads={topads}
+              fn={fn}
+              ln={ln}
+              email={email}/></div>
            
             {cat ? <CatTemplete catsub={catsub} /> : null}
 

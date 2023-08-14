@@ -5,27 +5,14 @@ const axios = require("axios");
 const { User } = require("../models/users");
 const { Admin } = require("../models/users");
 
-exports.GetGeo = async () => {
+exports.GetGeo = async (data) => {
   try {
   
-    const responsefull = await axios.get(
-      `https://api.ipdata.co/?api-key=${process.env.ipgeoAPI}`
-    );
 
-    const ipa = await responsefull.data;
-    const country = await ipa.country_name;
-    const userphonecode = await ipa.calling_code;
-    const continent = await ipa.continent_name;
-    const state_c = await ipa.region;
-    console.log(state_c)
-    const timezone = [
-      await ipa.time_zone.name,
-      await ipa.time_zone.current_time,
-    ];
-    const ipaddress =  ipa.ip;
-    console.log(ipaddress)
+  
+    
     const checkSecure = await axios.get(
-      `http://v2.api.iphub.info/ip/${ipaddress}`,
+      `http://v2.api.iphub.info/ip/${data.ipaddress}`,
       {
         headers: { "X-Key": `${process.env.IPUB}=` },
       }
@@ -33,15 +20,8 @@ exports.GetGeo = async () => {
 
 
     const secure = await checkSecure.data;
-    return {
-      country: country,
-      userphonecode: userphonecode,
-      timezone: timezone,
-      state_c: state_c,
-      continent: continent,
-      ipaddress: ipaddress,
-      blockrate: secure.block,
-    };
+    data["blockrate"]=secure.block
+    return data;
   } catch (error) {
     console.log({ errorss: error });
   }

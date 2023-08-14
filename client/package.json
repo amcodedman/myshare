@@ -60,5 +60,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://mysharesapi.onrender.com"
+  "proxy": "http://localhost:3003"
 }
