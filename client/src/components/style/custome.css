@@ -2677,15 +2677,11 @@ padding-top: 10px;
   }
   .formsp form {
     
-    width: 98%;
+    width: 100%;
    
   }
   
-  .myform {
  
-    width: 98%;
-   
-  }
   @keyframes showMenu_m {
     0%{
       opacity: 0.6;

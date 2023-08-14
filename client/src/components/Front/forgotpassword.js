@@ -88,7 +88,7 @@ const Forgotpass = () => {
             ) : (
               <Button
                 type="submit"
-                style={{ marginBottom: "50px", width: "25%" }}
+                style={{ marginBottom: "50px", width: "40%" }}
               >
                 Continue
               </Button>
