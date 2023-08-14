@@ -75,18 +75,7 @@ const Home = () => {
   });
 
   
-  useEffect(() => {
-    if (location) {
-      if (location.GEOD !==null) {
-       
-        if(location.GEOD.blockrate >0){
-          setholdp(true)
-        }
-       
-      
-      }
-    }
-  });
+
   useEffect(() => {
     // dispatch(GeoCookieT())
   }, []);
@@ -158,7 +147,7 @@ const Home = () => {
           <FreezePage IP={`${location && location.GEOD ? location.GEOD.ipaddress :"" }`} country={`${location && location.GEOD ? location.GEOD.country:"" }`} />:null
         }
           <div className="maintop">
-      <>{topads ? <FOreignAds settopads={settopads}/> :null}</>      
+      <>{!topads ? <FOreignAds settopads={settopads}/> :null}</>      
       <div className="desktopNav"><TopNav setprofile={setprofile} topads={topads}  fn={fn} ln={ln} email={email}/></div>
   
       <div className="mobiletopNav">    

@@ -21,7 +21,7 @@ const FreezePage = (props) => {
             <p>Message: <span>You tried to access with a fake location</span></p>
             <p>We detected Ip address :<span className="dangers">{props.IP}</span> from country <span className="dangers">{props.country}</span></p>
             <p>Please you have being restricted from accessing the site.Please turn off any Vpn application or proxy cahnger and reload</p>
-            <span className="brand">Power by BaduTec.org..</span>
+         
         </div>
 
       </div>

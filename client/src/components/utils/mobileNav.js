@@ -119,8 +119,8 @@ const MobileNav = (props) => {
                   </>
                 ) : (
                   <>
-                    <span className="menu_p">Join us</span>
-                    <span className="menu_p">Login </span>
+                    <span onClick={() => Route("/user/Signup")} className="menu_p">Join us</span>
+                    <span onClick={() => Route("/user/login")} className="menu_p">Login </span>
                   </>
                 )}
               </>
@@ -178,7 +178,7 @@ const MobileNav = (props) => {
                                 <span
                                   onClick={() => {
                                     setmenu(false);
-
+                                    enableScroll()
                                     navigateTo(`/courses/category/${data}`);
                                   }}
                                 >
@@ -234,7 +234,10 @@ const MobileNav = (props) => {
             />
             {searchvalue !== "" ? (
               <span className="searchbuttonmobile">
-                <IconButton onClick={() => console.log(searchvalue)}>
+                <IconButton 
+                  onClick={() => navigateTo(`/courses/search/${searchvalue}`)}
+              
+                 >
                   <Search size={15} color="black" />
                 </IconButton>{" "}
               </span>

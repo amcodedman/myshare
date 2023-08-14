@@ -7,6 +7,7 @@
   z-index: 1002;
 }
 .admessage {
+  width: 100%;
   display: flex;
   flex-direction: row;
   font-family: Roboto condensed;
@@ -23,7 +24,7 @@
   font-family: Roboto condensed;
   font-size: 19px;
   font-weight: bold;
-  color: white;
+  color: rgb(170, 167, 167);
   margin-bottom: 10px;
   justify-content: center;
 }
@@ -567,7 +568,7 @@ animation: showactionbtn 2s ease-in-out;
   position: absolute;
   width: 100%;
   z-index: 10000;
-  background-color: rgb(29, 22, 22, 0.2);
+  background-color: rgb(29, 22, 22, 0.1);
   display: flex;
   flex-direction: column;
   cursor: help;
@@ -1109,6 +1110,8 @@ animation: showactionbtn 2s ease-in-out;
 .topcate {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 30px;
   min-height: 400px;
   background-color: rgb(243, 243, 243);
@@ -1426,9 +1429,9 @@ animation: showactionbtn 2s ease-in-out;
 
 .topcatlayout {
 
-  width: 95%;
+  width: 100%;
   height: 250px;
-  background-color: rgb(191, 214, 214);
+  background-color: rgb(191, 214, 214,0);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2420,6 +2423,14 @@ border-radius: 30px;
   }
 
 
+  .freelayout {
+    flex-direction: column;
+    justify-content: space-between;
+    width: 70%;
+    height: 400px;
+    margin-right: 50px;
+    margin-left: -50px;
+  }
   .coursepreviewmain h1 {
     font-weight: bold;
     font-size: 15px;
@@ -2463,7 +2474,11 @@ border-radius: 30px;
     font-size: 12px;
   }
 
-
+  .freezeC {
+ 
+   height: 1000px;
+   width: 100%
+  }
   .homepreview h1 {
     font-size: 15px;
   
@@ -2498,6 +2513,30 @@ border-radius: 30px;
 
 
 
+
+
+
+  .foreign {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80px;
+   
+    justify-content: center;
+    align-items: center;
+    z-index: 1002;
+  }
+  .admessage {
+   
+
+    font-size: 11px;
+  
+  }
+
+
+  .admessage span {
+    margin-left: 50px;
+  }
   .coursepreCboxcolum {
     width: 95%;
     height: 200px;
@@ -2543,7 +2582,27 @@ border-radius: 30px;
     font-size: 14px;
    
   }
+.freeel_l {
+  display: flex;
+  height: 100px;
+  width: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+
+.freeze_c h1 {
+  
+  font-size: 15px;
+  color: red;
+}
+
+.freeze_c p {
+
+
+  font-size: 11px;
+ 
+}
   .columnabstract {
 
     font-size: 11px;

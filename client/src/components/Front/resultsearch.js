@@ -21,18 +21,21 @@ import {
 } from "../../store/actions/datacollection";
 import MobileNav from "../utils/mobileNav";
 
-const CourseSearch = () => {
-  const { getcategory } = useParams();
-  const newcat = decodeURIComponent(getcategory);
+const Searchresult = () => {
+  const {searchspace } = useParams();
 
+
+  const newword = decodeURIComponent(searchspace);
+  const convertlower=(word)=>{
+    return word.toLowerCase()
+}
   const dispatch = useDispatch();
   const courses = useSelector((value) => value.coursesl);
   useEffect(() => {
     dispatch(getCourses());
   });
- 
-  const navigateTo = useNavigate();
   
+  const navigateTo = useNavigate();
  
 
   const [loading, setload] = useState(true);
@@ -118,16 +121,18 @@ const CourseSearch = () => {
           ) : null}
           <div className="maintop">
             <>{topads ? <FOreignAds settopads={settopads} /> : null}</>
-        <div className="desktopNav">  <TopNav
+            <div className="desktopNav">
+            <TopNav
               setprofile={setprofile}
               topads={topads}
               fn={fn}
               ln={ln}
               email={email}
-            /></div>
+            />
+            </div>
 
-<div className="mobiletopNav">    
-  <MobileNav  setprofile={setprofile}
+            <div className="mobiletopNav">    
+  <MobileNav setprofile={setprofile}
               topads={topads}
               fn={fn}
               ln={ln}
@@ -139,21 +144,20 @@ const CourseSearch = () => {
               <div className="layouturl">
                 <p
                   onClick={() => {
-                 
+                  
                       navigateTo("/");
             
+
                   }}
                 >
-                  Home
+                  Search Results for {newword}
                 </p>
-                <span>/</span>
-                <span>Category</span>
-                <span>/</span>
-                <p>{newcat}</p>
+              
+              
               </div>
               {courses && courses.Allcourse
                 ? courses.Allcourse.filter(
-                    (data) => data.maincategory === newcat
+                    (data) =>convertlower(data.subcategory).includes(newword.toLowerCase())  || convertlower(data.maincategory).includes(newword.toLowerCase())  || convertlower(data.title).includes(newword.toLowerCase())
                   ).map((data, index) => {
                     return (
                       <div key={index} className="coursepreColumn">
@@ -195,7 +199,7 @@ const CourseSearch = () => {
                       </div>
                     );
                   })
-                :  <LoaderView />}
+                : null}
             </div>
 
             {alertProfile ? <ProfileNav fn={fn} ln={ln} email={email} /> :null}
@@ -218,4 +222,4 @@ const CourseSearch = () => {
   );
 };
 
-export default CourseSearch;
+export default Searchresult;

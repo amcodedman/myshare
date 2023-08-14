@@ -46,18 +46,8 @@ const SubCategories = () => {
     const Skip = sort.skip + sort.limit;
     Setsort({ type: "UPDATE_SKIP", payload: Skip });
   }, []);
-  const Loadmore = () => {
-    const Skip = sort.skip + sort.limit;
-    Setsort({ type: "UPDATE_SKIP", payload: Skip });
-    if (Skip > 0) {
-      dispatch(getCoursesP(sort));
-    }
-  };
-
-  useEffect(() => {
-    dispatch(getCoursesP(init_sort));
-  }, []);
-
+ 
+ 
   const [loading, setload] = useState(true);
   const Checkuser = useSelector((item) => item.authuser);
   const [holdp, setholdp] = useState(false);
@@ -78,15 +68,7 @@ const SubCategories = () => {
     }
   });
 
-  useEffect(() => {
-    if (location) {
-      if (location.GEOD !== null) {
-        if (location.GEOD.blockrate > 0) {
-          setholdp(true);
-        }
-      }
-    }
-  });
+
   useEffect(() => {
     // dispatch(GeoCookieT())
   }, []);
@@ -160,7 +142,11 @@ const SubCategories = () => {
             </div>
 
             <div className="mobiletopNav">    
-  <MobileNav/></div>
+  <MobileNav setprofile={setprofile}
+              topads={topads}
+              fn={fn}
+              ln={ln}
+              email={email}/></div>
            
             {cat ? <CatTemplete catsub={catsub} /> : null}
 
@@ -239,7 +225,7 @@ const SubCategories = () => {
                 : null}
             </div>
 
-            {alertProfile ? <ProfileNav fn={fn} ln={ln} email={email} /> : <LoaderView />}
+            {alertProfile ? <ProfileNav fn={fn} ln={ln} email={email} /> : null}
           </div>
           <div
             className="frontpage"

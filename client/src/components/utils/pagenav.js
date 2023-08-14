@@ -53,7 +53,7 @@ const TopNav = (props) => {
         />
         {searchvalue !== "" ? (
           <span className="searchbutton">
-            <IconButton onClick={() => console.log(searchvalue)}>
+            <IconButton onClick={() => navigateTo(`/courses/search/${searchvalue}`)}>
               <Search size={15} />
             </IconButton>{" "}
           </span>

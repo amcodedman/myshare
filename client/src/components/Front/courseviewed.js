@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 import { StarFill, StarHalf } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { getCoursesP } from "../../store/actions/datacollection";
+import { getCoursesP,CoursesClear } from "../../store/actions/datacollection";
 import { useNavigate } from "react-router-dom";
 import { showcoursesm } from "../utils/coursesanim";
 
@@ -37,9 +37,10 @@ useEffect(()=>{
 }
 
 useEffect(()=>{
-  dispatch(
-    getCoursesP(init_sort)
-  )
+ 
+  if(!courses ) 
+    dispatch(getCoursesP(init_sort))
+  
 },[dispatch])
   const courses = useSelector((value) => value.coursesp);
   return (

@@ -279,15 +279,7 @@ const [menus,setmenu]=useState(false);
     }
   });
 
-  useEffect(() => {
-    if (location) {
-      if (location.GEOD !== null) {
-        if (location.GEOD.blockrate > 0) {
-          setholdp(true);
-        }
-      }
-    }
-  });
+
   useEffect(() => {
     // dispatch(GeoCookieT())
   }, []);

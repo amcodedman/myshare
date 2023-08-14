@@ -36,6 +36,7 @@ import CouponPage from "./components/backend/couponGen";
 import CourseSearch from "./components/Front/coursearch";
 import SubCategories from "./components/Front/subcatesearch";
 import CourseStudy from "./components/Front/studycourse";
+import Searchresult from "./components/Front/resultsearch";
 
 function App() {
   const notifications =useSelector((value)=>value.notification);
@@ -66,7 +67,7 @@ dispatch(ClearNotify());
    <BrowserRouter>
 <Routes>
 <Route path='/' 
-element={<Home/>}/> 
+element={ <Authcontainer><Home/></Authcontainer>}/> 
 <Route
   path="/user/Signup"
   element={ <Authcontainer> <MyForm/></Authcontainer> }
@@ -84,11 +85,12 @@ element={<Home/>}/>
 <Route path="/freeze" element={   <FreezePage/> }></Route>
 <Route path="/mainadmin/dashboard" element={   <MyPanel/> }></Route>
 <Route path="/dash" element={   <CreateSections/> }></Route>
-<Route  path="/mainadmin/creatorcourses" element={<Mycourses/>}></Route>
-<Route  path="/mainadmin/singlecourse/:id" element={<CourseDetail/>}></Route>
-<Route  path="/courses/category/:getcategory" element={<CourseSearch/>}></Route>
-<Route  path="/courses/category/:getcategory/:getsubcat" element={<SubCategories/>}></Route>
-<Route  path="/studycommunity/course/:getcategory/:coursename/:courseid" element={<CourseStudy/>}></Route>
+<Route  path="/mainadmin/creatorcourses" element={<Authcontainer><Mycourses/></Authcontainer>}></Route>
+<Route  path="/courses/search/:searchspace" element={<Authcontainer><Searchresult/></Authcontainer>}></Route>
+<Route  path="/mainadmin/singlecourse/:id" element={<Authcontainer><CourseDetail/></Authcontainer>}></Route>
+<Route  path="/courses/category/:getcategory" element={<Authcontainer><CourseSearch/></Authcontainer>}></Route>
+<Route  path="/courses/category/:getcategory/:getsubcat" element={<Authcontainer><SubCategories/></Authcontainer>}></Route>
+<Route  path="/studycommunity/course/:getcategory/:coursename/:courseid" element={<Authcontainer><CourseStudy/></Authcontainer>}></Route>
 <Route  path="/mainadmin/controlversion" element={<ControlVersion/>}></Route>
 <Route  path="/mainadim/generatetokens" element={<CouponPage/>}></Route>
 </Routes>
