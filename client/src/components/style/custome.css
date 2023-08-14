@@ -1011,9 +1011,9 @@ animation: showactionbtn 2s ease-in-out;
 }
 
 .layoutspac {
-  margin-right: 20px;
+ 
   opacity: 0;
-  transition: 1s ease-in-out;
+
 }
 
 .layoutspacv {
@@ -1051,6 +1051,7 @@ animation: showactionbtn 2s ease-in-out;
 .coursepreCstylef {
   height: 100%;
   margin-bottom: 20px;
+  transition: 2s ease-in-out;
 }
 
 .coursepreColumn {

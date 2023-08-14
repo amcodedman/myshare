@@ -25,7 +25,7 @@ useEffect(()=>{
   showascen();
 
 
-})
+},[])
 
   return (  
     <div
