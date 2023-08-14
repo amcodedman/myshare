@@ -21,15 +21,15 @@ exports.GetGeo = async () => {
       await ipa.time_zone.name,
       await ipa.time_zone.current_time,
     ];
-    const ipaddress = await ipa.ip;
-    const checkSecure = await fetch(
+    const ipaddress =  ipa.ip;
+    const checkSecure = await axios.get(
       `http://v2.api.iphub.info/ip/${ipaddress}`,
       {
         headers: { "X-Key": `${process.env.IPUB}=` },
       }
     );
 
-    const secure = await checkSecure.json();
+    const secure = await checkSecure.data;
     return {
       country: country,
       userphonecode: userphonecode,
