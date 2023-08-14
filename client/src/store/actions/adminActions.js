@@ -125,11 +125,13 @@ export const AutoLogin = (data) => {
     try {
       console.log("AutoLogin");
       let token = Getusercookie();
+      console.log({"yes":token})
       const profiledetail = await axios.get(`${API}/user/profile`, {
         headers: {
           authuser: token,
         },
       });
+      console.log({"final" :profiledetail.data})
       dispatch(userDetail({ account: profiledetail.data, auth: true,loading: false }));
 
     } catch (error) {
