@@ -1,4 +1,4 @@
-import { GEO } from "./../type";
+import {API, GEO } from "./../type";
 import axios from "axios";
 
 export const GeoDetail = (item) => ({
@@ -13,8 +13,8 @@ axios.interceptors.request.use(config => {
 export const GeoGet = () => {
   return async (dispatch) => {
     try {
-      console.log("getting")
-        const res = await axios.post("/ipaddress/userip");
+     
+        const res = await axios.post(`${API}/ipaddress/userip`);
         dispatch(GeoDetail(res.data));
 
         console.log({done:res.data});

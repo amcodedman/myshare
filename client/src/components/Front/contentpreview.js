@@ -43,12 +43,14 @@ coursetype==="Programming" ?
 <span style={{color:" rgb(9, 1, 31)", fontWeight:"bold"}}
             onClick={()=>{
               setcoursetype("Programming")
+              showascen();
             }}>Programming</span>
 :
 
        <span 
             onClick={()=>{
               setcoursetype("Programming")
+              showascen();
             }}>Programming</span>  
           }
          
@@ -58,12 +60,14 @@ coursetype==="Business" ?
 <span style={{color:" rgb(9, 1, 31)", fontWeight:"bold"}}
             onClick={()=>{
               setcoursetype("Business")
+              showascen();
             }}>Business</span>
 :
 
        <span 
             onClick={()=>{
               setcoursetype("Business")
+              showascen()
             }}>Business</span>  
           }
 
@@ -74,12 +78,14 @@ coursetype==="Data Science" ?
 <span style={{color:" rgb(9, 1, 31)", fontWeight:"bold"}}
             onClick={()=>{
               setcoursetype("Data Science")
+             
             }}>Data Science</span>
 :
 
        <span 
             onClick={()=>{
               setcoursetype("Data Science")
+              showascen();
             }}>Data Science</span>  
           }
           </div>

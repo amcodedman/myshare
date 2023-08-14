@@ -20,3 +20,4 @@ export const ACCESSCONTROL="accesscontrol";
 export const ALLCOUPONS="allcOUPons";
 export const COURSEBYID="coursebyid"
 export const COURSESP="coursep"
+export const API="/api"

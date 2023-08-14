@@ -20,7 +20,7 @@ const CourseView = () => {
   const [sort,Setsort] =useReducer(reducer, init_sort);
 useEffect(()=>{
   showcoursesm()
-})
+});
   useEffect(()=>{
      const Skip = sort.skip + sort.limit 
      Setsort({ type: 'UPDATE_SKIP', payload: Skip });

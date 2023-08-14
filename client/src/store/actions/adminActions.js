@@ -2,7 +2,7 @@ import axios from "axios";
 import * as notify from "./notification";
 import { Axiosinstance, Getusercookie } from "./usercookie";
 import cookie from "react-cookies";
-const { USER_DETAIL, USERS, NEW_USER, PRE_REGISTER } = require("../type");
+const { USER_DETAIL, USERS, NEW_USER, PRE_REGISTER,API } = require("../type");
 
 export const get_users = (detail) => ({
   type: USERS,
@@ -27,7 +27,7 @@ axios.interceptors.request.use(config => {
 export const getAllUsers = () => {
   return async (dispatch) => {
     try {
-      const content = await axios.get("/user/alluser");
+      const content = await axios.get(`${API}/user/alluser`);
       dispatch(get_users(content.data));
     } catch (error) {}
   };
@@ -36,7 +36,7 @@ export const getAllUsers = () => {
 export const preRegister = (userdata) => {
   return async (dispatch, getdispatch) => {
     try {
-      const newd = await axios.post("/user/preregister", userdata);
+      const newd = await axios.post(`${API}/user/preregister`, userdata);
       dispatch(pre_register(newd.data));
       dispatch(
         notify.notify_success({
@@ -52,7 +52,7 @@ export const preRegister = (userdata) => {
 export const ComfirmUserS = (userdata) => {
   return async (dispatch) => {
     try {
-      const newd = await axios.post("/user/authenticateme", userdata);
+      const newd = await axios.post(`${API}/user/authenticateme`, userdata);
       dispatch(notify.notify_success({ msg: "Account verified" }));
     } catch (error) {
       
@@ -64,7 +64,7 @@ export const ComfirmUserS = (userdata) => {
 export const updateAccount = (data, id) => {
   return async (dispatch) => {
     try {
-      const profiledetail = await axios.patch(`/user/modifyuser/${id}`,data);
+      const profiledetail = await axios.patch(`${API}/user/modifyuser/${id}`,data);
       dispatch(userDetail({ account: profiledetail.data, auth: true }));
    
       dispatch(notify.notify_success({ msg: "Account Updated" }));
@@ -78,7 +78,7 @@ export const UpdatePass = (data, id) => {
   return async (dispatch) => {
     try {
 
-      const profiledetail = await axios.patch(`/user/userresetpass/${id}`,data);
+      const profiledetail = await axios.patch(`${API}/user/userresetpass/${id}`,data);
       dispatch(userDetail({ account: profiledetail.data, auth: true }));
       dispatch(notify.notify_success({ msg: "Account Password Updated" }));
     } catch (error) {
@@ -89,7 +89,7 @@ export const UpdatePass = (data, id) => {
 export const SignIn = (data) => {
   return async (dispatch) => {
     try {
-      const profiledetail = await axios.post("/user/signin", data);
+      const profiledetail = await axios.post(`${API}/user/signin`, data);
       dispatch(userDetail({ account: profiledetail.data, auth: true }));
       dispatch(
         notify.notify_success({
@@ -125,7 +125,7 @@ export const AutoLogin = (data) => {
     try {
       console.log("AutoLogin");
       let token = Getusercookie();
-      const profiledetail = await axios.get("/user/profile", {
+      const profiledetail = await axios.get(`${API}/user/profile`, {
         headers: {
           authuser: token,
         },
@@ -145,7 +145,7 @@ export const AutoLogin = (data) => {
 export const SendresetLink = (data) => {
   return async (dispatch) => {
     try {
-      const profiledetail = await axios.post("/user/userforgotpass", data);
+      const profiledetail = await axios.post(`${API}/user/userforgotpass`, data);
       dispatch(notify.notify_success({ msg: "Check your mails" }));
     } catch (error) {
       dispatch(notify.notify_error({ msg: error.response.data }));

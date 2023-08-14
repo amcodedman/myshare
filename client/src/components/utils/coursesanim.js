@@ -1,38 +1,41 @@
 export const showascen = () => {
     const container = document.querySelectorAll(".layoutspac");
-    const containerv = document.querySelectorAll(".layoutspacv");
+  
 
 
     container.forEach((child,index) => {
         const prevSibling = child.previousElementSibling;
-    console.log(`index ${index}`)
+   
+        if(index===0){
+            if (child.getBoundingClientRect().top < window.innerHeight) {
+   
+                if (!child.classList.contains("showspac")) {
+                    child.classList.add("showspac");
+                }
+        
+        }
+        }
+
+
         if (index>0 && prevSibling ){
 
 
-
             setInterval(()=>{
+
               if(prevSibling.classList.contains("showspac")) {
                     if (child.getBoundingClientRect().top < window.innerHeight) {
                         setInterval(() => {
                             if (!child.classList.contains("showspac")) {
                                 child.classList.add("showspac");
                             }
-                        }, 250);
+                        }, 400);
                     }
                 }
-            },250
+            },200
 
             )
         }
-        else{
-            if (child.getBoundingClientRect().top < window.innerHeight) {
-           
-                    if (!child.classList.contains("showspac")) {
-                        child.classList.add("showspac");
-                    }
-            
-            }
-        }
+     
        
     })
   window.addEventListener("scroll", () => {
@@ -40,34 +43,37 @@ export const showascen = () => {
 
     container.forEach((child,index) => {
         const prevSibling = child.previousElementSibling;
-    console.log(`index ${index}`)
+        if(index===0){
+            if (child.getBoundingClientRect().top < window.innerHeight) {
+   
+                if (!child.classList.contains("showspac")) {
+                    child.classList.add("showspac");
+                }
+        
+        }
+        }
+
         if (index>0 && prevSibling ){
+            
 
 
-
+         
             setInterval(()=>{
+
               if(prevSibling.classList.contains("showspac")) {
                     if (child.getBoundingClientRect().top < window.innerHeight) {
                         setInterval(() => {
                             if (!child.classList.contains("showspac")) {
                                 child.classList.add("showspac");
                             }
-                        }, 250);
+                        }, 500);
                     }
                 }
-            },250
+            },500
 
             )
         }
-        else{
-            if (child.getBoundingClientRect().top < window.innerHeight) {
-           
-                    if (!child.classList.contains("showspac")) {
-                        child.classList.add("showspac");
-                    }
-            
-            }
-        }
+     
        
     })
   });
@@ -96,18 +102,45 @@ export const showcoursesm = () => {
   
     const containerv = document.querySelectorAll(".layoutspacv");
 
-
-  
-  
-
-
+    containerv.forEach((child,index) => {
+        const prevSibling = child.previousElementSibling;
+    
+        if (index>0 && prevSibling ){
+    
+    
+    
+            setInterval(()=>{
+              if(prevSibling.classList.contains("showspac")) {
+                    if (child.getBoundingClientRect().top < window.innerHeight) {
+                        
+                            if (!child.classList.contains("showspac")) {
+                                child.classList.add("showspac");
+                            }
+                      
+                    }   
+                }
+            },500
+    
+            )
+        }
+        else{
+            if (child.getBoundingClientRect().top < window.innerHeight) {
+           
+                    if (!child.classList.contains("showspac")) {
+                        child.classList.add("showspac");
+                    }
+            
+            }
+        }
+       
+    })
 
 window.addEventListener("scroll", () => {
 
 
 containerv.forEach((child,index) => {
     const prevSibling = child.previousElementSibling;
-console.log(`index ${index}`)
+
     if (index>0 && prevSibling ){
 
 

@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as notify from "./notification";
 
-const {  COURSESP,COURSEBYID,MAIN_COURSE, CONTENTS, SECTIONS,COURSES ,ACCESSCONTROL,ALLCOUPONS} = require("../type");
+const {  API,COURSESP,COURSEBYID,MAIN_COURSE, CONTENTS, SECTIONS,COURSES ,ACCESSCONTROL,ALLCOUPONS} = require("../type");
 
 
 export const maincourse = (data) => ({
@@ -68,7 +68,7 @@ export const AddCourseServer = (data) => {
   return async (dispatch, getdispatch) => {
     try {
      
-      const newd = await axios.post("/data/addcourse", data);
+      const newd = await axios.post(`${API}/data/addcourse`, data);
     
       dispatch(
         maincourse({course:newd.data})
@@ -91,7 +91,7 @@ export const AddCourseServer = (data) => {
 export const addSection = (data) => {
     return async (dispatch, getdispatch) => {
       try {
-        const newd = await axios.post("/data/createsection", data);
+        const newd = await axios.post(`${API}/data/createsection`, data);
       
         dispatch(
             section_new({section:newd.data})
@@ -116,7 +116,7 @@ export const addSection = (data) => {
 export const addContents = (data) => {
     return async (dispatch, getdispatch) => {
       try {
-        const newd = await axios.post("/data/createcontent", data);
+        const newd = await axios.post(`${API}/data/createcontent`, data);
       
         dispatch(
          contents_new({content:newd.data})
@@ -147,7 +147,7 @@ export const addContents = (data) => {
   export const DeleteCourse= (id) => {
     return async (dispatch, getdispatch) => {
       try {
-        const newd = await axios.delete(`/data/deletecourse/${id}`);
+        const newd = await axios.delete(`${API}/data/deletecourse/${id}`);
         dispatch(
             notify.notify_success({
               msg: `Course removed !!`,
@@ -166,7 +166,7 @@ export const addContents = (data) => {
   export const DeleteSection = (id) => {
       return async (dispatch, getdispatch) => {
         try {
-          const newd = await axios.delete(`/data/deletesection/${id}`);
+          const newd = await axios.delete(`${API}/data/deletesection/${id}`);
         
           dispatch(
             notify.notify_success({
@@ -188,7 +188,7 @@ export const addContents = (data) => {
   export const DeleteContent = (id) => {
       return async (dispatch, getdispatch) => {
         try {
-          const newd = await axios.delete(`/data/deletecontent/${id}`);
+          const newd = await axios.delete(`${API}/data/deletecontent/${id}`);
 
           dispatch(
             notify.notify_success({
@@ -208,7 +208,7 @@ export const addContents = (data) => {
     export const getCourses = () => {
       return async (dispatch, getdispatch) => {
         try {
-          const newd = await axios.get(`/data/getcourses`);
+          const newd = await axios.get(`${API}/data/getcourses`);
           dispatch(
             Allcourse(newd.data)
           );
@@ -255,7 +255,7 @@ export const addContents = (data) => {
       return async (dispatch, getdispatch) => {
         try {
      
-          const newd = await axios.post(`/data/getcoursespaginate`,data);
+          const newd = await axios.post(`${API}/data/getcoursespaginate`,data);
        
 
         let newdata=[...newd.data]; 
@@ -301,7 +301,7 @@ export const addContents = (data) => {
     export const getCoupons= () => {
       return async (dispatch, getdispatch) => {
         try {
-          const newd = await axios.get(`/data/getcoupons`);
+          const newd = await axios.get(`${API}/data/getcoupons`);
       
           dispatch(
             Allcoupons(newd.data)
@@ -318,7 +318,7 @@ export const addContents = (data) => {
     export const addCoupon= (data) => {
       return async (dispatch, getdispatch) => {
         try {
-          const newd = await axios.post("/data/generatecoupons", data);
+          const newd = await axios.post(`${API}/data/generatecoupons`, data);
           dispatch(
               notify.notify_success({
                 msg: `Coupon generated !`,
@@ -343,7 +343,7 @@ export const addContents = (data) => {
     return async (dispatch, getdispatch) => {
       try {
     
-        const newd = await axios.delete(`/data/deletecoupon/${data}`,{name:"dddd"});
+        const newd = await axios.delete(`${API}/data/deletecoupon/${data}`,{name:"dddd"});
 
         dispatch(
           notify.notify_success({
@@ -370,7 +370,7 @@ export const addContents = (data) => {
     return async(dispatch)=>{
 
       try{
-        const result=await  axios.patch(`/data/applycoupon`,data);
+        const result=await  axios.patch(`${API}/data/applycoupon`,data);
        
         dispatch(
           notify.notify_success({
@@ -408,7 +408,7 @@ export const addContents = (data) => {
     export const getCourse = (id) => {
       return async (dispatch, getdispatch) => {
         try {
-          const newd = await axios.get(`/data/getcourse/${id}`);
+          const newd = await axios.get(`${API}/data/getcourse/${id}`);
           
       dispatch(
         coursebyid({course:newd.data})
@@ -428,7 +428,7 @@ export const addContents = (data) => {
       return async (dispatch, getdispatch) => {
         try {
         
-          const newd = await axios.patch(`/data/modifycourse/${id}`,data);
+          const newd = await axios.patch(`${API}/data/modifycourse/${id}`,data);
           
       dispatch(
         coursebyid({course:newd.data})
@@ -472,7 +472,7 @@ export const addContents = (data) => {
       return async(dispatch)=>{
 
         try{
-          const result=await  axios.get("/data/getaccess");
+          const result=await  axios.get(`${API}/data/getaccess`);
           dispatch(controlv(result.data[0]));
 
         }catch(error){
@@ -487,7 +487,7 @@ export const addContents = (data) => {
       return async(dispatch)=>{
 
         try{
-          const result=await  axios.patch(`/data/updatecontrols/${id}`,datacontrol);
+          const result=await  axios.patch(`${API}/data/updatecontrols/${id}`,datacontrol);
           dispatch(controlv(result.data));
           dispatch(
             notify.notify_success({
