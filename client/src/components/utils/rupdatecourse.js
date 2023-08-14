@@ -74,6 +74,7 @@ const dispatch=useDispatch();
 
 
           <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0", color: "red" }}
               name="title"
               label="Course Title"
@@ -91,6 +92,7 @@ const dispatch=useDispatch();
             ></TextField>
 
             <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0" }}
               name="price"
               value={Formik.values.price}
@@ -112,6 +114,7 @@ const dispatch=useDispatch();
 
 
           <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0" }}
               name="maincategory"
               value={Formik.values.maincategory}
@@ -125,6 +128,7 @@ const dispatch=useDispatch();
               label="Category"
             ></TextField>
             <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0" }}
               name="subcategory"
               value={Formik.values.subcategory}
@@ -144,6 +148,7 @@ const dispatch=useDispatch();
            <div className='fieldlayout'>
 
            <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0" }}
               name="file"
               value={Formik.values.file}
@@ -158,6 +163,7 @@ const dispatch=useDispatch();
             ></TextField>
 
             <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0" }}
               name="expections"
               value={Formik.values.expections}
@@ -171,6 +177,7 @@ const dispatch=useDispatch();
            </div>
 
             <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0"  }}
               name="detail"
               multiline
@@ -187,6 +194,7 @@ const dispatch=useDispatch();
             ></TextField>
 
             <TextField
+                      className="textfields"
               multiline
       rows={10}
 

@@ -107,7 +107,9 @@ const MobileNav = (props) => {
               <>
                 {Checkuser && Checkuser.auth ? (
                   <>
-                    <div className="uavatar " onClick={() => Route("/user")}>
+                    <div className="uavatar " onClick={() =>{ 
+                      enableScroll()
+                      Route("/user")}}>
                       <p className="presshoverAv">
                         {props.fn.charAt(0)}
                         {props.ln.charAt(0)}

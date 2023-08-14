@@ -110,6 +110,7 @@ useEffect(()=>{
 
 
           <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0", color: "red" }}
               name="title"
               label="Course Title"
@@ -127,6 +128,7 @@ useEffect(()=>{
             ></TextField>
 
             <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0" }}
               name="price"
               value={Formik.values.price}
@@ -148,6 +150,7 @@ useEffect(()=>{
 
 
           <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0" }}
               name="maincategory"
               value={Formik.values.maincategory}
@@ -161,6 +164,7 @@ useEffect(()=>{
               label="Category"
             ></TextField>
             <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0" }}
               name="subcategory"
               value={Formik.values.subcategory}
@@ -180,6 +184,7 @@ useEffect(()=>{
            <div className='fieldlayout'>
 
            <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0" }}
               name="file"
               value={Formik.values.file}
@@ -194,6 +199,7 @@ useEffect(()=>{
             ></TextField>
 
             <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0" }}
               name="expections"
               value={Formik.values.expections}
@@ -207,6 +213,7 @@ useEffect(()=>{
            </div>
 
             <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0"  }}
               name="detail"
               multiline
@@ -223,6 +230,7 @@ useEffect(()=>{
             ></TextField>
 
             <TextField
+                      className="textfields"
               multiline
       rows={10}
 

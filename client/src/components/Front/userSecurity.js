@@ -225,6 +225,7 @@ const UserSec = () => {
                   <div className="update_form">
                     <form onSubmit={Formik.handleSubmit} className="myform">
                       <TextField
+                      className="textfields"
                         style={{ margin: "10px 10px 10px 0", color: "red" }}
                         name="oldpass"
                         label="Old Password"
@@ -242,6 +243,7 @@ const UserSec = () => {
                       ></TextField>
 
                       <TextField
+                      className="textfields"
                         style={{ margin: "10px 10px 10px 0" }}
                         name="newpass"
                         value={Formik.values.newpass}
@@ -258,6 +260,7 @@ const UserSec = () => {
                         label="New Password"
                       ></TextField>
                       <TextField
+                      className="textfields"
                         style={{ margin: "10px 10px 10px 0" }}
                         name="comfirmpass"
                         value={Formik.values.comfirmpass}

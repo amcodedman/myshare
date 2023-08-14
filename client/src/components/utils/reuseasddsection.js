@@ -124,7 +124,8 @@ const AddSectionsResuse = (props) => {
 
 <Form onSubmit={Formik.handleSubmit}  style={{ margin: "10px 10px 10px 0",width:"95%"  }} >
 
-    <TextField  
+    <TextField
+                      className="textfields"  
     style={{ margin: "10px 10px 10px 0", width:"50%"}}
     multiline
     rows={2}

@@ -104,6 +104,7 @@ const Mycontrolspage = () => {
         </FormControl>
 
         <TextField
+                      className="textfields"
           style={{
             marginBottom: "30px",
           }}
@@ -120,6 +121,7 @@ const Mycontrolspage = () => {
         ></TextField>
 
         <TextField
+                      className="textfields"
           style={{
             marginBottom: "30px",
           }}

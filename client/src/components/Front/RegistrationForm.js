@@ -90,6 +90,7 @@ useEffect(()=>{
         <div className="formsp">
           <form onSubmit={Formik.handleSubmit} className="myform">
             <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0", color: "red" }}
               name="firstname"
               label="firstname"
@@ -104,6 +105,7 @@ useEffect(()=>{
             ></TextField>
 
             <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0" }}
               name="lastname"
               value={Formik.values.lastname}
@@ -115,6 +117,7 @@ useEffect(()=>{
               label="Lastname"
             ></TextField>
             <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0" }}
               name="username"
               value={Formik.values.username}
@@ -126,6 +129,7 @@ useEffect(()=>{
               label="Username"
             ></TextField>
             <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0" }}
               name="email"
               value={Formik.values.email}

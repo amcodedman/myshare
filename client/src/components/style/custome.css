@@ -2609,6 +2609,10 @@ padding-top: 10px;
     
   }
 
+  .profile_box_m {
+    width: 98%;
+  }
+
   
   .textbox p {
     margin-left: 5px;
@@ -2663,6 +2667,10 @@ padding-top: 10px;
   .maincourselayout {
     width: 100%;
 
+  }
+
+  .textfields{
+    width: 100%;
   }
 
   .adofferlimit {

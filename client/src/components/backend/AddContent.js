@@ -96,6 +96,7 @@ const Formik = useFormik({
     <form onSubmit={Formik.handleSubmit} className="myformadmin">
           <div className='fieldlayout'>
           <TextField
+                      className="textfields"
               style={{ margin: "10px 10px 10px 0", color: "red" }}
               name="title"
               label="Content label"
@@ -115,6 +116,7 @@ const Formik = useFormik({
    
           </div>
             <TextField
+                      className="textfields"
               multiline
       rows={6}
 

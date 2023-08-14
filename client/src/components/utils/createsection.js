@@ -124,7 +124,8 @@ const CreateSections = (props) => {
   return (
 <div className='editorcontainer' id="editor">
 <Form className='editorcontainer' onSubmit={Formik.handleSubmit}>
-    <TextField  
+    <TextField
+                      className="textfields"  
     style={{ margin: "10px 10px 10px 0", color: "red" }}
               name="title"
               label="Section header"

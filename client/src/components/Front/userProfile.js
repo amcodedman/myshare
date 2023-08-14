@@ -262,6 +262,7 @@ const UserProfile = () => {
                   <div className="update_form">
                     <form onSubmit={Formik.handleSubmit} className="myform">
                       <TextField
+                      className="textfields"
                         style={{ margin: "10px 10px 10px 0", color: "red" }}
                         name="firstname"  
                         label="firstname"
@@ -279,6 +280,8 @@ const UserProfile = () => {
                       ></TextField>
 
                       <TextField
+                      className="textfields"
+                      
                         style={{ margin: "10px 10px 10px 0" }}
                         name="lastname"
                         value={Formik.values.lastname}
@@ -295,6 +298,7 @@ const UserProfile = () => {
                         label="Lastname"
                       ></TextField>
                       <TextField
+                      className="textfields"
                         style={{ margin: "10px 10px 10px 0" }}
                         name="phone"
                         value={Formik.values.phone}
@@ -308,6 +312,8 @@ const UserProfile = () => {
                         label="Phone Number"
                       ></TextField>
                       <TextField
+                      className="textfields"
+                    
                         style={{ margin: "10px 10px 10px 0" }}
                         name="ex_phone"
                         value={Formik.values.ex_phone}
@@ -325,6 +331,8 @@ const UserProfile = () => {
                       ></TextField>
 
                       <TextField
+                    
+                      className="textfields"
                         style={{ margin: "10px 10px 10px 0" }}
                         name="photo"
                         value={Formik.values.photo}
@@ -339,6 +347,8 @@ const UserProfile = () => {
                       ></TextField>
 
                       <TextField
+                      className="textfields"
+                      
                         style={{ margin: "10px 10px 10px 0" }}
                         name="address"
                         value={Formik.values.address}
@@ -348,6 +358,7 @@ const UserProfile = () => {
                         label="My address"
                       ></TextField>
                       <TextField
+                      className="textfields"
                         style={{ margin: "10px 10px 10px 0" }}
                         name="age"
                         value={Formik.values.age}
