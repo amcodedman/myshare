@@ -1,97 +1,33 @@
 export const showascen = () => {
     const container = document.querySelectorAll(".layoutspac");
-  
 
-
-    container.forEach((child,index) => {
-        const prevSibling = child.previousElementSibling;
-   
-        if(index===0){
-            if (child.getBoundingClientRect().top < window.innerHeight) {
-   
-                if (!child.classList.contains("showspac")) {
-                    child.classList.add("showspac");
-                }
-        
-        }
-        }
-
-
-        if (index>0 && prevSibling ){
-
-
-            setInterval(()=>{
-
-              if(prevSibling.classList.contains("showspac")) {
-                    if (child.getBoundingClientRect().top < window.innerHeight) {
-                        setInterval(() => {
-                            if (!child.classList.contains("showspac")) {
-                                child.classList.add("showspac");
-                            }
-                        }, 400);
-                    }
-                }
-            },200
-
-            )
-        }
+    const addShowClass = (element) => {
+        element.classList.add("showspac");
      
-       
-    })
-  window.addEventListener("scroll", () => {
- 
+    };
 
-    container.forEach((child,index) => {
-        const prevSibling = child.previousElementSibling;
-        if(index===0){
-            if (child.getBoundingClientRect().top < window.innerHeight) {
-   
-                if (!child.classList.contains("showspac")) {
-                    child.classList.add("showspac");
-                }
-        
-        }
-        }
+    const handleScroll = () => {
+        container.forEach((child, index) => {
+            const prevSibling = child.previousElementSibling;
 
-        if (index>0 && prevSibling ){
-            
+            if (index === 0 && child.getBoundingClientRect().top < window.innerHeight) {
+                addShowClass(child);
+            }
 
-
-         
-            setInterval(()=>{
-
-              if(prevSibling.classList.contains("showspac")) {
+            if (index > 0 && prevSibling && prevSibling.classList.contains("showspac")) {
+                setTimeout(() => {
                     if (child.getBoundingClientRect().top < window.innerHeight) {
-                        setInterval(() => {
-                            if (!child.classList.contains("showspac")) {
-                                child.classList.add("showspac");
-                            }
-                        }, 500);
+                        addShowClass(child);
                     }
-                }
-            },500
+                }, 500);
+            }
+        });
+    };
 
-            )
-        }
-     
-       
-    })
-  });
+    handleScroll(); // Call once on load
 
-
-
-
-  
-
+    window.addEventListener("scroll", handleScroll);
 };
-
-
-
-
-
-
-
-
 
 
 

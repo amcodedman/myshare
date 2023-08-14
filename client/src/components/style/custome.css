@@ -1051,7 +1051,8 @@ animation: showactionbtn 2s ease-in-out;
 .coursepreCstylef {
   height: 100%;
   margin-bottom: 20px;
-  transition: 2s ease-in-out;
+  margin-right: 20px;
+  transition: 1s ease-in-out;
 }
 
 .coursepreColumn {
