@@ -130,14 +130,10 @@ const config = {
 };
 
 
-export const AutoLogin = (data) => {
+export const AutoLogin = () => {
   return async (dispatch) => {
     try {
 
-
-   
-    
- 
       const profiledetail = await axios.post(`${API}/user/userprofile`, null,config);
       console.log({"final" :profiledetail.data})
       dispatch(userDetail({ account: profiledetail.data, auth: true,loading: false }));
