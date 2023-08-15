@@ -30,8 +30,8 @@ exports.GetGeo = async (data) => {
 exports.checkToken = async (req, res, next) => {
   try {
     
-    console.log({headers:req.cookies.authuser})
-    let checker = req.cookies["authuser"];
+  
+    let checker = req.cookies.authuser;
 
     if (checker) {
       const datas = jwt.verify(req.cookies.authuser, process.env.DB_SECRET);
