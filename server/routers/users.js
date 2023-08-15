@@ -274,20 +274,19 @@ routers.route("/userprofile").post( async (req, res) => {
 
 
 ////////////////// profile0
-routers.route("/getprofile").get( async (req, res) => {
+routers.route("/getprofile").get(Checkuser, async (req, res) => {
   try {
 console.log("profiless")
-    console.log({localsss:res.locals.userData});
- 
 
-  //  const user = await req.user;
-//if(user !== undefined){
- // res.status(200).json(user);
-//}
-//if(user === undefined){
-//  res.status(400);
+
+    const user = await req.user;
+if(user !== undefined){
+  res.status(200).json(user);
+}
+if(user === undefined){
+  res.status(400);
  
-//}
+}
 
 
     

@@ -150,7 +150,7 @@ export const AutoLogin = () => {
     try {
 console.log("AutoLogin");
       const profiledetail = await axios.get(`${API}/user/getprofile`);
- //     console.log({"final" :profiledetail.data})
+    console.log({"final" :profiledetail.data})
     //  dispatch(userDetail({ account: profiledetail.data, auth: true,loading: false }));
 
     } catch (error) {
