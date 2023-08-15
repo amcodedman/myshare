@@ -280,7 +280,7 @@ routers.route("/getprofile").get(Checkuser, async (req, res) => {
 
 
     const user = await req.user;
-    console.log({profiless:user})
+
 if(user !== undefined){
   res.status(200).json(user);
 }
