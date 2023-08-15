@@ -45,7 +45,7 @@ exports.checkToken = async (req, res, next) => {
         
 
           res.locals.userData = user;
-          console.log({loc:user})
+       
         }
       } else {
         console.log("No user found");
