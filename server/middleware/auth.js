@@ -32,14 +32,15 @@ exports.checkToken = async (req, res, next) => {
     
   
     let checker = req.cookies.authuser;
-    console.log({f:req.cookies["authuser"]})
+  
 
     if (checker) {
       console.log({ token: checker})
       const datas = jwt.verify(checker, process.env.DB_SECRET);
-
+console.log({verify: datas});
       const user = await User.findOne({ _id: datas._id });
       if (user) {
+        console.log(user)
         if (user.active) {
         
 
