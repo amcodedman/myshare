@@ -274,7 +274,7 @@ routers.route("/userprofile").post( async (req, res) => {
 
 
 ////////////////// profile0
-routers.route("/getprofile").post( async (req, res) => {
+routers.route("/getprofile").get( async (req, res) => {
   try {
 console.log("profiless")
     console.log({localsss:res.locals.userData});
