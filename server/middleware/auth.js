@@ -32,9 +32,11 @@ exports.checkToken = async (req, res, next) => {
     
   
     let checker = req.cookies.authuser;
+    console.log({f:req.cookies["authuser"]})
 
     if (checker) {
-      const datas = jwt.verify(req.cookies.authuser, process.env.DB_SECRET);
+      console.log({ token: checker})
+      const datas = jwt.verify(checker, process.env.DB_SECRET);
 
       const user = await User.findOne({ _id: datas._id });
       if (user) {
