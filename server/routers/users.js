@@ -269,13 +269,15 @@ routers.route("/unblockuser/:id").patch(async (req, res) => {
 routers.route("/userprofile").post( async (req, res) => {
 
 
-  
+
 })
 
 
 ////////////////// profile0
-routers.route("/getprofile").post(Checkuser, async (req, res) => {
+routers.route("/getprofile").post( async (req, res) => {
   try {
+
+    console.log({localsss:res.locals.userData});
  
 
     const user = await req.user;

@@ -45,7 +45,7 @@ exports.checkToken = async (req, res, next) => {
         
 
           res.locals.userData = user;
-          console.log({locals:res.locals.userData});
+          
        
         }
       } else {
