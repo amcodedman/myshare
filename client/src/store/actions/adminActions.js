@@ -120,24 +120,25 @@ export const Signout=()=>{
   }
 }
 
+let token = Getusercookie()
+
+const config = {
+  headers: {
+    'authuser': token,
+    // other headers can be added here
+  },
+};
+
+
 export const AutoLogin = (data) => {
   return async (dispatch) => {
     try {
 
 
-      console.log("AutoLogin");
-      let token = Getusercookie()
-
-      const config = {
-        headers: {
-          'authuser': token,
-          // other headers can be added here
-        },
-      };
-      
-     ;
-      console.log({"yes":token})
-      const profiledetail = await axios.post(`${API}/user/profile`, null,config);
+   
+    
+ 
+      const profiledetail = await axios.post(`${API}/user/userprofile`, null,config);
       console.log({"final" :profiledetail.data})
       dispatch(userDetail({ account: profiledetail.data, auth: true,loading: false }));
 
