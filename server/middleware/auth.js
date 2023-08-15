@@ -30,11 +30,11 @@ exports.GetGeo = async (data) => {
 exports.checkToken = async (req, res, next) => {
   try {
     
-    console.log({head:req.cookies})
+    console.log({headers:req.cookies.authuser})
     let checker = req.cookies["authuser"];
 
     if (checker) {
-      const datas = jwt.verify(req.headers["authuser"], process.env.DB_SECRET);
+      const datas = jwt.verify(req.cookies.authuser, process.env.DB_SECRET);
 
       const user = await User.findOne({ _id: datas._id });
       if (user) {
