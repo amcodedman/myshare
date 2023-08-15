@@ -54,7 +54,7 @@ const Mycontrolspage = () => {
       vpnaccess: Yup.number().required("field required"),
 
       topads: Yup.string().required("field required"),
-      adscount: Yup.number().required("field required"),
+      adscount: Yup.string().required("field required"),
     }),
 
     onSubmit: (data) => {

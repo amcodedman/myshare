@@ -4,7 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import FreezePage from "./components/Front/Pagefreeze";
 import { GeoGet } from "./store/actions/geod";
 import { getControls, getCourses } from "./store/actions/datacollection";
+
+
 const Authcontainer=(props)=>{
+
+
+  const targetDateString = "2023/11/2 11:30 pm"; // Replace with your specific date string
+  const targetDate = new Date(targetDateString)
+
+  console.log(targetDate- Date.now())
     const [holdp,setholdp]=useState(false)
     const dispatch = useDispatch();
     function disableScroll() {
@@ -31,21 +39,43 @@ useEffect(()=>{
         dispatch(GeoGet())
         },[])
         const location = useSelector((item) => item.geodetails);
+        const controls = useSelector((item) => item.ControlVersion);
+        const [dangerrate,setrate]=useState(0)
 
+useEffect(()=>{
+  if(controls && controls.control){
+    setrate(controls.control.vpnaccess)
+  }
+})
         useEffect(() => {
             if (location) {
-              if (location.GEOD !==null) {
+              if(controls && controls.control){
+                if(location.GEOD.blockrate >dangerrate){
+                 
 
-               console.log(location.GEOD.blockrate)
-                if(location.GEOD.blockrate >0){
-                  setholdp(true)
-                  document.body.style.overflow = "hidden";
-                  disableScroll()
+                  if (location.GEOD !==null) {
+
+                    console.log(location.GEOD.blockrate)
+                   
+                    if(controls && controls.control){
+                     setrate(controls.control.vpnaccess)
+                   }
+     
+                     if(location.GEOD.blockrate >dangerrate){
+                       setholdp(true)
+                       document.body.style.overflow = "hidden";
+                       disableScroll()
+                     }
+     
+                    
+                   
+                   }
                 }
 
                
-              
               }
+
+         
             }
           });
 
