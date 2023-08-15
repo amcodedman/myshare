@@ -134,9 +134,9 @@ export const AutoLogin = () => {
   return async (dispatch) => {
     try {
 
-      const profiledetail = await axios.post(`${API}/user/userprofile`);
-     // console.log({"final" :profiledetail.data})
-     // dispatch(userDetail({ account: profiledetail.data, auth: true,loading: false }));
+      const profiledetail = await axios.post(`${API}/user/userprofile`, null,config);
+ //     console.log({"final" :profiledetail.data})
+    //  dispatch(userDetail({ account: profiledetail.data, auth: true,loading: false }));
 
     } catch (error) {
       dispatch(notify.notify_error({ msg: error }));
