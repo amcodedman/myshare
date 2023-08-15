@@ -9,10 +9,6 @@ import { getControls, getCourses } from "./store/actions/datacollection";
 const Authcontainer=(props)=>{
 
 
-  const targetDateString = "2023/11/2 11:30 pm"; // Replace with your specific date string
-  const targetDate = new Date(targetDateString)
-
-  console.log(targetDate- Date.now())
     const [holdp,setholdp]=useState(false)
     const dispatch = useDispatch();
     function disableScroll() {

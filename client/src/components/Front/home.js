@@ -25,6 +25,7 @@ import MobileNav from "../utils/mobileNav";
 
 
 const Home = () => {
+
   const dispatch = useDispatch();
   const courses = useSelector((value) => value.coursesl);
   const init_sort={ sortBy: '_id', order: 'desc', limit: 4, skip: 0}
@@ -34,9 +35,6 @@ const Home = () => {
     Setsort({skip: Skip})
     //dispatch(All_tickets({sort, skip: Skip}))
 }
-
-
-
 
   useEffect(()=>{
     dispatch(
