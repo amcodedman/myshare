@@ -35,12 +35,12 @@ exports.checkToken = async (req, res, next) => {
   
 
     if (checker) {
-      console.log({ token: checker})
+   
       const datas = jwt.verify(checker, process.env.DB_SECRET);
-console.log({verify: datas});
+
       const user = await User.findOne({ _id: datas._id });
       if (user) {
-        console.log(user)
+      
         if (user.active) {
         
 
@@ -60,6 +60,7 @@ console.log({verify: datas});
 };
 
 exports.Checkuser = async (req, res, next) => {
+  console.log( {locales:res.locals.userData})
   const user = res.locals.userData;
 
   req.user = user;
