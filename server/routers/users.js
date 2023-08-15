@@ -276,10 +276,11 @@ routers.route("/userprofile").post( async (req, res) => {
 ////////////////// profile0
 routers.route("/getprofile").get(Checkuser, async (req, res) => {
   try {
-console.log("profiless")
+
 
 
     const user = await req.user;
+    console.log({profiless:user})
 if(user !== undefined){
   res.status(200).json(user);
 }

@@ -63,10 +63,8 @@ exports.checkToken = async (req, res, next) => {
 };
 
 exports.Checkuser = async (req, res, next) => {
-  console.log("Checkuser");
-  console.log( {locales:res.locals.userData})
-  const user = res.locals.userData;
 
+  const user = res.locals.userData;
   req.user = user;
   next();
 };
