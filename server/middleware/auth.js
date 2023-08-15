@@ -39,14 +39,7 @@ exports.checkToken = async (req, res, next) => {
       const user = await User.findOne({ _id: datas._id });
       if (user) {
         if (user.active) {
-          const responsefull = await fetch(
-            `https://api.ipdata.co/?api-key=${process.env.ipgeoAPI}`
-          );
-          const ipa = await responsefull.json();
-
-          const userphonecode = await ipa.calling_code;
-          const continent = await ipa.continent_name;
-          const state_c = await ipa.region;
+        
 
           res.locals.userData = user;
         }
