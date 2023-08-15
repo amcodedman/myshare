@@ -173,7 +173,7 @@ topads:{
   type:String
 },
 adscount:{
-type:Number
+type:String
 }
 })
 
