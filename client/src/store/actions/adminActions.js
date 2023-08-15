@@ -130,17 +130,31 @@ const config = {
 };
 
 
+export const CheckLogin = () => {
+  return async (dispatch) => {
+    try {
+await axios.post(`${API}/user/userprofile`, null,config);
+ 
+    } catch (error) {
+     
+      
+     
+    }
+  };
+};
+
+
+
 export const AutoLogin = () => {
   return async (dispatch) => {
     try {
 
-      const profiledetail = await axios.post(`${API}/user/userprofile`, null,config);
+      const profiledetail = await axios.get(`${API}/user/getprofile`);
  //     console.log({"final" :profiledetail.data})
     //  dispatch(userDetail({ account: profiledetail.data, auth: true,loading: false }));
 
     } catch (error) {
-      dispatch(notify.notify_error({ msg: error }));
-      dispatch(userDetail({ loading: false,auth: false,}));
+     
       
      
     }

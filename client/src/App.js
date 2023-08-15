@@ -20,7 +20,7 @@ import Login from "./components/Front/login";
 import Resetpasspage from "./components/Front/resetpassword";
 import ConfirmAccount from "./components/Front/confirmAccount";
 import Forgotpass from "./components/Front/forgotpassword";
-import { AutoLogin } from "./store/actions/adminActions";
+import { AutoLogin, CheckLogin } from "./store/actions/adminActions";
 import UserProfile from "./components/Front/userProfile";
 import UserSec from "./components/Front/userSecurity";
 import UserNotification from "./components/Front/mynotification";
@@ -41,9 +41,22 @@ import Searchresult from "./components/Front/resultsearch";
 function App() {
   const notifications =useSelector((value)=>value.notification);
   const dispatch=useDispatch();
+
+  useEffect(()=>{
+
+
+    dispatch(CheckLogin())
+    
+      },[])
+    
+    
   useEffect(()=>{
     dispatch(AutoLogin());
-  },[])
+  },[dispatch])
+
+
+
+
   useEffect(()=>{
   
 if(notifications && notifications.notice){

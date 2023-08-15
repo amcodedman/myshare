@@ -267,8 +267,16 @@ routers.route("/unblockuser/:id").patch(async (req, res) => {
 
 ////////////////// profile0
 routers.route("/userprofile").post( async (req, res) => {
+
+
+  
+})
+
+
+////////////////// profile0
+routers.route("/getprofile").post(Checkuser, async (req, res) => {
   try {
-    console.log("profile");
+ 
 
     const user = await req.user;
 if(user !== undefined){
@@ -278,6 +286,7 @@ if(user === undefined){
   res.status(400);
  
 }
+
 
     
   } catch (error) {
